@@ -8,4 +8,4 @@
 
 3. Run `pod install` inside the directory within terminal to install all dependencies.
 
-4. Open the project using the .xcworkspace file.
+4. Open the project using the `.xcworkspace` file.
