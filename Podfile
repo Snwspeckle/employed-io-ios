@@ -5,5 +5,8 @@ target 'Employed' do
   use_frameworks!
 
   # Pods for Employed
+  
+  # Swipeable Card-Views
+  pod 'Koloda'
 
 end
