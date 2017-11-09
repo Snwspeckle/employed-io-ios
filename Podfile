@@ -8,5 +8,8 @@ target 'Employed' do
   
   # Swipeable Card-Views
   pod 'Koloda'
+  
+  # Presentr
+  pod 'Presentr'
 
 end
