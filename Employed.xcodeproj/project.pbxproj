@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56223C961FB634CB0091B76E /* DiscoverCardProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C951FB634CB0091B76E /* DiscoverCardProfileVC.swift */; };
+		56223C991FB7D4690091B76E /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C971FB7D4690091B76E /* user.pb.swift */; };
+		56223C9A1FB7D4690091B76E /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C981FB7D4690091B76E /* job.pb.swift */; };
+		56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */; };
+		56223C9E1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
 		56B577561F96798F00B3B0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577541F96798F00B3B0BC /* Main.storyboard */; };
 		56B577581F96798F00B3B0BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B577571F96798F00B3B0BC /* Assets.xcassets */; };
@@ -15,12 +20,31 @@
 		56D10E771FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D10E761FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift */; };
 		56D10E791FB3B28F00F0CC95 /* DisoverPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D10E781FB3B28F00F0CC95 /* DisoverPageVC.swift */; };
 		56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */; };
+		56EA361C1FB51001004009BE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA361B1FB51001004009BE /* APIService.swift */; };
 		8EFA5850D6D9E63DF8A77D86 /* Pods_Employed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBA97FD3FD06D26F24AD454 /* Pods_Employed.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56E611551FB53D4800C9116D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E79600091DC334C930DAC65 /* Pods-Employed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Employed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Employed/Pods-Employed.debug.xcconfig"; sourceTree = "<group>"; };
 		4BBA97FD3FD06D26F24AD454 /* Pods_Employed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Employed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56223C951FB634CB0091B76E /* DiscoverCardProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardProfileVC.swift; sourceTree = "<group>"; };
+		56223C971FB7D4690091B76E /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
+		56223C981FB7D4690091B76E /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
+		56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewCell.swift; sourceTree = "<group>"; };
+		56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardDetailTableVC.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B5774E1F96798F00B3B0BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B577551F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,6 +55,7 @@
 		56D10E761FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPageContainerVC.swift; sourceTree = "<group>"; };
 		56D10E781FB3B28F00F0CC95 /* DisoverPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisoverPageVC.swift; sourceTree = "<group>"; };
 		56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
+		56EA361B1FB51001004009BE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		846003E4A87EC6F667766D96 /* Pods-Employed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Employed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Employed/Pods-Employed.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +109,8 @@
 		56B5774D1F96798F00B3B0BC /* Employed */ = {
 			isa = PBXGroup;
 			children = (
+				56223C981FB7D4690091B76E /* job.pb.swift */,
+				56223C971FB7D4690091B76E /* user.pb.swift */,
 				56B5774E1F96798F00B3B0BC /* AppDelegate.swift */,
 				56B577541F96798F00B3B0BC /* Main.storyboard */,
 				56B577571F96798F00B3B0BC /* Assets.xcassets */,
@@ -93,6 +120,10 @@
 				56D10E761FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift */,
 				56D10E781FB3B28F00F0CC95 /* DisoverPageVC.swift */,
 				56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */,
+				56EA361B1FB51001004009BE /* APIService.swift */,
+				56223C951FB634CB0091B76E /* DiscoverCardProfileVC.swift */,
+				56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */,
+				56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -110,6 +141,7 @@
 				56B577491F96798F00B3B0BC /* Resources */,
 				5BC1F48A18E55DD81E5A69DC /* [CP] Embed Pods Frameworks */,
 				E22E7B4215418EF27CFF9722 /* [CP] Copy Pods Resources */,
+				56E611551FB53D4800C9116D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,13 +208,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Employed/Pods-Employed-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
+				"${BUILT_PRODUCTS_DIR}/Networking/Networking.framework",
 				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,9 +268,15 @@
 			files = (
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
+				56223C961FB634CB0091B76E /* DiscoverCardProfileVC.swift in Sources */,
 				56D10E791FB3B28F00F0CC95 /* DisoverPageVC.swift in Sources */,
+				56223C9E1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift in Sources */,
+				56223C9A1FB7D4690091B76E /* job.pb.swift in Sources */,
 				56D10E771FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift in Sources */,
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
+				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
+				56223C991FB7D4690091B76E /* user.pb.swift in Sources */,
+				56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,30 +12,25 @@ import Presentr
 
 class DiscoverVC: UIViewController {
 
-	// MARK: IBOutlets
+	// MARK: - IBOutlets
 	@IBOutlet weak var kolodaView: KolodaView!
+	
+	var jobs = [Employed_Io_Job]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
 		// Setup the card view
-        kolodaView.dataSource = self
-		kolodaView.delegate = self
+        self.kolodaView.dataSource = self
+		self.kolodaView.delegate = self
+		
+		// Get jobs from the API Service
+		APIService.shared.getConnections(email: "elliotAlderson@email.com") { job in
+			self.jobs.append(job)
+			self.kolodaView.reloadData()
+			print(job)
+		}
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // MARK: - KolodaViewDelegate
@@ -46,12 +41,15 @@ extension DiscoverVC : KolodaViewDelegate {
 	}
 	
 	func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-		print("Did Select Card!")
-		let verticalPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverPageContainerVC");
+		let containerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverPageContainerVC") as! DiscoverPageContainerVC
+		
+		// Set the job model to the page container
+		containerVC.setJob(job: jobs[index])
+		
 		let presenter: Presentr = {
 			let width = ModalSize.fluid(percentage: 0.90)
 			let height = ModalSize.fluid(percentage: 0.90)
-			let customType = PresentationType.custom(width: width, height: height, center: ModalCenterPosition.center)
+			let customType = PresentationType.custom(width: width, height: height, center: .center)
 
 			let customPresenter = Presentr(presentationType: customType)
 			customPresenter.transitionType = .coverVertical
@@ -59,13 +57,12 @@ extension DiscoverVC : KolodaViewDelegate {
 			customPresenter.roundCorners = true
 			customPresenter.cornerRadius = 10
 			customPresenter.blurBackground = true
-//			customPresenter.blurStyle = UIBlurEffectStyle.light
-			customPresenter.dismissOnSwipe = true
-			customPresenter.dismissOnSwipeDirection = .top
+			customPresenter.dismissOnTap = true
+			customPresenter.dismissOnSwipe = false
 			return customPresenter
 		}()
-//		let presenter = Presentr(presentationType: .fullScreen)
-		self.customPresentViewController(presenter, viewController: verticalPageVC, animated: true, completion: nil)
+		presenter.viewControllerForContext = self
+		self.customPresentViewController(presenter, viewController: containerVC, animated: true, completion: nil)
 	}
 }
 
@@ -82,7 +79,12 @@ extension DiscoverVC : KolodaViewDataSource {
 	
 	func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverPageContainerVC")
+		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileVC") as! DiscoverCardProfileVC
+		if jobs.count > index {
+			controller.setJob(job: jobs[index])
+		}
+		controller.view.layer.cornerRadius = 10
+		controller.view.layer.masksToBounds = true
 		return controller.view
 	}
 }

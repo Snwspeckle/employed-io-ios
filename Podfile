@@ -6,10 +6,16 @@ target 'Employed' do
 
   # Pods for Employed
   
-  # Swipeable Card-Views
-  pod 'Koloda'
+  # Networking
+  pod 'Networking'
   
   # Presentr
   pod 'Presentr'
+  
+  # Swipeable Card-Views
+  pod 'Koloda'
+  
+  # Swift Protobufs
+  pod 'SwiftProtobuf'
 
 end

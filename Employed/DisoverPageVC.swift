@@ -9,17 +9,31 @@
 import UIKit
 
 class DiscoverPageVC: UIPageViewController {
-
+	
 	// Array of view controllers to populate the UIPageViewController
 	private(set) var pageViewControllers: [UIViewController] = []
 	
+	var job: Employed_Io_Job! = nil
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
 		self.dataSource = self
 		
-		self.pageViewControllers = [self.getViewControllerFromStoryboard("Blue"), self.getViewControllerFromStoryboard("Red")]
+		// Setup the array of view controllers for UIPageViewController
+		self.pageViewControllers = [self.getViewControllerFromStoryboard("DiscoverCardProfile"), self.getViewControllerFromStoryboard("DiscoverCardDetailTable")]
 		
+		// Set the card profile job
+		if let profileVC = self.pageViewControllers.first as? DiscoverCardProfileVC {
+			profileVC.setJob(job: job)
+		}
+		
+		// Set the card detail job
+		if let detailVC = self.pageViewControllers[1] as? DiscoverCardDetailTableVC {
+			detailVC.setJob(job: job)
+		}
+		
+		// Set the paged view controllers first view
 		if let firstViewController = self.pageViewControllers.first {
 			setViewControllers([firstViewController],
 				direction: .forward,
@@ -27,18 +41,18 @@ class DiscoverPageVC: UIPageViewController {
 				completion: nil)
 		}
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	
+	// Set the job object
+    func setJob(job: Employed_Io_Job) -> Void {
+    	self.job = job
+	}
 	
 	/**
 	 Helper function to get a view controller from the Main storyboard
 	 by appending the `name` parameter to `ViewController`.
 	 */
     private func getViewControllerFromStoryboard(_ name: String) -> UIViewController {
-    	return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"\(name)ViewController")
+    	return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"\(name)VC")
 	}
 
 }
