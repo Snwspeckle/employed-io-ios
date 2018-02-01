@@ -17,5 +17,14 @@ target 'Employed' do
   
   # Swift Protobufs
   pod 'SwiftProtobuf'
-
+  
+  # Tagview
+  pod 'TagListView', '~> 1.0'
+  
+  # MessageKit
+  pod 'MessageKit'
+  
+  # Color Scheme
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  
 end

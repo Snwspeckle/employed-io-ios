@@ -14,6 +14,7 @@ class DiscoverPageVC: UIPageViewController {
 	private(set) var pageViewControllers: [UIViewController] = []
 	
 	var job: Employed_Io_Job! = nil
+	var shouldShowTagView = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,14 @@ class DiscoverPageVC: UIPageViewController {
 		self.dataSource = self
 		
 		// Setup the array of view controllers for UIPageViewController
-		self.pageViewControllers = [self.getViewControllerFromStoryboard("DiscoverCardProfile"), self.getViewControllerFromStoryboard("DiscoverCardDetailTable")]
+		self.pageViewControllers = [self.getViewControllerFromStoryboard("DiscoverCardProfileNEW"), self.getViewControllerFromStoryboard("DiscoverCardDetailTable")]
 		
 		// Set the card profile job
-		if let profileVC = self.pageViewControllers.first as? DiscoverCardProfileVC {
+		if let profileVC = self.pageViewControllers.first as? DiscoverCardProfileNEWVC {
 			profileVC.setJob(job: job)
+			if shouldShowTagView {
+				profileVC.showTagView()
+			}
 		}
 		
 		// Set the card detail job
@@ -45,6 +49,10 @@ class DiscoverPageVC: UIPageViewController {
 	// Set the job object
     func setJob(job: Employed_Io_Job) -> Void {
     	self.job = job
+	}
+	
+	func showTagView() -> Void {
+		self.shouldShowTagView = true
 	}
 	
 	/**

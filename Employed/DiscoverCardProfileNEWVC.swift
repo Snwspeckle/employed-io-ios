@@ -1,5 +1,5 @@
 //
-//  DiscoverCardProfileVC.swift
+//  DiscoverCardProfileNEWVC.swift
 //  Employed
 //
 //  Created by Anthony Vella on 11/10/17.
@@ -9,7 +9,7 @@
 import UIKit
 import TagListView
 
-class DiscoverCardProfileVC: UIViewController {
+class DiscoverCardProfileNEWVC: UIViewController {
 
 	// MARK: - IBOutlets
 	@IBOutlet weak var pictureImageView: UIImageView!
@@ -37,10 +37,10 @@ class DiscoverCardProfileVC: UIViewController {
 		
 		// Remove the tag list view by default
         self.midStackView.removeArrangedSubview(self.tagListView)
-		
+
         // Set the company picture
         // NOTE: This is temporarily fixed as we aren't loading images from the network yet
-        self.pictureImageView.image =  UIImage(named: "ecorp")
+        self.pictureImageView.image = UIImage(named: "ecorp")
 		
 		// Set the job label
 		self.jobNameLabel.text = self.job?.title
@@ -73,7 +73,7 @@ class DiscoverCardProfileVC: UIViewController {
 		}
 		
 		// Set the tags
-		self.tagListView.textFont = UIFont(name: "HelveticaNeue-Medium", size: 12.0)!
+		self.tagListView.textFont = UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.bold)
 		if let tags = self.job?.tag.tagName {
 			let tagSlice = tags[0].split(separator: ";")
 			let tagArray = Array(tagSlice)
@@ -119,3 +119,4 @@ class DiscoverCardProfileVC: UIViewController {
 	}
 
 }
+

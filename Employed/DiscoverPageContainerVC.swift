@@ -21,6 +21,7 @@ class DiscoverPageContainerVC: UIViewController {
 		if let embeddedVC = segue.destination as? DiscoverPageVC {
 			if let job = self.job {
 				embeddedVC.setJob(job: job)
+				embeddedVC.showTagView()
 			}
 		}
 	}

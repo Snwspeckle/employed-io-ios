@@ -19,13 +19,15 @@ class APIService {
 	static let shared = APIService()
 
 	// Base URL of the API endpoints
-	private let baseURL: String = "http://localhost:8080";
+	private let baseURL: String = "http://127.0.0.1:8080";
 
 	private init() {
 	}
 
 	func getUser(email: String, completion: @escaping (Employed_Io_User) -> Void) {
 		let networking = Networking(baseURL: baseURL)
+		// Setup our headers for the request
+		setupHeaders(networking: networking)
 		networking.get("/api/user", parameters: ["email": email]) { result in
 			switch result {
 			case .success(let response):
@@ -41,9 +43,11 @@ class APIService {
 		}
 	}
 	
-	func getConnections(email: String, completion: @escaping (Employed_Io_Job) -> Void) {
+	func getJobs(id: Int, completion: @escaping (Employed_Io_Job) -> Void) {
 		let networking = Networking(baseURL: baseURL)
-		networking.get("/api/connections", parameters: ["email": email]) { result in
+		// Setup our headers for the request
+		setupHeaders(networking: networking)
+		networking.get("/api/jobs/\(id)") { result in
 			switch result {
 			case .success(let response):
 				do {
@@ -56,5 +60,9 @@ class APIService {
 				return ()
 			}
 		}
+	}
+	
+	private func setupHeaders(networking: Networking) -> Void {
+		networking.headerFields = ["Accept": "application/json"]
 	}
 }

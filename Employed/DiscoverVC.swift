@@ -20,17 +20,30 @@ class DiscoverVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Remove 1px line below navigation bar
+		navigationController?.navigationBar.shadowImage = UIImage()
+
 		// Setup the card view
         self.kolodaView.dataSource = self
 		self.kolodaView.delegate = self
 		
 		// Get jobs from the API Service
-		APIService.shared.getConnections(email: "elliotAlderson@email.com") { job in
-			self.jobs.append(job)
-			self.kolodaView.reloadData()
-			print(job)
+		APIService.shared.getJobs(id: 1) { job1 in
+			self.jobs.append(job1)
+			print(job1)
+			APIService.shared.getJobs(id: 2) { job2 in
+				self.jobs.append(job2)
+				print(job2)
+				APIService.shared.getJobs(id: 3) { job3 in
+					self.jobs.append(job3)
+					print(job3)
+					self.kolodaView.reloadData()
+				}
+			}
 		}
     }
+	@IBAction func filterButtonPressed(_ sender: Any) {
+	}
 }
 
 // MARK: - KolodaViewDelegate
@@ -70,7 +83,7 @@ extension DiscoverVC : KolodaViewDelegate {
 extension DiscoverVC : KolodaViewDataSource {
 
 	func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-		return 2
+		return self.jobs.count
 	}
 	
 	func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
@@ -79,9 +92,9 @@ extension DiscoverVC : KolodaViewDataSource {
 	
 	func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileVC") as! DiscoverCardProfileVC
-		if jobs.count > index {
-			controller.setJob(job: jobs[index])
+		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileNEWVC") as! DiscoverCardProfileNEWVC
+		if self.jobs.count > index {
+			controller.setJob(job: self.jobs[index])
 		}
 		controller.view.layer.cornerRadius = 10
 		controller.view.layer.masksToBounds = true

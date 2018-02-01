@@ -30,7 +30,7 @@ class ConnectionsVC: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsCellIdentifier", for: indexPath) as! ConnectionsTableViewCell
 		
 		// Setup the cell
-		cell.setup(image: UIImage(named: "angela_moss")!, name: "Angela Moss")
+		cell.setup(image: UIImage(named: "tyrell_wellick")!, name: "Tyrell Wellick")
 		
         return cell
     }
