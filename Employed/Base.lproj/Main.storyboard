@@ -79,6 +79,9 @@
                             <constraint firstAttribute="bottom" secondItem="vxL-9P-kal" secondAttribute="bottom" id="xxR-m3-POW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0ce-yr-SOm"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="gAP-ux-Atj" appends="YES" id="h0A-jV-XAU"/>
                         </connections>
@@ -346,12 +349,18 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.18998533487319946" green="0.35768887400627136" blue="0.43821841478347778" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobName"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suV-2W-apE">
                                         <rect key="frame" x="12" y="38" width="140.33333333333334" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="companyName"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yc1-0M-v4I">
                                         <rect key="frame" x="263" y="0.0" width="100" height="100"/>
@@ -359,6 +368,9 @@
                                             <constraint firstAttribute="height" constant="100" id="DwZ-SY-hyi"/>
                                             <constraint firstAttribute="width" constant="100" id="RXb-H9-H3I"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="pictureImage"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -371,6 +383,9 @@
                                     <constraint firstItem="u0M-7K-zCq" firstAttribute="leading" secondItem="cVK-F0-oiQ" secondAttribute="leading" constant="12" id="qf0-gQ-tRB"/>
                                     <constraint firstItem="suV-2W-apE" firstAttribute="top" secondItem="u0M-7K-zCq" secondAttribute="bottom" constant="8" id="ypR-O5-a1z"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="headerContainerView"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7dc-QI-Nnz" userLabel="Quick Facts Stack View">
                                 <rect key="frame" x="0.0" y="238.33333333333337" width="375" height="36"/>
@@ -383,14 +398,23 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="locationData"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cXC-cX-h7u">
                                                 <rect key="frame" x="34.666666666666657" y="17.999999999999972" width="50.333333333333343" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                                 <color key="textColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="location"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="locationStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uuo-wc-6ZK">
                                         <rect key="frame" x="127.66666666666666" y="0.0" width="119.66666666666666" height="36"/>
@@ -400,14 +424,23 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="salaryData"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="SALARY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nmk-00-suE">
                                                 <rect key="frame" x="-127.66666666666667" y="17.999999999999972" width="38.666666666666671" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                                 <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="salary"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="salaryStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VaI-SR-2rH">
                                         <rect key="frame" x="255.33333333333334" y="0.0" width="119.66666666666666" height="36"/>
@@ -417,16 +450,28 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" red="0.17077735066413879" green="0.30895513296127319" blue="0.37797331809997559" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="experienceData"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EnM-Gh-zMe">
                                                 <rect key="frame" x="29.333333333333343" y="17.999999999999972" width="61" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                                 <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="experience"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="experienceStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quickFactsView"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhx-up-IvV" userLabel="Body View">
                                 <rect key="frame" x="0.0" y="282.33333333333326" width="375" height="419.66666666666674"/>
@@ -439,6 +484,9 @@
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobDescription"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-lE-WUB" customClass="TagListView" customModule="TagListView">
                                                 <rect key="frame" x="0.0" y="48.666666666666686" width="351" height="371"/>
@@ -459,6 +507,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                         <color key="value" red="0.18790546059999999" green="0.64485782380000001" blue="0.60956436400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="tagView"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
@@ -466,6 +515,9 @@
                                             <constraint firstItem="bax-o3-JW2" firstAttribute="width" secondItem="wIi-da-mqc" secondAttribute="width" id="aQV-LO-bGr"/>
                                             <constraint firstItem="EmY-lE-WUB" firstAttribute="width" secondItem="wIi-da-mqc" secondAttribute="width" id="qND-wD-WOp"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="bodyStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -475,6 +527,9 @@
                                     <constraint firstItem="wIi-da-mqc" firstAttribute="leading" secondItem="vhx-up-IvV" secondAttribute="leading" constant="12" id="afR-am-7Iv"/>
                                     <constraint firstItem="wIi-da-mqc" firstAttribute="centerY" secondItem="vhx-up-IvV" secondAttribute="centerY" id="xqB-bF-b4m"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="bodyView"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XOo-PD-PNr" userLabel="Bottom Recruiter Stack View">
                                 <rect key="frame" x="12" y="710" width="351" height="60"/>
@@ -485,12 +540,18 @@
                                             <constraint firstAttribute="width" constant="60" id="9Iz-of-9aV"/>
                                             <constraint firstAttribute="height" constant="60" id="NbO-rq-n9P"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="recruiterImage"/>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recruiter Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1s-Bq-7oe">
                                         <rect key="frame" x="68" y="0.0" width="283" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="recruiterName"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                             </stackView>
@@ -513,7 +574,13 @@
                             <constraint firstItem="XPl-2S-Dlt" firstAttribute="trailing" secondItem="XOo-PD-PNr" secondAttribute="trailing" constant="12" id="lOB-mX-Uhd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XPl-2S-Dlt"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="companyNameLabel" destination="suV-2W-apE" id="eiU-Af-608"/>
                         <outlet property="experienceLabel" destination="Hzr-Ft-y9d" id="Vy4-g4-hcP"/>
@@ -531,6 +598,282 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dku-OC-bR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4732" y="-617.73399014778329"/>
+        </scene>
+        <!--Discover Card ProfileNEWVC-->
+        <scene sceneID="TdJ-iZ-Zdi">
+            <objects>
+                <viewController storyboardIdentifier="DiscoverFullProfileNEWVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oPw-Tc-khS" customClass="DiscoverCardProfileNEWVC" customModule="Employed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z8e-KX-AIW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F98-UD-n6h">
+                                <rect key="frame" x="24" y="30" width="60" height="30"/>
+                                <state key="normal" title="DISMISS"/>
+                                <connections>
+                                    <action selector="hero_dismissViewController" destination="oPw-Tc-khS" eventType="touchUpInside" id="BWr-Cg-6T1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xZ-SS-oPB" userLabel="Header Container View">
+                                <rect key="frame" x="0.0" y="64.000000000000014" width="375" height="162.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc2-YW-Kjn">
+                                        <rect key="frame" x="12" y="0.0" width="118" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" red="0.1899853349" green="0.35768887399999999" blue="0.43821841480000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobName"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaS-wp-7Q8">
+                                        <rect key="frame" x="12" y="38" width="140.33333333333334" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="companyName"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FDb-wc-UlP">
+                                        <rect key="frame" x="263" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="IF8-Sk-B75"/>
+                                            <constraint firstAttribute="width" constant="100" id="dee-I3-c60"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="pictureImage"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FDb-wc-UlP" secondAttribute="trailing" constant="12" id="4v9-9d-t2E"/>
+                                    <constraint firstItem="jc2-YW-Kjn" firstAttribute="top" secondItem="6xZ-SS-oPB" secondAttribute="top" id="GhH-aq-OKD"/>
+                                    <constraint firstItem="FDb-wc-UlP" firstAttribute="top" secondItem="6xZ-SS-oPB" secondAttribute="top" id="NFh-m7-6lZ"/>
+                                    <constraint firstItem="jaS-wp-7Q8" firstAttribute="top" secondItem="jc2-YW-Kjn" secondAttribute="bottom" constant="8" id="Ys4-EJ-nqL"/>
+                                    <constraint firstItem="jaS-wp-7Q8" firstAttribute="leading" secondItem="jc2-YW-Kjn" secondAttribute="leading" id="ZDe-QZ-Vwv"/>
+                                    <constraint firstItem="jc2-YW-Kjn" firstAttribute="leading" secondItem="6xZ-SS-oPB" secondAttribute="leading" constant="12" id="khE-IS-7Zt"/>
+                                    <constraint firstItem="FDb-wc-UlP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jaS-wp-7Q8" secondAttribute="trailing" constant="12" id="pyG-Uh-gYd"/>
+                                    <constraint firstItem="FDb-wc-UlP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jc2-YW-Kjn" secondAttribute="trailing" constant="12" id="rsN-e9-Xgf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="headerContainerView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4xh-5G-Xaf" userLabel="Quick Facts Stack View">
+                                <rect key="frame" x="0.0" y="238.33333333333337" width="375" height="36"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G4A-E5-wdQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Cleveland, OH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rMr-Os-pSD" userLabel="Location Data">
+                                                <rect key="frame" x="9" y="0.0" width="101.66666666666667" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="locationData"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7js-1w-zPh">
+                                                <rect key="frame" x="34.666666666666657" y="17.999999999999972" width="50.333333333333343" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="location"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="locationStackView"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pvt-rF-7So">
+                                        <rect key="frame" x="127.66666666666666" y="0.0" width="119.66666666666666" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="$95k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VpK-q6-5Qc" userLabel="Salary Data">
+                                                <rect key="frame" x="-127.66666666666667" y="0.0" width="37.666666666666671" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="salaryData"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="SALARY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aif-Rg-yak">
+                                                <rect key="frame" x="-127.66666666666667" y="17.999999999999972" width="38.666666666666671" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="salary"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="salaryStackView"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QlA-5J-G1C">
+                                        <rect key="frame" x="255.33333333333334" y="0.0" width="119.66666666666666" height="36"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="5 yrs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-TG-2OI" userLabel="Experience Data">
+                                                <rect key="frame" x="41.999999999999972" y="0.0" width="35.666666666666657" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" red="0.1707773507" green="0.30895513299999999" blue="0.37797331810000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="experienceData"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="EXPERIENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Qj8-q1-W1A">
+                                                <rect key="frame" x="29.333333333333343" y="17.999999999999972" width="61" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="experience"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="experienceStackView"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quickFactsView"/>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfF-k7-G3a" userLabel="Body View">
+                                <rect key="frame" x="0.0" y="282.33333333333326" width="375" height="419.66666666666674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="O0w-7R-y5R" userLabel="Body Stack View">
+                                        <rect key="frame" x="12" y="0.0" width="351" height="419.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the job description that is limited to a certain amount of characters." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ia2-cZ-fdp">
+                                                <rect key="frame" x="0.0" y="0.0" width="351" height="40.666666666666664"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobDescription"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGD-7a-x1h" customClass="TagListView" customModule="TagListView">
+                                                <rect key="frame" x="0.0" y="48.666666666666686" width="351" height="371"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.18790546059999999" green="0.64485782380000001" blue="0.60956436400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="tagView"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Ia2-cZ-fdp" firstAttribute="width" secondItem="O0w-7R-y5R" secondAttribute="width" id="cQk-RB-aTU"/>
+                                            <constraint firstItem="OGD-7a-x1h" firstAttribute="width" secondItem="O0w-7R-y5R" secondAttribute="width" id="pLX-s8-H4d"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="bodyStackView"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="O0w-7R-y5R" secondAttribute="trailing" constant="12" id="HJw-g9-dkR"/>
+                                    <constraint firstItem="O0w-7R-y5R" firstAttribute="centerY" secondItem="sfF-k7-G3a" secondAttribute="centerY" id="dAd-U2-DOd"/>
+                                    <constraint firstItem="O0w-7R-y5R" firstAttribute="leading" secondItem="sfF-k7-G3a" secondAttribute="leading" constant="12" id="nD5-bw-uTC"/>
+                                    <constraint firstItem="O0w-7R-y5R" firstAttribute="height" secondItem="sfF-k7-G3a" secondAttribute="height" id="unt-P3-ADc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="bodyView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IQ2-aZ-dxT" userLabel="Bottom Recruiter Stack View">
+                                <rect key="frame" x="12" y="710" width="351" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-lT-Mfw" userLabel="Recruiter Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="9ZI-gF-KhS"/>
+                                            <constraint firstAttribute="height" constant="60" id="OXQ-Ci-jc2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="recruiterImage"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recruiter Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3E-Z2-Dfh">
+                                        <rect key="frame" x="68" y="0.0" width="283" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.42655369640000002" green="0.475846082" blue="0.4802647531" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="recruiterName"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4xh-5G-Xaf" firstAttribute="top" secondItem="6xZ-SS-oPB" secondAttribute="bottom" constant="12" id="8aO-w4-yct"/>
+                            <constraint firstItem="U8r-Su-4Pr" firstAttribute="trailing" secondItem="IQ2-aZ-dxT" secondAttribute="trailing" constant="12" id="Gr2-5k-zQm"/>
+                            <constraint firstItem="sfF-k7-G3a" firstAttribute="leading" secondItem="4xh-5G-Xaf" secondAttribute="leading" id="H6e-x6-RQQ"/>
+                            <constraint firstItem="IQ2-aZ-dxT" firstAttribute="leading" secondItem="U8r-Su-4Pr" secondAttribute="leading" constant="12" id="KBC-Nm-10u"/>
+                            <constraint firstItem="IQ2-aZ-dxT" firstAttribute="top" secondItem="sfF-k7-G3a" secondAttribute="bottom" constant="8" id="LzU-XP-yYR"/>
+                            <constraint firstItem="6xZ-SS-oPB" firstAttribute="centerX" secondItem="U8r-Su-4Pr" secondAttribute="centerX" id="MjC-2A-q4t"/>
+                            <constraint firstItem="F98-UD-n6h" firstAttribute="leading" secondItem="U8r-Su-4Pr" secondAttribute="leading" constant="24" id="TtR-5N-1BU"/>
+                            <constraint firstItem="4xh-5G-Xaf" firstAttribute="width" secondItem="z8e-KX-AIW" secondAttribute="width" id="YdO-f1-whD"/>
+                            <constraint firstItem="U8r-Su-4Pr" firstAttribute="bottom" secondItem="IQ2-aZ-dxT" secondAttribute="bottom" constant="8" id="aGE-eq-Wba"/>
+                            <constraint firstItem="6xZ-SS-oPB" firstAttribute="height" secondItem="z8e-KX-AIW" secondAttribute="height" multiplier="0.2" id="bpX-fO-hup"/>
+                            <constraint firstItem="4xh-5G-Xaf" firstAttribute="centerX" secondItem="U8r-Su-4Pr" secondAttribute="centerX" id="fKB-hG-81Z"/>
+                            <constraint firstItem="sfF-k7-G3a" firstAttribute="top" secondItem="4xh-5G-Xaf" secondAttribute="bottom" constant="8" id="fkp-Fw-BIA"/>
+                            <constraint firstItem="6xZ-SS-oPB" firstAttribute="width" secondItem="z8e-KX-AIW" secondAttribute="width" id="ndY-As-Igm"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="F98-UD-n6h" secondAttribute="trailing" constant="20" symbolic="YES" id="o3K-AN-kcZ"/>
+                            <constraint firstItem="6xZ-SS-oPB" firstAttribute="top" secondItem="U8r-Su-4Pr" secondAttribute="top" constant="20" id="twx-DV-eGa"/>
+                            <constraint firstItem="U8r-Su-4Pr" firstAttribute="top" secondItem="F98-UD-n6h" secondAttribute="top" constant="14" id="vzF-6I-Bz6"/>
+                            <constraint firstItem="sfF-k7-G3a" firstAttribute="width" secondItem="z8e-KX-AIW" secondAttribute="width" id="yKM-Pg-ntu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U8r-Su-4Pr"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="companyNameLabel" destination="jaS-wp-7Q8" id="zTI-9I-zvg"/>
+                        <outlet property="experienceLabel" destination="cEG-TG-2OI" id="m6C-5Q-flG"/>
+                        <outlet property="jobDescriptionLabel" destination="Ia2-cZ-fdp" id="JIg-pF-lFp"/>
+                        <outlet property="jobNameLabel" destination="jc2-YW-Kjn" id="YdF-NW-d61"/>
+                        <outlet property="locationLabel" destination="rMr-Os-pSD" id="rVc-5z-VGK"/>
+                        <outlet property="midStackView" destination="O0w-7R-y5R" id="bAq-tV-tgN"/>
+                        <outlet property="pictureImageView" destination="FDb-wc-UlP" id="gkY-Gu-OhT"/>
+                        <outlet property="recruiterImageView" destination="Ib1-lT-Mfw" id="xS6-om-NZU"/>
+                        <outlet property="recruiterNameLabel" destination="W3E-Z2-Dfh" id="3C3-tY-Pwt"/>
+                        <outlet property="salaryLabel" destination="VpK-q6-5Qc" id="nVW-Wk-3sx"/>
+                        <outlet property="tagListView" destination="OGD-7a-x1h" id="M7W-9F-dEC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jP7-ff-5og" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5449" y="-618"/>
         </scene>
         <!--Discover Card Detail TableVC-->
         <scene sceneID="Ybp-pf-TKF">

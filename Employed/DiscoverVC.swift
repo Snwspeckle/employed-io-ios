@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 import Koloda
 import Presentr
 
@@ -42,6 +43,7 @@ class DiscoverVC: UIViewController {
 			}
 		}
     }
+    
 	@IBAction func filterButtonPressed(_ sender: Any) {
 	}
 }
@@ -53,29 +55,52 @@ extension DiscoverVC : KolodaViewDelegate {
 		print ("Did Run Out Of Cards!")
 	}
 	
+	func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+		// Disable hero on the view that is swiped away
+		if let view = koloda.viewForCard(at: index) {
+			view.isHeroEnabled = false
+		}
+	}
+	
+	func koloda(_ koloda: KolodaView, didShowCardAt index: Int) {
+		// Enable hero on the view that is shown on top
+		if let view = koloda.viewForCard(at: index) {
+			view.isHeroEnabled = true
+		}
+	}
+	
 	func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-		let containerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverPageContainerVC") as! DiscoverPageContainerVC
-		
-		// Set the job model to the page container
-		containerVC.setJob(job: jobs[index])
-		
-		let presenter: Presentr = {
-			let width = ModalSize.fluid(percentage: 0.90)
-			let height = ModalSize.fluid(percentage: 0.90)
-			let customType = PresentationType.custom(width: width, height: height, center: .center)
+//		let containerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverPageContainerVC") as! DiscoverPageContainerVC
+//
+//		// Set the job model to the page container
+//		containerVC.setJob(job: jobs[index])
+//
+//		let presenter: Presentr = {
+//			let width = ModalSize.fluid(percentage: 0.90)
+//			let height = ModalSize.fluid(percentage: 0.90)
+//			let customType = PresentationType.custom(width: width, height: height, center: .center)
+//
+//			let customPresenter = Presentr(presentationType: customType)
+//			customPresenter.transitionType = .coverVertical
+//			customPresenter.dismissTransitionType = .crossDissolve
+//			customPresenter.roundCorners = true
+//			customPresenter.cornerRadius = 10
+//			customPresenter.blurBackground = true
+//			customPresenter.dismissOnTap = true
+//			customPresenter.dismissOnSwipe = false
+//			return customPresenter
+//		}()
+//		presenter.viewControllerForContext = self
+//		self.customPresentViewController(presenter, viewController: containerVC, animated: true, completion: nil)
 
-			let customPresenter = Presentr(presentationType: customType)
-			customPresenter.transitionType = .coverVertical
-			customPresenter.dismissTransitionType = .crossDissolve
-			customPresenter.roundCorners = true
-			customPresenter.cornerRadius = 10
-			customPresenter.blurBackground = true
-			customPresenter.dismissOnTap = true
-			customPresenter.dismissOnSwipe = false
-			return customPresenter
-		}()
-		presenter.viewControllerForContext = self
-		self.customPresentViewController(presenter, viewController: containerVC, animated: true, completion: nil)
+		if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileNEWVC") as? DiscoverCardProfileNEWVC {
+			profileVC.setJob(job: jobs[index])
+			if (koloda.currentCardIndex == index) {
+				profileVC.isHeroEnabled = true
+				profileVC.view.isHeroEnabled = true
+			}
+			self.present(profileVC, animated: true, completion: nil)
+		}
 	}
 }
 

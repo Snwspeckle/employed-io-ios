@@ -2,6 +2,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Hero (1.0.1)
   - Koloda (4.3.1):
     - pop (~> 1.0)
   - MessageKit (0.13.1)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Hero
   - Koloda
   - MessageKit
   - Networking
@@ -31,6 +33,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Hero: cee286821578e170d8c0c9c9cda7897357401112
   Koloda: 0d39b2aa188ccd1fac48d752acaf9802e683c625
   MessageKit: fc74d71d9b05385138d47b3a4b7beef5c687daf1
   Networking: ffde5754883907f90f9f751e183eba4a75dc4b89
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: e41d205c91eac0fb46823f2561712407fefdaf4e
   TagListView: 669f7d4455003c877655875d34829731c4191528
 
-PODFILE CHECKSUM: 04abea2154411d72076d861fd239ada401b89d70
+PODFILE CHECKSUM: f6556c93b4d3b7ea986eddb3bf5700f4b17dac3f
 
 COCOAPODS: 1.4.0

@@ -36,7 +36,7 @@ class DiscoverCardProfileNEWVC: UIViewController {
         super.viewDidLoad()
 		
 		// Remove the tag list view by default
-        self.midStackView.removeArrangedSubview(self.tagListView)
+//        self.midStackView.removeArrangedSubview(self.tagListView)
 
         // Set the company picture
         // NOTE: This is temporarily fixed as we aren't loading images from the network yet
@@ -103,9 +103,9 @@ class DiscoverCardProfileNEWVC: UIViewController {
 	
     override func viewWillAppear(_ animated: Bool) {
     	super.viewWillAppear(animated)
-		if shouldShowTagList {
-			self.midStackView.addArrangedSubview(self.tagListView)
-		}
+//		if shouldShowTagList {
+//			self.midStackView.addArrangedSubview(self.tagListView)
+//		}
 	}
 	
 	// Sets the job object

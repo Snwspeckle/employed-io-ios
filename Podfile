@@ -27,4 +27,7 @@ target 'Employed' do
   # Color Scheme
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   
+  # Transition animations
+  pod 'Hero'
+  
 end
