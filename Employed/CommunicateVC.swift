@@ -17,7 +17,8 @@ class CommunicateVC: MessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		self.navigationItem.title = "Tyrell Wellick"
+		self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
 }

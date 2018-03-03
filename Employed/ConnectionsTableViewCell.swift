@@ -12,6 +12,7 @@ class ConnectionsTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var pictureImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var companyAndJobLabel: UILabel!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,9 +29,10 @@ class ConnectionsTableViewCell: UITableViewCell {
     }
 	
 	// Setup the cell with the necessary information
-    func setup(image: UIImage, name: String) -> Void {
+    func setup(image: UIImage, name: String, companyName: String, jobPosition: String) -> Void {
 		self.pictureImageView.image = image
 		self.nameLabel.text = name
+		self.companyAndJobLabel.text = companyName + ", " + jobPosition
 	}
 
 }

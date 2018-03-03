@@ -30,4 +30,16 @@ target 'Employed' do
   # Transition animations
   pod 'Hero'
   
+  # Fancy Navigation Buttons
+  pod 'DynamicButton', '~> 5.0.0'
+  
+  # Fancy Text Buttons
+  pod 'LGButton'
+  
+  # Fancy TextFields
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+  
+  # Twilio Chat
+  pod 'TwilioChatClient', '~> 2.2.0'
+  
 end

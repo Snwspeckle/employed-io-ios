@@ -22,6 +22,9 @@ class DiscoverCardProfileNEWVC: UIViewController {
 	
 	@IBOutlet weak var midStackView: UIStackView!
 	@IBOutlet weak var jobDescriptionLabel: UILabel!
+	@IBOutlet weak var responsibilitiesLabel: UILabel!
+	@IBOutlet weak var requirementsLabel: UILabel!
+	
 	@IBOutlet weak var tagListView: TagListView!
 	
 	@IBOutlet weak var recruiterImageView: UIImageView!
@@ -41,6 +44,8 @@ class DiscoverCardProfileNEWVC: UIViewController {
         // Set the company picture
         // NOTE: This is temporarily fixed as we aren't loading images from the network yet
         self.pictureImageView.image = UIImage(named: "ecorp")
+        self.pictureImageView.clipsToBounds = true
+        self.pictureImageView.layer.cornerRadius = self.pictureImageView.frame.width / 2
 		
 		// Set the job label
 		self.jobNameLabel.text = self.job?.title
@@ -69,16 +74,28 @@ class DiscoverCardProfileNEWVC: UIViewController {
 		
 		// Set the short job description
 		if let description = self.job?.shortDescription {
-			self.jobDescriptionLabel.text = description
+			self.jobDescriptionLabel?.text = description
+		}
+		
+		// Set the responsibilities
+		if let responsibilities = self.job?.responsibilities {
+			self.responsibilitiesLabel?.text = responsibilities
+		}
+		
+		// Set the requirements
+		if let requirements = self.job?.requirements {
+			self.requirementsLabel?.text = requirements
 		}
 		
 		// Set the tags
-		self.tagListView.textFont = UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.bold)
-		if let tags = self.job?.tag.tagName {
-			let tagSlice = tags[0].split(separator: ";")
-			let tagArray = Array(tagSlice)
-			for tag in tagArray {
-				self.tagListView.addTag(String(tag))
+		if let tagList = self.tagListView {
+			tagList.textFont = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.bold)
+			if let tags = self.job?.tag.tagName {
+				let tagSlice = tags[0].split(separator: ";")
+				let tagArray = Array(tagSlice)
+				for tag in tagArray {
+					tagList.addTag(String(tag))
+				}
 			}
 		}
 		
