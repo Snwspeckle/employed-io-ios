@@ -10,6 +10,8 @@
 		56223C961FB634CB0091B76E /* DiscoverCardProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C951FB634CB0091B76E /* DiscoverCardProfileVC.swift */; };
 		56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */; };
 		56223C9E1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */; };
+		565080A8204B5F6000F18815 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080A7204B5F6000F18815 /* ChatVC.swift */; };
+		565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080A9204CA1C300F18815 /* ChatMessage.swift */; };
 		565C57EC2022963B008387D5 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57EB2022963B008387D5 /* FilterVC.swift */; };
 		565C57EE2022C168008387D5 /* DiscoverCardProfileNEWVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57ED2022C168008387D5 /* DiscoverCardProfileNEWVC.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
@@ -19,7 +21,6 @@
 		56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD37701FB2481D00888CE7 /* DiscoverVC.swift */; };
 		56D10E771FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D10E761FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift */; };
 		56D10E791FB3B28F00F0CC95 /* DisoverPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D10E781FB3B28F00F0CC95 /* DisoverPageVC.swift */; };
-		56DEC7FE1FB94E130047A8E0 /* CommunicateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEC7FD1FB94E130047A8E0 /* CommunicateVC.swift */; };
 		56DEC8091FB977490047A8E0 /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEC8071FB977490047A8E0 /* user.pb.swift */; };
 		56DEC80A1FB977490047A8E0 /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEC8081FB977490047A8E0 /* job.pb.swift */; };
 		56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */; };
@@ -46,6 +47,8 @@
 		56223C951FB634CB0091B76E /* DiscoverCardProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardProfileVC.swift; sourceTree = "<group>"; };
 		56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewCell.swift; sourceTree = "<group>"; };
 		56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardDetailTableVC.swift; sourceTree = "<group>"; };
+		565080A7204B5F6000F18815 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		565080A9204CA1C300F18815 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		565C57EB2022963B008387D5 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		565C57ED2022C168008387D5 /* DiscoverCardProfileNEWVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardProfileNEWVC.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +60,6 @@
 		56BD37701FB2481D00888CE7 /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
 		56D10E761FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverPageContainerVC.swift; sourceTree = "<group>"; };
 		56D10E781FB3B28F00F0CC95 /* DisoverPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisoverPageVC.swift; sourceTree = "<group>"; };
-		56DEC7FD1FB94E130047A8E0 /* CommunicateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicateVC.swift; sourceTree = "<group>"; };
 		56DEC8071FB977490047A8E0 /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		56DEC8081FB977490047A8E0 /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
 		56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
@@ -130,9 +132,10 @@
 				56223C951FB634CB0091B76E /* DiscoverCardProfileVC.swift */,
 				56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */,
 				56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */,
-				56DEC7FD1FB94E130047A8E0 /* CommunicateVC.swift */,
 				565C57EB2022963B008387D5 /* FilterVC.swift */,
 				565C57ED2022C168008387D5 /* DiscoverCardProfileNEWVC.swift */,
+				565080A7204B5F6000F18815 /* ChatVC.swift */,
+				565080A9204CA1C300F18815 /* ChatMessage.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -174,6 +177,11 @@
 					56B5774A1F96798F00B3B0BC = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -227,6 +235,7 @@
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+				"${PODS_ROOT}/TwilioChatClient/TwilioChatClient.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -242,6 +251,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioChatClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				565C57EE2022C168008387D5 /* DiscoverCardProfileNEWVC.swift in Sources */,
-				56DEC7FE1FB94E130047A8E0 /* CommunicateVC.swift in Sources */,
+				565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */,
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
 				56223C961FB634CB0091B76E /* DiscoverCardProfileVC.swift in Sources */,
@@ -298,6 +308,7 @@
 				56223C9E1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift in Sources */,
 				565C57EC2022963B008387D5 /* FilterVC.swift in Sources */,
 				56D10E771FB3B1F400F0CC95 /* DiscoverPageContainerVC.swift in Sources */,
+				565080A8204B5F6000F18815 /* ChatVC.swift in Sources */,
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */,

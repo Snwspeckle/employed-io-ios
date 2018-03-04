@@ -232,10 +232,10 @@
                                 <rect key="frame" x="16" y="457" width="343" height="134"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqz-nz-YpQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="95"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the job description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRd-I1-aak">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="95"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -250,7 +250,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bp-dY-qWl" customClass="TagListView" customModule="TagListView">
-                                        <rect key="frame" x="0.0" y="107" width="343" height="27"/>
+                                        <rect key="frame" x="0.0" y="112" width="343" height="22"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1039,7 +1039,7 @@
                                     <outlet property="companyAndJobLabel" destination="6kc-PO-DwI" id="WnH-2H-wzy"/>
                                     <outlet property="nameLabel" destination="zgM-Ar-kOW" id="rAu-Zz-RxN"/>
                                     <outlet property="pictureImageView" destination="fWH-sP-86K" id="aIe-Gs-GF4"/>
-                                    <segue destination="OfP-BF-XOe" kind="show" id="McQ-Mj-wFh"/>
+                                    <segue destination="UXc-1N-Twn" kind="show" id="9OR-wv-MCa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1055,36 +1055,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wzs-ad-8Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1462" y="421"/>
-        </scene>
-        <!--CommunicateVC-->
-        <scene sceneID="Sk5-Ez-2sh">
-            <objects>
-                <viewController storyboardIdentifier="CommunicateVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OfP-BF-XOe" customClass="CommunicateVC" customModule="Employed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="boN-Us-OVx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOx-mc-3RD">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <connections>
-                                    <segue destination="RZQ-0s-adJ" kind="embed" id="8cU-Lc-9CV"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yYH-gv-QcL" firstAttribute="bottom" secondItem="gOx-mc-3RD" secondAttribute="bottom" id="QHF-ju-bYB"/>
-                            <constraint firstItem="yYH-gv-QcL" firstAttribute="top" secondItem="gOx-mc-3RD" secondAttribute="top" id="Xzv-cx-JwL"/>
-                            <constraint firstItem="yYH-gv-QcL" firstAttribute="trailing" secondItem="gOx-mc-3RD" secondAttribute="trailing" id="vKF-Fp-18b"/>
-                            <constraint firstItem="gOx-mc-3RD" firstAttribute="leading" secondItem="yYH-gv-QcL" secondAttribute="leading" id="vyU-1H-i5j"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="yYH-gv-QcL"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BF8-y3-dFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2190" y="420"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1355,20 +1325,20 @@
             </objects>
             <point key="canvasLocation" x="776" y="422"/>
         </scene>
-        <!--Messages View Controller-->
-        <scene sceneID="zwM-at-4bE">
+        <!--ChatVC-->
+        <scene sceneID="5gu-8N-bhp">
             <objects>
-                <viewController id="RZQ-0s-adJ" customClass="MessagesViewController" customModule="MessageKit" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sJe-di-nvY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                <viewController hidesBottomBarWhenPushed="YES" id="UXc-1N-Twn" customClass="ChatVC" customModule="Employed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oC0-ni-ukO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="Ye6-l4-bOJ"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7tA-eN-UYi"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sl2-FI-PUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vlD-CG-AE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927" y="420"/>
+            <point key="canvasLocation" x="2242" y="421"/>
         </scene>
         <!--Discover Card ProfileNEWVC-->
         <scene sceneID="lVO-8w-8WN">
