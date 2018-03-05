@@ -15,7 +15,7 @@
 		565080AE204DCFF600F18815 /* MatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080AD204DCFF600F18815 /* MatchVC.swift */; };
 		565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080AF204DF5AB00F18815 /* ProfileSectionView.swift */; };
 		565C57EC2022963B008387D5 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57EB2022963B008387D5 /* FilterVC.swift */; };
-		565C57EE2022C168008387D5 /* DiscoverCardProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57ED2022C168008387D5 /* DiscoverCardProfileVC.swift */; };
+		565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
 		56B577561F96798F00B3B0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577541F96798F00B3B0BC /* Main.storyboard */; };
 		56B577581F96798F00B3B0BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B577571F96798F00B3B0BC /* Assets.xcassets */; };
@@ -52,7 +52,7 @@
 		565080AD204DCFF600F18815 /* MatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchVC.swift; sourceTree = "<group>"; };
 		565080AF204DF5AB00F18815 /* ProfileSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSectionView.swift; sourceTree = "<group>"; };
 		565C57EB2022963B008387D5 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
-		565C57ED2022C168008387D5 /* DiscoverCardProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardProfileVC.swift; sourceTree = "<group>"; };
+		565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProfileVC.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B5774E1F96798F00B3B0BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B577551F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 				56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */,
 				56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */,
 				565C57EB2022963B008387D5 /* FilterVC.swift */,
-				565C57ED2022C168008387D5 /* DiscoverCardProfileVC.swift */,
+				565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */,
 				565080A7204B5F6000F18815 /* ChatVC.swift */,
 				565080A9204CA1C300F18815 /* ChatMessage.swift */,
 				565080AB204CAC2A00F18815 /* ChatService.swift */,
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				565C57EE2022C168008387D5 /* DiscoverCardProfileVC.swift in Sources */,
+				565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */,
 				565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */,
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
