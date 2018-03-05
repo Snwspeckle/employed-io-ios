@@ -58,46 +58,41 @@ extension DiscoverVC : KolodaViewDelegate {
 	func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
 		// Disable hero on the view that is swiped away
 		if let view = koloda.viewForCard(at: index) {
-			view.isHeroEnabled = false
+			view.hero.isEnabled = false
+		}
+		
+		if direction == SwipeResultDirection.right {
+			let presenter: Presentr = {
+				let width = ModalSize.fluid(percentage: 1.0)
+				let height = ModalSize.fluid(percentage: 0.80)
+				let customType = PresentationType.custom(width: width, height: height, center: .center)
+				
+				let presenter = Presentr(presentationType: customType)
+				presenter.transitionType = .coverVerticalFromTop
+				presenter.dismissTransitionType = .coverVerticalFromTop
+				presenter.blurBackground = true
+				presenter.dismissOnTap = false
+				return presenter
+			}()
+			
+			let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
+			self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
 		}
 	}
 	
 	func koloda(_ koloda: KolodaView, didShowCardAt index: Int) {
 		// Enable hero on the view that is shown on top
 		if let view = koloda.viewForCard(at: index) {
-			view.isHeroEnabled = true
+			view.hero.isEnabled = true
 		}
 	}
 	
 	func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-//		let containerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverPageContainerVC") as! DiscoverPageContainerVC
-//
-//		// Set the job model to the page container
-//		containerVC.setJob(job: jobs[index])
-//
-//		let presenter: Presentr = {
-//			let width = ModalSize.fluid(percentage: 0.90)
-//			let height = ModalSize.fluid(percentage: 0.90)
-//			let customType = PresentationType.custom(width: width, height: height, center: .center)
-//
-//			let customPresenter = Presentr(presentationType: customType)
-//			customPresenter.transitionType = .coverVertical
-//			customPresenter.dismissTransitionType = .crossDissolve
-//			customPresenter.roundCorners = true
-//			customPresenter.cornerRadius = 10
-//			customPresenter.blurBackground = true
-//			customPresenter.dismissOnTap = true
-//			customPresenter.dismissOnSwipe = false
-//			return customPresenter
-//		}()
-//		presenter.viewControllerForContext = self
-//		self.customPresentViewController(presenter, viewController: containerVC, animated: true, completion: nil)
-
 		if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileVC") as? DiscoverProfileVC {
 			profileVC.setJob(job: jobs[index])
 			if (koloda.currentCardIndex == index) {
-				profileVC.isHeroEnabled = true
-				profileVC.view.isHeroEnabled = true
+				profileVC.hero.isEnabled = true
+				profileVC.view.hero.isEnabled = true
 			}
 			self.present(profileVC, animated: true, completion: nil)
 		}
