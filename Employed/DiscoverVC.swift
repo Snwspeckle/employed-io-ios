@@ -93,7 +93,7 @@ extension DiscoverVC : KolodaViewDelegate {
 //		presenter.viewControllerForContext = self
 //		self.customPresentViewController(presenter, viewController: containerVC, animated: true, completion: nil)
 
-		if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileNEWVC") as? DiscoverCardProfileNEWVC {
+		if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileVC") as? DiscoverProfileVC {
 			profileVC.setJob(job: jobs[index])
 			if (koloda.currentCardIndex == index) {
 				profileVC.isHeroEnabled = true
@@ -117,7 +117,7 @@ extension DiscoverVC : KolodaViewDataSource {
 	
 	func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileNEWVC") as! DiscoverCardProfileNEWVC
+		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileVC") as! DiscoverProfileVC
 		if self.jobs.count > index {
 			controller.setJob(job: self.jobs[index])
 		}

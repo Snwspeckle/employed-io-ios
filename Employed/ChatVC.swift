@@ -30,10 +30,6 @@ class ChatVC: MessagesViewController {
 		messagesCollectionView.messagesDisplayDelegate = self
 		messagesCollectionView.messagesLayoutDelegate = self
 		messageInputBar.delegate = self
-    }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
 		
 		// Get the channels existing messages and convert them to ChatMessage objects
 		ChatService.shared.getChannelMessages(completion: { (messages) in
@@ -45,9 +41,15 @@ class ChatVC: MessagesViewController {
 			}
 			
 			// Reload the collection view and scroll to the bottom
-			self.messagesCollectionView.reloadData()
-			self.messagesCollectionView.scrollToBottom()
+			DispatchQueue.main.async {
+				self.messagesCollectionView.reloadData()
+				self.messagesCollectionView.scrollToBottom()
+			}
 		})
+    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 	}
 	
 	// Build the ChatMessage object from twilio data
@@ -127,7 +129,7 @@ extension ChatVC: MessagesDisplayDelegate {
     // MARK: - All Messages
 	
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? UIColor(red: 69/255, green: 193/255, blue: 89/255, alpha: 1) : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+		return isFromCurrentSender(message: message) ? UIColor(named: "Red Background")! : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
 
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {

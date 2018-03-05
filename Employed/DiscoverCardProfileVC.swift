@@ -1,5 +1,5 @@
 //
-//  DiscoverCardProfileVC.swift
+//  DiscoverProfileVC.swift
 //  Employed
 //
 //  Created by Anthony Vella on 11/10/17.
@@ -9,7 +9,7 @@
 import UIKit
 import TagListView
 
-class DiscoverCardProfileVC: UIViewController {
+class DiscoverProfileVC: UIViewController {
 
 	// MARK: - IBOutlets
 	@IBOutlet weak var pictureImageView: UIImageView!
@@ -20,8 +20,10 @@ class DiscoverCardProfileVC: UIViewController {
 	@IBOutlet weak var salaryLabel: UILabel!
 	@IBOutlet weak var experienceLabel: UILabel!
 	
-	@IBOutlet weak var midStackView: UIStackView!
 	@IBOutlet weak var jobDescriptionLabel: UILabel!
+	@IBOutlet weak var responsibilitiesLabel: UILabel!
+	@IBOutlet weak var requirementsLabel: UILabel!
+	
 	@IBOutlet weak var tagListView: TagListView!
 	
 	@IBOutlet weak var recruiterImageView: UIImageView!
@@ -34,13 +36,12 @@ class DiscoverCardProfileVC: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		// Remove the tag list view by default
-        self.midStackView.removeArrangedSubview(self.tagListView)
-		
+
         // Set the company picture
         // NOTE: This is temporarily fixed as we aren't loading images from the network yet
-        self.pictureImageView.image =  UIImage(named: "ecorp")
+        self.pictureImageView.image = UIImage(named: "ecorp")
+        self.pictureImageView.clipsToBounds = true
+        self.pictureImageView.layer.cornerRadius = self.pictureImageView.frame.width / 2
 		
 		// Set the job label
 		self.jobNameLabel.text = self.job?.title
@@ -69,16 +70,28 @@ class DiscoverCardProfileVC: UIViewController {
 		
 		// Set the short job description
 		if let description = self.job?.shortDescription {
-			self.jobDescriptionLabel.text = description
+			self.jobDescriptionLabel?.text = description
+		}
+		
+		// Set the responsibilities
+		if let responsibilities = self.job?.responsibilities {
+			self.responsibilitiesLabel?.text = responsibilities
+		}
+		
+		// Set the requirements
+		if let requirements = self.job?.requirements {
+			self.requirementsLabel?.text = requirements
 		}
 		
 		// Set the tags
-		self.tagListView.textFont = UIFont(name: "HelveticaNeue-Medium", size: 12.0)!
-		if let tags = self.job?.tag.tagName {
-			let tagSlice = tags[0].split(separator: ";")
-			let tagArray = Array(tagSlice)
-			for tag in tagArray {
-				self.tagListView.addTag(String(tag))
+		if let tagList = self.tagListView {
+			tagList.textFont = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.bold)
+			if let tags = self.job?.tag.tagName {
+				let tagSlice = tags[0].split(separator: ";")
+				let tagArray = Array(tagSlice)
+				for tag in tagArray {
+					tagList.addTag(String(tag))
+				}
 			}
 		}
 		
@@ -101,13 +114,6 @@ class DiscoverCardProfileVC: UIViewController {
 		self.recruiterImageView.layer.cornerRadius = self.recruiterImageView.frame.width / 2
     }
 	
-    override func viewWillAppear(_ animated: Bool) {
-    	super.viewWillAppear(animated)
-		if shouldShowTagList {
-			self.midStackView.addArrangedSubview(self.tagListView)
-		}
-	}
-	
 	// Sets the job object
     func setJob(job: Employed_Io_Job) -> Void {
     	self.job = job
@@ -119,3 +125,4 @@ class DiscoverCardProfileVC: UIViewController {
 	}
 
 }
+

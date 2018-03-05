@@ -30,9 +30,6 @@ target 'Employed' do
   # Transition animations
   pod 'Hero'
   
-  # Fancy Navigation Buttons
-  pod 'DynamicButton', '~> 5.0.0'
-  
   # Fancy Text Buttons
   pod 'LGButton'
   
