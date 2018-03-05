@@ -34,15 +34,13 @@ class ConnectionsVC: UITableViewController {
 		
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    	// Upon selecting the connection, join the respective chat channel
+		ChatService.shared.joinChannel(channel: "general", completion: { () in
+			// Instantiate a ChatVC and push it on the navigation stack
+			let viewcontroller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+			self.navigationController?.pushViewController(viewcontroller, animated: true)
+		})
+	}
 }

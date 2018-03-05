@@ -1039,7 +1039,6 @@
                                     <outlet property="companyAndJobLabel" destination="6kc-PO-DwI" id="WnH-2H-wzy"/>
                                     <outlet property="nameLabel" destination="zgM-Ar-kOW" id="rAu-Zz-RxN"/>
                                     <outlet property="pictureImageView" destination="fWH-sP-86K" id="aIe-Gs-GF4"/>
-                                    <segue destination="UXc-1N-Twn" kind="show" id="9OR-wv-MCa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1328,7 +1327,7 @@
         <!--ChatVC-->
         <scene sceneID="5gu-8N-bhp">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="UXc-1N-Twn" customClass="ChatVC" customModule="Employed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UXc-1N-Twn" customClass="ChatVC" customModule="Employed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oC0-ni-ukO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

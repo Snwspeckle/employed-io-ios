@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //		APIService.shared.getUser(email: "elliotAlderson@email.com") { user in
 //			print(user)
 //		}
+
+		// Login to the chat service when the app is launched
+		ChatService.shared.login(identity: "Anthony")
 		
 		return true
 	}
@@ -42,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+		
+		// Logout of the chat service when the app terminates
+		ChatService.shared.logout()
 	}
 
 }

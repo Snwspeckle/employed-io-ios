@@ -11,19 +11,10 @@ import MessageKit
 import TwilioChatClient
 
 class ChatVC: MessagesViewController {
-
-	// MARK: Twilio Chat variables
-    var client: TwilioChatClient? = nil
-    var generalChannel: TCHChannel? = nil
-    var messages: [TCHMessage] = []
 	
-    var mkMessages: [ChatMessage] = []
+	// List of chat messages for MessageKit
+    var chatMessages: [ChatMessage] = []
 	
-	// TESTING CREATING RANDOM MESSAGE
-    let uniqueID = NSUUID().uuidString
-    let anthony = Sender(id: "656361", displayName: "Anthony")
-    let john = Sender(id: "1234", displayName: "John")
-
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -31,40 +22,68 @@ class ChatVC: MessagesViewController {
         self.navigationItem.title = "Tyrell Wellick"
 		self.navigationController?.navigationBar.tintColor = UIColor.white
 		
+		// Chat Service delegate setup
+		ChatService.shared.delegate = self
+		
+		// MessageKit delegate setup
         messagesCollectionView.messagesDataSource = self
 		messagesCollectionView.messagesDisplayDelegate = self
 		messagesCollectionView.messagesLayoutDelegate = self
 		messageInputBar.delegate = self
-		
-        // TESTING CREATING RANDOM MESSAGE
-		let testMessage1 = ChatMessage(text: "Current Sender", sender: anthony, messageId: uniqueID, date: Date())
-		let testMessage2 = ChatMessage(text: "John Test", sender: john, messageId: uniqueID, date: Date())
-		mkMessages.append(testMessage1)
-		mkMessages.append(testMessage2)
     }
 	
-    override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		
+		// Get the channels existing messages and convert them to ChatMessage objects
+		ChatService.shared.getChannelMessages(completion: { (messages) in
+			if let messages = messages {
+				for message in messages {
+					// Append the message to the chatMessages array
+					self.chatMessages.append(self.buildChatMessage(message: message))
+				}
+			}
+			
+			// Reload the collection view and scroll to the bottom
+			self.messagesCollectionView.reloadData()
+			self.messagesCollectionView.scrollToBottom()
+		})
+	}
+	
+	// Build the ChatMessage object from twilio data
+	func buildChatMessage(message: TCHMessage) -> ChatMessage {
+		let sender = Sender(id: message.author!, displayName: message.author!)
+		let uniqueID = UUID().uuidString
+		return ChatMessage(text: message.body!, sender: sender, messageId: uniqueID, date: message.timestampAsDate!)
+	}
+}
+
+// MARK: Chat Service Delegate
+
+extension ChatVC: ChatServiceDelegate {
+
+	func didReceiveMessage(message: TCHMessage) {
+		// Add the message to the list and reload the collection view
+		chatMessages.append(buildChatMessage(message: message))
 		messagesCollectionView.reloadData()
 		messagesCollectionView.scrollToBottom()
 	}
 }
-	
+
 // MARK: - MessagesDataSource
 
 extension ChatVC: MessagesDataSource {
 
     func currentSender() -> Sender {
-        return anthony
+        return Sender(id: ChatService.shared.getUserIdentity()!, displayName: ChatService.shared.getUserFriendlyName()!)
     }
 
     func numberOfMessages(in messagesCollectionView: MessagesCollectionView) -> Int {
-        return mkMessages.count
+        return chatMessages.count
     }
 
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        return mkMessages[indexPath.section]
+        return chatMessages[indexPath.section]
     }
 
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
@@ -173,24 +192,20 @@ extension ChatVC: MessagesLayoutDelegate {
 extension ChatVC: MessageInputBarDelegate {
 
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-		
-        // Each NSTextAttachment that contains an image will count as one empty character in the text: String
-		
         for component in inputBar.inputTextView.components {
-			
             if let text = component as? String {
-				
                 let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.blue])
 				
                 let message = ChatMessage(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
-                mkMessages.append(message)
-                messagesCollectionView.insertSections([mkMessages.count - 1])
+                chatMessages.append(message)
+                messagesCollectionView.insertSections([chatMessages.count - 1])
+				
+				// Send the message to the chat service
+                ChatService.shared.sendMessage(body: text)
             }
-			
         }
 		
         inputBar.inputTextView.text = String()
         messagesCollectionView.scrollToBottom()
     }
-
 }
