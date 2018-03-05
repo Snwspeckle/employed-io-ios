@@ -180,7 +180,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quickFactsView"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9T-wk-ayU" userLabel="Job Description View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9T-wk-ayU" userLabel="Job Description View" customClass="ProfileSectionView" customModule="Employed" customModuleProvider="target">
                                 <rect key="frame" x="12" y="178" width="351" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWK-No-GK0">
@@ -202,7 +202,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="WoC-Jq-G6C" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="E9T-wk-ayU" secondAttribute="bottom" constant="4" id="2Xw-Fa-WRV"/>
                                     <constraint firstItem="EWK-No-GK0" firstAttribute="leading" secondItem="E9T-wk-ayU" secondAttribute="leading" constant="12" id="L0l-zh-K5f"/>
@@ -214,14 +213,10 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EWK-No-GK0" secondAttribute="trailing" constant="12" id="wdY-4v-NxU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobDescriptionView"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5d0-61-Bbg" userLabel="Company Profile View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5d0-61-Bbg" userLabel="Company Profile View" customClass="ProfileSectionView" customModule="Employed" customModuleProvider="target">
                                 <rect key="frame" x="12" y="290" width="351" height="108"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU5-mi-oF7">
@@ -244,7 +239,6 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="yJt-py-0H7" firstAttribute="top" secondItem="DU5-mi-oF7" secondAttribute="bottom" constant="4" id="2le-UF-1M8"/>
                                     <constraint firstItem="DU5-mi-oF7" firstAttribute="top" secondItem="5d0-61-Bbg" secondAttribute="top" constant="4" id="4KO-bP-SMz"/>
@@ -255,10 +249,6 @@
                                     <constraint firstItem="DU5-mi-oF7" firstAttribute="leading" secondItem="5d0-61-Bbg" secondAttribute="leading" constant="12" id="tS8-vw-jCz"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="companyProfileView"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -882,7 +872,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCj-pW-fhQ" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="405.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDt-SE-l0g" userLabel="Job Description View">
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDt-SE-l0g" userLabel="Job Description View" customClass="ProfileSectionView" customModule="Employed" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ai-sy-gqB">
@@ -916,14 +906,10 @@
                                                     <constraint firstItem="2JB-hq-GMw" firstAttribute="top" secondItem="6ai-sy-gqB" secondAttribute="bottom" constant="4" id="lwM-J0-1eK"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobDescriptionView"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKa-mv-1Xf" userLabel="Company Profile View">
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKa-mv-1Xf" userLabel="Company Profile View" customClass="ProfileSectionView" customModule="Employed" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="112" width="351" height="108"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Company Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2i-sI-gN4">
@@ -957,14 +943,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="XcZ-xh-1xU" secondAttribute="trailing" constant="12" id="s7u-MY-6RW"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="companyProfileView"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RgG-yB-aKX" userLabel="Responsibilities View">
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RgG-yB-aKX" userLabel="Responsibilities View" customClass="ProfileSectionView" customModule="Employed" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="232" width="351" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Responsibilities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I0-Au-N7U">
@@ -995,14 +977,10 @@
                                                     <constraint firstItem="JuM-wk-ctw" firstAttribute="top" secondItem="7I0-Au-N7U" secondAttribute="bottom" constant="4" id="x2Y-dK-NPI"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="responsibilitiesView"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pnj-jf-fGv" userLabel="Requirements View">
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pnj-jf-fGv" userLabel="Requirements View" customClass="ProfileSectionView" customModule="Employed" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="344" width="351" height="61.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Requirements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owv-gl-pv2">
@@ -1032,10 +1010,6 @@
                                                     <constraint firstItem="Owv-gl-pv2" firstAttribute="leading" secondItem="pnj-jf-fGv" secondAttribute="leading" constant="12" id="phR-yf-cV6"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="responsibilitiesView"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -1391,15 +1365,6 @@
         </namedColor>
         <namedColor name="Red Background">
             <color red="0.93725490199999995" green="0.34509803919999998" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Red Background">
-            <color red="0.93725490199999995" green="0.34509803919999998" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Red Background">
-            <color red="0.93725490199999995" green="0.34509803919999998" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Red Background">
-            <color red="0.93725490196078431" green="0.34509803921568627" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
