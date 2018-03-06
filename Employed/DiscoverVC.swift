@@ -88,13 +88,17 @@ extension DiscoverVC : KolodaViewDelegate {
 	}
 	
 	func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-		if let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileVC") as? DiscoverProfileVC {
-			profileVC.setJob(job: jobs[index])
+		if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileNEWVC") as? DiscoverProfileVC {
+			// Setup the controller
+			controller.setJob(job: jobs[index])
+			controller.setPresentationType(type: .Full)
+			
+			// If the current card is the one we selected, set hero enabled for animations
 			if (koloda.currentCardIndex == index) {
-				profileVC.hero.isEnabled = true
-				profileVC.view.hero.isEnabled = true
+				controller.hero.isEnabled = true
+				controller.view.hero.isEnabled = true
 			}
-			self.present(profileVC, animated: true, completion: nil)
+			self.present(controller, animated: true, completion: nil)
 		}
 	}
 }
@@ -115,6 +119,7 @@ extension DiscoverVC : KolodaViewDataSource {
 		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileVC") as! DiscoverProfileVC
 		if self.jobs.count > index {
 			controller.setJob(job: self.jobs[index])
+			controller.setPresentationType(type: .Card)
 		}
 		controller.view.layer.cornerRadius = 10
 		controller.view.layer.masksToBounds = true

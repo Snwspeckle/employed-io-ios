@@ -9,6 +9,12 @@
 import UIKit
 import TagListView
 
+// Declaration of the two different presentation styles for this view
+enum DiscoverProfilePresentationType {
+	case Card
+	case Full
+}
+
 class DiscoverProfileVC: UIViewController {
 
 	// MARK: - IBOutlets
@@ -29,10 +35,13 @@ class DiscoverProfileVC: UIViewController {
 	@IBOutlet weak var recruiterImageView: UIImageView!
 	@IBOutlet weak var recruiterNameLabel: UILabel!
 	
-	var shouldShowTagList = false
 	var recruiterImage: String!
 	
 	var job: Employed_Io_Job?
+	
+	// The presentation type of this view controller. Presentation type represents whether
+	// this view controller is being displayed in a card or full form.
+	var presentationType: DiscoverProfilePresentationType = .Card
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,9 +128,9 @@ class DiscoverProfileVC: UIViewController {
     	self.job = job
 	}
 	
-	// Add the tag view to the vertical mid stack view
-	func showTagView() -> Void {
-		self.shouldShowTagList = true
+	// Sets the presentation type
+	func setPresentationType(type: DiscoverProfilePresentationType) -> Void {
+		self.presentationType = type
 	}
 
 }
