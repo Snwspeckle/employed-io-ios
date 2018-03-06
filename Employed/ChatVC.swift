@@ -90,7 +90,8 @@ extension ChatVC: MessagesDataSource {
 
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
-        return NSAttributedString(string: name, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .caption1)])
+		let text = NSAttributedString(string: name, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .caption1)])
+        return isFromCurrentSender(message: message) ? nil : text
     }
 
     func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
@@ -104,7 +105,8 @@ extension ChatVC: MessagesDataSource {
         }
         let formatter = ConversationDateFormatter.formatter
         let dateString = formatter.string(from: message.sentDate)
-        return NSAttributedString(string: dateString, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .caption2)])
+        let text = NSAttributedString(string: dateString, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .caption2)])
+        return isFromCurrentSender(message: message) ? nil : text
     }
 }
 
@@ -152,6 +154,10 @@ extension ChatVC: MessagesLayoutDelegate {
     func avatarPosition(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> AvatarPosition {
         return AvatarPosition(horizontal: .natural, vertical: .messageBottom)
     }
+	
+    func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+		return isFromCurrentSender(message: message) ? CGSize(width: 0.0, height: 0.0) : CGSize(width: 30.0, height: 30.0)
+	}
 
     func messagePadding(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIEdgeInsets {
         if isFromCurrentSender(message: message) {
@@ -165,7 +171,7 @@ extension ChatVC: MessagesLayoutDelegate {
         if isFromCurrentSender(message: message) {
             return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
         } else {
-            return .messageLeading(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+            return .messageLeading(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
         }
     }
 
@@ -196,9 +202,7 @@ extension ChatVC: MessageInputBarDelegate {
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         for component in inputBar.inputTextView.components {
             if let text = component as? String {
-                let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.blue])
-				
-                let message = ChatMessage(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+				let message = ChatMessage(text: text, sender: currentSender(), messageId: UUID().uuidString, date: Date())
                 chatMessages.append(message)
                 messagesCollectionView.insertSections([chatMessages.count - 1])
 				
