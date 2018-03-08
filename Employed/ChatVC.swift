@@ -21,6 +21,7 @@ class ChatVC: MessagesViewController {
 		// Customize Navigation Bar
         self.navigationItem.title = "Tyrell Wellick"
 		self.navigationController?.navigationBar.tintColor = UIColor.white
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "video-chat"), style: .plain, target: self, action: #selector(ChatVC.videoChatButtonPressed(_ :)))
 		
 		// Chat Service delegate setup
 		ChatService.shared.delegate = self
@@ -50,6 +51,11 @@ class ChatVC: MessagesViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+	}
+	
+	@objc func videoChatButtonPressed(_ sender: UIBarButtonItem) {
+		let videoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"VideoVC") as! VideoVC
+		self.navigationController?.pushViewController(videoVC, animated: true)
 	}
 	
 	// Build the ChatMessage object from twilio data

@@ -39,4 +39,7 @@ target 'Employed' do
   # Twilio Chat
   pod 'TwilioChatClient', '~> 2.2.0'
   
+  # Twilio Video
+  pod 'TwilioVideo', '2.0.0-beta2'
+  
 end

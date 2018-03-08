@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */; };
 		56223C9E1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */; };
+		5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634F9612050D6C600F0DED4 /* VideoService.swift */; };
+		5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634F9632050D71B00F0DED4 /* Utilities.swift */; };
+		5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634F9652050DC9600F0DED4 /* VideoVC.swift */; };
 		565080A8204B5F6000F18815 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080A7204B5F6000F18815 /* ChatVC.swift */; };
 		565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080A9204CA1C300F18815 /* ChatMessage.swift */; };
 		565080AC204CAC2A00F18815 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565080AB204CAC2A00F18815 /* ChatService.swift */; };
@@ -47,6 +50,9 @@
 		4BBA97FD3FD06D26F24AD454 /* Pods_Employed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Employed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewCell.swift; sourceTree = "<group>"; };
 		56223C9D1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCardDetailTableVC.swift; sourceTree = "<group>"; };
+		5634F9612050D6C600F0DED4 /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
+		5634F9632050D71B00F0DED4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		5634F9652050DC9600F0DED4 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		565080A7204B5F6000F18815 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		565080A9204CA1C300F18815 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		565080AB204CAC2A00F18815 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
@@ -139,6 +145,9 @@
 				565080AD204DCFF600F18815 /* MatchVC.swift */,
 				565080AF204DF5AB00F18815 /* ProfileSectionView.swift */,
 				568085DF204F5AEA00584017 /* AccountsVC.swift */,
+				5634F9612050D6C600F0DED4 /* VideoService.swift */,
+				5634F9632050D71B00F0DED4 /* Utilities.swift */,
+				5634F9652050DC9600F0DED4 /* VideoVC.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -238,6 +247,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 				"${PODS_ROOT}/TwilioChatClient/TwilioChatClient.framework",
+				"${PODS_ROOT}/TwilioVideo/TwilioVideo.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -253,6 +263,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioChatClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,13 +315,16 @@
 				565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */,
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
+				5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */,
 				568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */,
+				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
 				56223C9E1FB8E8850091B76E /* DiscoverCardDetailTableVC.swift in Sources */,
 				565C57EC2022963B008387D5 /* FilterVC.swift in Sources */,
 				565080AE204DCFF600F18815 /* MatchVC.swift in Sources */,
 				565080A8204B5F6000F18815 /* ChatVC.swift in Sources */,
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
+				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,

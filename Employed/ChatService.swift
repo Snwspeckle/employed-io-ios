@@ -23,9 +23,6 @@ class ChatService: NSObject {
 	// ChatService delegate
 	weak var delegate: ChatServiceDelegate? = nil
 	
-	// Twilio Token Function URL
-    let tokenURL = "https://aurometalsaurus-frigatebird-8588.twil.io/chat-token"
-	
 	// Singleton of the ChatService
 	static let shared = ChatService()
 	
@@ -34,9 +31,9 @@ class ChatService: NSObject {
 	
 		// Fetch Access Token from the server and initialize Chat Client
         let deviceId = UIDevice.current.identifierForVendor!.uuidString
-        let urlString = "\(tokenURL)?identity=\(identity)&device=\(deviceId)"
+        let urlString = "\(TokenUtils.SERVICE.CHAT.rawValue)?identity=\(identity)&device=\(deviceId)"
 		
-        TokenUtils.retrieveToken(url: urlString) { (token, identity, error) in
+        TokenUtils.fetchChatToken(url: urlString) { (token, identity, error) in
             if let token = token {
                 // Set up Twilio Chat client
                 TwilioChatClient.chatClient(withToken: token, properties: nil, delegate: self) {
@@ -115,39 +112,12 @@ extension ChatService: TwilioChatClientDelegate {
         	print("CHAT SERVICE LOGIN SUCCESS")
         }
     }
-	
+
     // Called whenever a channel we've joined receives a new message
     func chatClient(_ client: TwilioChatClient, channel: TCHChannel, messageAdded message: TCHMessage) {
     	if (message.author! != getUserIdentity()) {
 			// Call the chat service protocol
 			self.delegate?.didReceiveMessage(message: message)
 		}
-    }
-}
-
-/**
-Helper stuct to parse tokens from the token function
-*/
-struct TokenUtils {
-	static func retrieveToken(url: String, completion: @escaping (String?, String?, Error?) -> Void) {
-        if let requestURL = URL(string: url) {
-            let session = URLSession(configuration: URLSessionConfiguration.default)
-            let task = session.dataTask(with: requestURL, completionHandler: { (data, response, error) in
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String:String]
-                        let token = json["token"]
-                        let identity = json["identity"]
-                        completion(token, identity, error)
-                    }
-                    catch let error as NSError {
-                        completion(nil, nil, error)
-                    }
-                } else {
-                    completion(nil, nil, error)
-                }
-            })
-            task.resume()
-        }
     }
 }

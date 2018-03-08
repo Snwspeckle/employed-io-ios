@@ -45,8 +45,8 @@ class AccountsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		let jobseeker = Account(avatar: UIImage(named: "angela_moss")!, name: "Angela Moss", accountType: "Job Seeker")
-		let recruiter = Account(avatar: UIImage(named: "tyrell_wellick")!, name: "Tyrell Wellick", accountType: "Recruiter")
+		let jobseeker = Account(avatar: UIImage(named: "angela_moss")!, name: "AngelaMoss", accountType: "Job Seeker")
+		let recruiter = Account(avatar: UIImage(named: "tyrell_wellick")!, name: "TyrellWellick", accountType: "Recruiter")
 		accounts.append(jobseeker)
 		accounts.append(recruiter)
     }
@@ -90,6 +90,9 @@ class AccountsVC: UITableViewController {
 			presenter.transitionType = .custom(animation)
 			return presenter
 		}()
+		
+		// Set the identity of our user
+		VideoService.shared.setIdentity(accounts[indexPath.row].name)
 		
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
 		self.customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
