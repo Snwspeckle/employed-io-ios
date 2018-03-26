@@ -91,7 +91,7 @@ extension DiscoverVC : KolodaViewDelegate {
 	}
 	
 	func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-		if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileNEWVC") as? DiscoverProfileVC {
+		if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileVC") as? DiscoverProfileVC {
 			// Setup the controller
 			controller.setJob(job: jobs[index])
 			controller.setPresentationType(type: .Full)

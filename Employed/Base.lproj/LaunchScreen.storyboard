@@ -37,7 +37,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Red Background"/>
+                        <color key="backgroundColor" name="Green Background"/>
                         <constraints>
                             <constraint firstItem="Qyq-hi-3EX" firstAttribute="bottom" secondItem="UIt-b7-4Ea" secondAttribute="bottom" id="BBi-SZ-nET"/>
                             <constraint firstItem="Qyq-hi-3EX" firstAttribute="leading" secondItem="UIt-b7-4Ea" secondAttribute="leading" id="UGr-Fb-5ZE"/>
@@ -54,11 +54,11 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Green Background">
+            <color red="0.17647058823529413" green="0.77254901960784317" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Grey Background">
             <color red="0.88627450980392153" green="0.90588235294117647" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Red Background">
-            <color red="0.93725490196078431" green="0.34509803921568627" blue="0.20784313725490197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

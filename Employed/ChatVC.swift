@@ -137,7 +137,7 @@ extension ChatVC: MessagesDisplayDelegate {
     // MARK: - All Messages
 	
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-		return isFromCurrentSender(message: message) ? UIColor(named: "Red Background")! : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+		return isFromCurrentSender(message: message) ? UIColor(named: "Green Background")! : UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
 
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
