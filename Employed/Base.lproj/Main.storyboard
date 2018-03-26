@@ -31,7 +31,7 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sh-lG-IM0">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sh-lG-IM0">
                                 <rect key="frame" x="-11" y="46" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -51,11 +51,6 @@
                             <constraint firstItem="xug-pF-K9V" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="y7s-rO-Hj7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="9Sh-lG-IM0"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="job-search" id="lhW-TO-Oms"/>
                     <navigationItem key="navigationItem" title="Discover" id="dCw-bS-ygj">
@@ -1787,9 +1782,6 @@
         <image name="tyrell_wellick" width="314" height="360"/>
         <namedColor name="Grey Background">
             <color red="0.88627450980392153" green="0.90588235294117647" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Red Background">
-            <color red="0.17647058823529413" green="0.77254901960784317" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Red Background">
             <color red="0.17647058823529413" green="0.77254901960784317" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

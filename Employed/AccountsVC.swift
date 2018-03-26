@@ -70,20 +70,7 @@ class AccountsVC: UITableViewController {
         return cell
     }
 	
-    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-		let cell = tableView.cellForRow(at: indexPath)
-		cell?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
-	}
-	
-	override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-		let cell = tableView.cellForRow(at: indexPath)
-		cell?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
-	}
-	
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    	let cell = tableView.cellForRow(at: indexPath)
-		cell?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
-		
 		let presenter: Presentr = {
 			let presenter = Presentr(presentationType: .dynamic(center: .center))
 			let animation = ScaleOutwardAnimation(options: .spring(duration: 0.5, delay: 0.0, damping: 0.8, velocity: 1.0))
@@ -97,12 +84,6 @@ class AccountsVC: UITableViewController {
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
 		self.customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
 		
-		cell?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
-	}
-	
-	override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		let cell = tableView.cellForRow(at: indexPath)
-		cell?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
 	}
 }
 
