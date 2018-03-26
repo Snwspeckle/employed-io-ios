@@ -21,6 +21,9 @@ class DiscoverVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		// Set the search bar text color
+        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.lightGray
+		
 		// Remove 1px line below navigation bar
 		navigationController?.navigationBar.shadowImage = UIImage()
 
