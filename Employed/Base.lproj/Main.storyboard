@@ -43,14 +43,7 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="job-search" id="lhW-TO-Oms"/>
-                    <navigationItem key="navigationItem" title="Discover" id="dCw-bS-ygj">
-                        <barButtonItem key="rightBarButtonItem" image="filter" id="2Wz-GS-wh0">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="filterButtonPressed:" destination="9pv-A4-QxB" id="qan-9l-fDz"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Discover" id="dCw-bS-ygj"/>
                     <connections>
                         <outlet property="kolodaView" destination="1MD-Ep-jJb" id="HtK-9c-imw"/>
                     </connections>
@@ -871,8 +864,8 @@
                                                     <constraint firstAttribute="height" constant="100" id="jNt-R1-jIM"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="self.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="self.cornerRadius">
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="self.layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
                                                         <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -1135,7 +1128,6 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="discoverProfileFullVC"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="companyNameLabel" destination="V5G-9O-05O" id="szR-53-2o6"/>
@@ -1200,7 +1192,6 @@
     </scenes>
     <resources>
         <image name="angela_moss" width="314" height="360"/>
-        <image name="filter" width="30" height="30"/>
         <image name="job-search" width="25" height="25"/>
         <image name="people-meeting" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>

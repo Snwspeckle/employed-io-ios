@@ -46,9 +46,6 @@ class DiscoverVC: UIViewController {
 			}
 		}
     }
-    
-	@IBAction func filterButtonPressed(_ sender: Any) {
-	}
 }
 
 // MARK: - KolodaViewDelegate
