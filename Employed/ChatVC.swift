@@ -33,24 +33,29 @@ class ChatVC: MessagesViewController {
 		messageInputBar.delegate = self
 		
 		// Get the channels existing messages and convert them to ChatMessage objects
-		ChatService.shared.getChannelMessages(completion: { (messages) in
-			if let messages = messages {
-				for message in messages {
-					// Append the message to the chatMessages array
-					self.chatMessages.append(self.buildChatMessage(message: message))
+		DispatchQueue.global(qos: .userInitiated).async {
+			ChatService.shared.getChannelMessages(completion: { (messages) in
+				if let messages = messages {
+					for message in messages {
+						// Append the message to the chatMessages array
+						self.chatMessages.append(self.buildChatMessage(message: message))
+					}
 				}
-			}
-			
-			// Reload the collection view and scroll to the bottom
-			DispatchQueue.main.async {
-				self.messagesCollectionView.reloadData()
-				self.messagesCollectionView.scrollToBottom()
-			}
-		})
+				
+				// Reload the collection view and scroll to the bottom
+				DispatchQueue.main.async {
+					self.messagesCollectionView.reloadData()
+					self.messagesCollectionView.scrollToBottom(animated: false)
+				}
+			})
+		}
     }
 	
-	override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
+		// Ensures this view controller has small navigation controller titles
+		self.navigationItem.largeTitleDisplayMode = .never
 	}
 	
 	@objc func videoChatButtonPressed(_ sender: UIBarButtonItem) {
