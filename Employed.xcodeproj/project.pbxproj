@@ -20,6 +20,7 @@
 		565C57EC2022963B008387D5 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57EB2022963B008387D5 /* FilterVC.swift */; };
 		565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */; };
 		568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568085DF204F5AEA00584017 /* AccountsVC.swift */; };
+		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
 		56B577561F96798F00B3B0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577541F96798F00B3B0BC /* Main.storyboard */; };
 		56B577581F96798F00B3B0BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B577571F96798F00B3B0BC /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		565C57EB2022963B008387D5 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProfileVC.swift; sourceTree = "<group>"; };
 		568085DF204F5AEA00584017 /* AccountsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsVC.swift; sourceTree = "<group>"; };
+		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B5774E1F96798F00B3B0BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B577551F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				5634F9612050D6C600F0DED4 /* VideoService.swift */,
 				5634F9632050D71B00F0DED4 /* Utilities.swift */,
 				5634F9652050DC9600F0DED4 /* VideoVC.swift */,
+				568969C52069A69F007F4B53 /* FieldView.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
 				5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */,
+				568969C62069A69F007F4B53 /* FieldView.swift in Sources */,
 				568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */,
 				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,

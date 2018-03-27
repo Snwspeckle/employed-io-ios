@@ -26,9 +26,9 @@ class DiscoverProfileVC: UIViewController {
 	@IBOutlet weak var salaryLabel: UILabel!
 	@IBOutlet weak var experienceLabel: UILabel!
 	
+	@IBOutlet weak var fieldsStackView: UIStackView!
+	
 	@IBOutlet weak var jobDescriptionLabel: UILabel!
-	@IBOutlet weak var responsibilitiesLabel: UILabel!
-	@IBOutlet weak var requirementsLabel: UILabel!
 	
 	@IBOutlet weak var tagListView: TagListView!
 	
@@ -82,14 +82,25 @@ class DiscoverProfileVC: UIViewController {
 			self.jobDescriptionLabel?.text = description
 		}
 		
-		// Set the responsibilities
-		if let responsibilities = self.job?.responsibilities {
-			self.responsibilitiesLabel?.text = responsibilities
+		// Set the job description for both card and full view
+		if let description = self.job?.description_p {
+			let fieldJobDescription = FieldView.create(title: "Job Description", body: description)
+			self.fieldsStackView.addArrangedSubview(fieldJobDescription)
 		}
 		
-		// Set the requirements
-		if let requirements = self.job?.requirements {
-			self.requirementsLabel?.text = requirements
+		// Create the field view for job description
+		if presentationType == .Full {
+			// Set the responsibilities
+			if let responsibilities = self.job?.responsibilities {
+				let fieldResponsibilities = FieldView.create(title: "Responsibilities", body: responsibilities)
+				self.fieldsStackView.addArrangedSubview(fieldResponsibilities)
+			}
+			
+			// Set the requirements
+			if let requirements = self.job?.requirements {
+				let fieldRequirements = FieldView.create(title: "Requirements", body: requirements)
+				self.fieldsStackView.addArrangedSubview(fieldRequirements)
+			}
 		}
 		
 		// Set the tags

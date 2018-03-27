@@ -62,21 +62,21 @@ class ProfileSectionView: UIView {
 	}
 	
 	@IBInspectable
-	var shadowRadius: CGFloat = 2.0 {
+	var shadowRadius: CGFloat = 4.0 {
         didSet {
         	updateShadowRadius(shadowRadius)
 		}
     }
 	
     @IBInspectable
-    var shadowOpacity: Float = 0.25 {
+    var shadowOpacity: Float = 0.15 {
         didSet {
         	updateShadowOpacity(shadowOpacity)
 		}
     }
 	
     @IBInspectable
-    var shadowOffset: CGSize = CGSize(width: 1.0, height: 1.0) {
+    var shadowOffset: CGSize = CGSize(width: 0.0, height: 0.0) {
         didSet {
         	updateShadowOffset(shadowOffset)
 		}
