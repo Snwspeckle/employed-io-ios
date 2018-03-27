@@ -28,8 +28,6 @@ class DiscoverProfileVC: UIViewController {
 	
 	@IBOutlet weak var fieldsStackView: UIStackView!
 	
-	@IBOutlet weak var jobDescriptionLabel: UILabel!
-	
 	@IBOutlet weak var tagListView: TagListView!
 	
 	@IBOutlet weak var recruiterImageView: UIImageView!
@@ -75,11 +73,6 @@ class DiscoverProfileVC: UIViewController {
 		// Set the experience label
 		if let experience = self.job?.experience {
 			self.experienceLabel.text = experience
-		}
-		
-		// Set the short job description
-		if let description = self.job?.shortDescription {
-			self.jobDescriptionLabel?.text = description
 		}
 		
 		// Set the job description for both card and full view
