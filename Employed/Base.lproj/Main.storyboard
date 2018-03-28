@@ -626,27 +626,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-c3-W7q" customClass="TVIVideoView">
-                                <rect key="frame" x="175.5" y="421.5" width="187.5" height="233.5"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-c3-W7q" customClass="TVIVideoView">
+                                <rect key="frame" x="269.5" y="32" width="93.5" height="133.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKj-NW-Owr">
+                                <rect key="frame" x="147.5" y="539" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="A2S-RQ-l4o"/>
+                                    <constraint firstAttribute="width" constant="80" id="j46-FJ-nma"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="disconnect"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="self.layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="hero_dismissViewController" destination="ffQ-lS-DGl" eventType="touchUpInside" id="9Ob-FF-Uf0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wu4-c3-W7q" firstAttribute="width" secondItem="aD1-uK-dvj" secondAttribute="width" multiplier="0.5" id="0IZ-Sw-2Pk"/>
-                            <constraint firstItem="X1c-x3-sDB" firstAttribute="bottom" secondItem="wu4-c3-W7q" secondAttribute="bottom" constant="12" id="DKy-YN-e3g"/>
-                            <constraint firstItem="X1c-x3-sDB" firstAttribute="trailing" secondItem="wu4-c3-W7q" secondAttribute="trailing" constant="12" id="MdH-PR-c7B"/>
-                            <constraint firstItem="wu4-c3-W7q" firstAttribute="height" secondItem="aD1-uK-dvj" secondAttribute="height" multiplier="0.35" id="U17-DS-kI2"/>
+                            <constraint firstItem="wu4-c3-W7q" firstAttribute="width" secondItem="aD1-uK-dvj" secondAttribute="width" multiplier="0.25" id="0IZ-Sw-2Pk"/>
+                            <constraint firstItem="X1c-x3-sDB" firstAttribute="bottom" secondItem="DKj-NW-Owr" secondAttribute="bottom" constant="48" id="0w4-SF-3rB"/>
+                            <constraint firstItem="DKj-NW-Owr" firstAttribute="centerX" secondItem="X1c-x3-sDB" secondAttribute="centerX" id="EY6-Qx-MAI"/>
+                            <constraint firstItem="wu4-c3-W7q" firstAttribute="top" secondItem="X1c-x3-sDB" secondAttribute="top" constant="12" id="GOX-AY-oSL"/>
+                            <constraint firstItem="wu4-c3-W7q" firstAttribute="trailing" secondItem="X1c-x3-sDB" secondAttribute="trailing" constant="-12" id="MdH-PR-c7B"/>
+                            <constraint firstItem="wu4-c3-W7q" firstAttribute="height" secondItem="aD1-uK-dvj" secondAttribute="height" multiplier="0.2" id="U17-DS-kI2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X1c-x3-sDB"/>
                     </view>
                     <connections>
                         <outlet property="previewView" destination="wu4-c3-W7q" id="tUY-db-sWy"/>
+                        <outlet property="previewViewHeightConstraint" destination="U17-DS-kI2" id="jdn-Yq-h22"/>
+                        <outlet property="previewViewTopConstraint" destination="GOX-AY-oSL" id="CTK-4X-nhU"/>
+                        <outlet property="previewViewTrailingConstraint" destination="MdH-PR-c7B" id="xvk-mq-3PV"/>
+                        <outlet property="previewViewWidthConstraint" destination="0IZ-Sw-2Pk" id="xKJ-pp-65d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoR-E6-YmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3078" y="-120"/>
+            <point key="canvasLocation" x="3077.5999999999999" y="-120.08995502248877"/>
         </scene>
         <!--MatchVC-->
         <scene sceneID="hiX-i1-3en">
@@ -1192,6 +1218,7 @@
     </scenes>
     <resources>
         <image name="angela_moss" width="314" height="360"/>
+        <image name="disconnect" width="50" height="50"/>
         <image name="job-search" width="25" height="25"/>
         <image name="people-meeting" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>

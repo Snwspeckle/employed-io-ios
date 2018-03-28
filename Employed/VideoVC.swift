@@ -20,7 +20,11 @@ class VideoVC: UIViewController {
     var remoteView: TVIVideoView?
 
 	@IBOutlet weak var previewView: TVIVideoView!
-
+	@IBOutlet var previewViewWidthConstraint: NSLayoutConstraint!
+	@IBOutlet var previewViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet var previewViewTopConstraint: NSLayoutConstraint!
+	@IBOutlet var previewViewTrailingConstraint: NSLayoutConstraint!
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -69,21 +73,12 @@ class VideoVC: UIViewController {
             builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [TVILocalVideoTrack]()
 			
             // Use the preferred audio codec
-//            if let preferredAudioCodec = Settings.shared.audioCodec {
-//                builder.preferredAudioCodecs = [preferredAudioCodec.rawValue]
-//            }
 			builder.preferredAudioCodecs = [TVIAudioCodec.opus.rawValue]
 			
             // Use the preferred video codec
-//            if let preferredVideoCodec = Settings.shared.videoCodec {
-//                builder.preferredVideoCodecs = [preferredVideoCodec.rawValue]
-//            }
 			builder.preferredVideoCodecs =  [TVIVideoCodec.VP9.rawValue]
 			
             // Use the preferred encoding parameters
-//            if let encodingParameters = Settings.shared.getEncodingParameters() {
-//                builder.encodingParameters = encodingParameters
-//            }
             builder.encodingParameters = TVIEncodingParameters(audioBitrate: UInt(), videoBitrate: UInt())
 			
             // The name of the Room where the Client will attempt to connect to. Please note that if you pass an empty
@@ -95,14 +90,15 @@ class VideoVC: UIViewController {
         room = TwilioVideo.connect(with: connectOptions, delegate: self)
 		
         logMessage(messageText: "Attempting to connect to room \(room!.name)")
-		
-//        self.showRoomUI(inRoom: true)
 	}
 	
     func startPreview() {
         if PlatformUtils.isSimulator {
             return
         }
+		
+		// Setup the preview video view with fullscreen constraints
+        setupPreviewVideoView(isFullScreen: true)
 
         // Preview our local camera track in the local video preview view.
         camera = TVICameraCapturer(source: .frontCamera, delegate: self)
@@ -121,6 +117,41 @@ class VideoVC: UIViewController {
         }
     }
 	
+	// Sets the respectable constraints for the preview view depending on
+	// if the view is in either fullscreen or non-fullscreen mode.
+	func setupPreviewVideoView(isFullScreen: Bool) {
+		// Remove all existing active contraints whose first item is the preview view
+		for constraint in self.view.constraints {
+			if ((constraint.firstItem as? TVIVideoView == self.previewView!) && constraint.isActive) {
+				constraint.isActive = false
+			}
+		}
+		
+		if (isFullScreen) {
+			// Style the preview view without rounded corners
+			self.previewView.layer.masksToBounds = false
+			self.previewView.layer.cornerRadius = 0
+			
+			// Set the fullscreen constraints for the preview view
+			setFullScreenConstraints(videoView: self.previewView!)
+		} else {
+			// Style the preview view with rounded corners
+			self.previewView.layer.masksToBounds = true
+			self.previewView.layer.cornerRadius = 4
+			
+			// Activate the non-fullscreen constraints
+			self.previewViewWidthConstraint.isActive = true
+			self.previewViewHeightConstraint.isActive = true
+			self.previewViewTopConstraint.isActive = true
+			self.previewViewTrailingConstraint.isActive = true
+		}
+		
+		// Animate the constraint changes
+		UIView.animate(withDuration: 0.30, delay: 0.0, options: .curveEaseInOut, animations: {
+			self.view.layoutIfNeeded()
+		}, completion: nil)
+	}
+	
     func setupRemoteVideoView() {
         // Creating `TVIVideoView` programmatically
         self.remoteView = TVIVideoView.init(frame: CGRect.zero, delegate:self)
@@ -129,41 +160,42 @@ class VideoVC: UIViewController {
 		
         // `TVIVideoView` supports scaleToFill, scaleAspectFill and scaleAspectFit
         // scaleAspectFit is the default mode when you create `TVIVideoView` programmatically.
-        self.remoteView!.contentMode = .scaleAspectFit;
-
-        let centerX = NSLayoutConstraint(item: self.remoteView!,
-                                         attribute: NSLayoutAttribute.centerX,
-                                         relatedBy: NSLayoutRelation.equal,
-                                         toItem: self.view,
-                                         attribute: NSLayoutAttribute.centerX,
-                                         multiplier: 1,
-                                         constant: 0);
-        self.view.addConstraint(centerX)
-        let centerY = NSLayoutConstraint(item: self.remoteView!,
-                                         attribute: NSLayoutAttribute.centerY,
-                                         relatedBy: NSLayoutRelation.equal,
-                                         toItem: self.view,
-                                         attribute: NSLayoutAttribute.centerY,
-                                         multiplier: 1,
-                                         constant: 0);
-        self.view.addConstraint(centerY)
-        let width = NSLayoutConstraint(item: self.remoteView!,
-                                       attribute: NSLayoutAttribute.width,
-                                       relatedBy: NSLayoutRelation.equal,
-                                       toItem: self.view,
-                                       attribute: NSLayoutAttribute.width,
-                                       multiplier: 1,
-                                       constant: 0);
-        self.view.addConstraint(width)
-        let height = NSLayoutConstraint(item: self.remoteView!,
-                                        attribute: NSLayoutAttribute.height,
-                                        relatedBy: NSLayoutRelation.equal,
-                                        toItem: self.view,
-                                        attribute: NSLayoutAttribute.height,
-                                        multiplier: 1,
-                                        constant: 0);
-        self.view.addConstraint(height)
+        self.remoteView!.contentMode = .scaleAspectFill;
+		setFullScreenConstraints(videoView: self.remoteView!)
     }
+	
+	// Helper function to set a video views constraints to fill the full screen
+    func setFullScreenConstraints(videoView: TVIVideoView) {
+		videoView.translatesAutoresizingMaskIntoConstraints =  false
+		NSLayoutConstraint(item: videoView,
+										 attribute: NSLayoutAttribute.centerX,
+										 relatedBy: NSLayoutRelation.equal,
+										 toItem: self.view,
+										 attribute: NSLayoutAttribute.centerX,
+										 multiplier: 1,
+										 constant: 0).isActive = true;
+		NSLayoutConstraint(item: videoView,
+										 attribute: NSLayoutAttribute.centerY,
+										 relatedBy: NSLayoutRelation.equal,
+										 toItem: self.view,
+										 attribute: NSLayoutAttribute.centerY,
+										 multiplier: 1,
+										 constant: 0).isActive = true;
+		NSLayoutConstraint(item: videoView,
+									   attribute: NSLayoutAttribute.width,
+									   relatedBy: NSLayoutRelation.equal,
+									   toItem: self.view,
+									   attribute: NSLayoutAttribute.width,
+									   multiplier: 1,
+									   constant: 0).isActive = true;
+		NSLayoutConstraint(item: videoView,
+										attribute: NSLayoutAttribute.height,
+										relatedBy: NSLayoutRelation.equal,
+										toItem: self.view,
+										attribute: NSLayoutAttribute.height,
+										multiplier: 1,
+										constant: 0).isActive = true;
+	}
 	
     func prepareLocalMedia() {
 
@@ -220,29 +252,31 @@ extension VideoVC : TVIRoomDelegate {
 		
         self.cleanupRemoteParticipant()
         self.room = nil
-		
-//        self.showRoomUI(inRoom: false)
     }
 	
     func room(_ room: TVIRoom, didFailToConnectWithError error: Error) {
         logMessage(messageText: "Failed to connect to room with error")
         self.room = nil
-		
-//        self.showRoomUI(inRoom: false)
     }
 	
     func room(_ room: TVIRoom, participantDidConnect participant: TVIRemoteParticipant) {
-        if (self.remoteParticipant == nil) {
+		if (self.remoteParticipant == nil) {
             self.remoteParticipant = participant
             self.remoteParticipant?.delegate = self
         }
-       logMessage(messageText: "Participant \(participant.identity) connected with \(participant.remoteAudioTracks.count) audio and \(participant.remoteVideoTracks.count) video tracks")
+        // Set the preview video view to not be fullscreen because the participant connected
+		setupPreviewVideoView(isFullScreen: false)
+		
+		logMessage(messageText: "Participant \(participant.identity) connected with \(participant.remoteAudioTracks.count) audio and \(participant.remoteVideoTracks.count) video tracks")
     }
 	
     func room(_ room: TVIRoom, participantDidDisconnect participant: TVIRemoteParticipant) {
         if (self.remoteParticipant == participant) {
             cleanupRemoteParticipant()
         }
+        // Set the preview video view to be fullscreen because our participant disconnected
+        setupPreviewVideoView(isFullScreen: true)
+		
         logMessage(messageText: "Room \(room.name), Participant \(participant.identity) disconnected")
     }
 }
