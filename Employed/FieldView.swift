@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ FieldView is a reusable view that can be populated with a title
+ and body to be added so a vertical UIStackView. This is commonly
+ used in the Discover card views.
+ */
 class FieldView: ProfileSectionView {
 
 	@IBOutlet weak var titleLabel: UILabel!

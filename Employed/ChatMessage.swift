@@ -10,8 +10,8 @@ import UIKit
 import MessageKit
 
 /**
-ChatMessage is a wrapper for the MessageKit MessageType object
-*/
+ ChatMessage is a wrapper for the MessageKit MessageType object
+ */
 struct ChatMessage: MessageType {
 
 	var messageId: String
@@ -33,5 +33,4 @@ struct ChatMessage: MessageType {
 	init(attributedText: NSAttributedString, sender: Sender, messageId: String, date: Date) {
         self.init(data: .attributedText(attributedText), sender: sender, messageId: messageId, date: date)
 	}
-
 }

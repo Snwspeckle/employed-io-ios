@@ -104,6 +104,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		567953E8206C3C9300A1BDA8 /* Protos */ = {
+			isa = PBXGroup;
+			children = (
+				56DEC8081FB977490047A8E0 /* job.pb.swift */,
+				56DEC8071FB977490047A8E0 /* user.pb.swift */,
+			);
+			path = Protos;
+			sourceTree = "<group>";
+		};
+		567953E9206C3CB100A1BDA8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				56EA361B1FB51001004009BE /* APIService.swift */,
+				565080AB204CAC2A00F18815 /* ChatService.swift */,
+				5634F9612050D6C600F0DED4 /* VideoService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		56B577421F96798F00B3B0BC = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +144,8 @@
 		56B5774D1F96798F00B3B0BC /* Employed */ = {
 			isa = PBXGroup;
 			children = (
-				56DEC8081FB977490047A8E0 /* job.pb.swift */,
-				56DEC8071FB977490047A8E0 /* user.pb.swift */,
+				567953E9206C3CB100A1BDA8 /* Services */,
+				567953E8206C3C9300A1BDA8 /* Protos */,
 				56B5774E1F96798F00B3B0BC /* AppDelegate.swift */,
 				56B577541F96798F00B3B0BC /* Main.storyboard */,
 				56B577571F96798F00B3B0BC /* Assets.xcassets */,
@@ -134,15 +153,12 @@
 				56B5775C1F96798F00B3B0BC /* Info.plist */,
 				56BD37701FB2481D00888CE7 /* DiscoverVC.swift */,
 				56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */,
-				56EA361B1FB51001004009BE /* APIService.swift */,
 				565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */,
 				565080A7204B5F6000F18815 /* ChatVC.swift */,
 				565080A9204CA1C300F18815 /* ChatMessage.swift */,
-				565080AB204CAC2A00F18815 /* ChatService.swift */,
 				565080AD204DCFF600F18815 /* MatchVC.swift */,
 				565080AF204DF5AB00F18815 /* ProfileSectionView.swift */,
 				568085DF204F5AEA00584017 /* AccountsVC.swift */,
-				5634F9612050D6C600F0DED4 /* VideoService.swift */,
 				5634F9632050D71B00F0DED4 /* Utilities.swift */,
 				5634F9652050DC9600F0DED4 /* VideoVC.swift */,
 				568969C52069A69F007F4B53 /* FieldView.swift */,

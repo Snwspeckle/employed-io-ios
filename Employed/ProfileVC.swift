@@ -10,6 +10,12 @@ import UIKit
 
 class ProfileVC: UITableViewController {
 
+	// Enum identifying the different prototype cells
+	enum PROFILE_CELL_IDENTIFIERS: String {
+		case RIGHT_DETAIL = "ProfileCellRightDetailIdentifier"
+		case ACCESSORY = "ProfileCellAccessoryIdentifier"
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -47,7 +53,7 @@ class ProfileVC: UITableViewController {
 	}
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCellRightDetailIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PROFILE_CELL_IDENTIFIERS.RIGHT_DETAIL.rawValue, for: indexPath)
 		
 		// Iterate on the different sections for this table
 		switch (indexPath.section) {
@@ -56,17 +62,17 @@ class ProfileVC: UITableViewController {
 				switch (indexPath.row) {
 					// Set the row for users name
 					case 0:
-						let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCellRightDetailIdentifier", for: indexPath)
+						let cell = tableView.dequeueReusableCell(withIdentifier: PROFILE_CELL_IDENTIFIERS.RIGHT_DETAIL.rawValue, for: indexPath)
 						cell.textLabel?.text = "Name"
 						cell.detailTextLabel?.text = "Anthony Vella"
 						return cell
 					// Set the row for the profile button
 					case 1:
-						let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCellAccessoryIdentifier", for: indexPath)
+						let cell = tableView.dequeueReusableCell(withIdentifier: PROFILE_CELL_IDENTIFIERS.ACCESSORY.rawValue, for: indexPath)
 						cell.textLabel?.text = "Profile"
 						return cell
 					case 2:
-						let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCellAccessoryIdentifier", for: indexPath)
+						let cell = tableView.dequeueReusableCell(withIdentifier: PROFILE_CELL_IDENTIFIERS.ACCESSORY.rawValue, for: indexPath)
 						cell.textLabel?.text = "My Jobs"
 						return cell
 					default:
@@ -77,7 +83,7 @@ class ProfileVC: UITableViewController {
 				switch (indexPath.row) {
 					// Set the row for the logout button
 					case 0:
-						let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCellAccessoryIdentifier", for: indexPath)
+						let cell = tableView.dequeueReusableCell(withIdentifier: PROFILE_CELL_IDENTIFIERS.ACCESSORY.rawValue, for: indexPath)
 						cell.textLabel?.textColor = UIColor.red
         				cell.textLabel?.text = "Logout"
         				return cell
@@ -102,15 +108,4 @@ class ProfileVC: UITableViewController {
 			hero.dismissViewController()
 		}
 	}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

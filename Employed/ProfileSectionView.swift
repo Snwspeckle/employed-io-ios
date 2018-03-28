@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ ProfileSectionView is a IBDesignable view that simplifies the
+ design process for views by being viewable in a Storyboard
+ */
 @IBDesignable
 class ProfileSectionView: UIView {
 

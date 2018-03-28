@@ -139,6 +139,4 @@ class DiscoverProfileVC: UIViewController {
 	func setPresentationType(type: DiscoverProfilePresentationType) -> Void {
 		self.presentationType = type
 	}
-
 }
-
