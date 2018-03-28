@@ -21,13 +21,13 @@ class FieldView: ProfileSectionView {
         super.init(coder: aDecoder)
     }
 	
-    static func create(title: String, body: String) -> FieldView {
+    static func create(title: String, body: String) -> FieldView? {
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"FieldVC")
 		if let view = controller.view as? FieldView {
 			view.titleLabel.text = title
 			view.bodyLabel.text = body
 			return view
 		}
-		return FieldView()
+		return nil
 	}
 }

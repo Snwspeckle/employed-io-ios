@@ -77,22 +77,25 @@ class DiscoverProfileVC: UIViewController {
 		
 		// Set the job description for both card and full view
 		if let description = self.job?.description_p {
-			let fieldJobDescription = FieldView.create(title: "Job Description", body: description)
-			self.fieldsStackView.addArrangedSubview(fieldJobDescription)
+			if let field = FieldView.create(title: "Job Description", body: description) {
+				self.fieldsStackView.addArrangedSubview(field)
+			}
 		}
 		
 		// Create the field view for job description
 		if presentationType == .Full {
 			// Set the responsibilities
 			if let responsibilities = self.job?.responsibilities {
-				let fieldResponsibilities = FieldView.create(title: "Responsibilities", body: responsibilities)
-				self.fieldsStackView.addArrangedSubview(fieldResponsibilities)
+				if let field = FieldView.create(title: "Responsibilities", body: responsibilities) {
+					self.fieldsStackView.addArrangedSubview(field)
+				}
 			}
 			
 			// Set the requirements
 			if let requirements = self.job?.requirements {
-				let fieldRequirements = FieldView.create(title: "Requirements", body: requirements)
-				self.fieldsStackView.addArrangedSubview(fieldRequirements)
+				if let field = FieldView.create(title: "Requirements", body: requirements) {
+					self.fieldsStackView.addArrangedSubview(field)
+				}
 			}
 		}
 		
