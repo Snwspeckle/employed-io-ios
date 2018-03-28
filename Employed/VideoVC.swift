@@ -207,6 +207,9 @@ extension VideoVC : TVIRoomDelegate {
         if (room.remoteParticipants.count > 0) {
             self.remoteParticipant = room.remoteParticipants[0]
             self.remoteParticipant?.delegate = self
+			
+            // Set the preview video view to not be fullscreen because the participant connected
+			setupPreviewVideoView(isFullScreen: false)
         }
     }
 	
@@ -226,9 +229,10 @@ extension VideoVC : TVIRoomDelegate {
 		if (self.remoteParticipant == nil) {
             self.remoteParticipant = participant
             self.remoteParticipant?.delegate = self
+			
+            // Set the preview video view to not be fullscreen because the participant connected
+			setupPreviewVideoView(isFullScreen: false)
         }
-        // Set the preview video view to not be fullscreen because the participant connected
-		setupPreviewVideoView(isFullScreen: false)
 		
 		logMessage(messageText: "Participant \(participant.identity) connected with \(participant.remoteAudioTracks.count) audio and \(participant.remoteVideoTracks.count) video tracks")
     }
