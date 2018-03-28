@@ -25,7 +25,9 @@ class FieldView: ProfileSectionView {
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"FieldVC")
 		if let view = controller.view as? FieldView {
 			view.titleLabel.text = title
+			view.titleLabel.hero.id = title
 			view.bodyLabel.text = body
+			view.bodyLabel.hero.id = title + "Body"
 			return view
 		}
 		return nil
