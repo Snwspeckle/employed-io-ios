@@ -75,6 +75,7 @@ class AccountsVC: UITableViewController {
 			let presenter = Presentr(presentationType: .dynamic(center: .center))
 			let animation = ScaleOutwardAnimation(options: .spring(duration: 0.5, delay: 0.0, damping: 0.8, velocity: 1.0))
 			presenter.transitionType = .custom(animation)
+			presenter.dismissOnTap = false
 			return presenter
 		}()
 		

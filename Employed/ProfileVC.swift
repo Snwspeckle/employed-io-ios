@@ -99,7 +99,7 @@ class ProfileVC: UITableViewController {
 		
 		// User selected the "logout" row so we should unwind to the root view controller (Accounts)
 		if (indexPath.section == 1 && indexPath.row == 0) {
-			hero.unwindToRootViewController()
+			hero.dismissViewController()
 		}
 	}
 
