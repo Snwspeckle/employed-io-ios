@@ -22,6 +22,20 @@ class ConnectionsTableViewCell: UITableViewCell {
         self.pictureImageView.layer.cornerRadius = self.pictureImageView.frame.width / 2
     }
 	
+	override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+		super.setHighlighted(highlighted, animated: animated)
+		
+		// Customize the highlighted background color
+		self.backgroundColor = highlighted ? UIColor(named: "TableViewCell Selected") : UIColor.white
+	}
+	
+    override func setSelected(_ selected: Bool, animated: Bool) {
+		super.setSelected(selected, animated: animated)
+		
+		// Customize the selected background color
+		self.backgroundColor = selected ? UIColor(named: "TableViewCell Selected") : UIColor.white
+	}
+	
 	// Setup the cell with the necessary information
     func setup(image: UIImage, name: String, companyName: String, jobPosition: String) -> Void {
 		self.pictureImageView.image = image
