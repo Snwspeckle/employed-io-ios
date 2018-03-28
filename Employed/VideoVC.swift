@@ -49,47 +49,14 @@ class VideoVC: UIViewController {
 	}
 	
     func connect() {
-		// Configure access token either from server or manually.
-        // If the default wasn't changed, try fetching from server.
-        var accessToken: String
-        do {
-        	let identity = VideoService.shared.getIdentity()
-        	let urlString = "\(TokenUtils.SERVICE.VIDEO.rawValue)?identity=\(identity)&room=test"
-			accessToken = try TokenUtils.fetchVideoToken(url: urlString)
-		} catch {
-			let message = "Failed to fetch access token"
-			logMessage(messageText: message)
-			return
-		}
-		
-        // Prepare local media which we will share with Room Participants.
+    	// Prepare local media which we will share with Room Participants.
         self.prepareLocalMedia()
 		
-        // Preparing the connect options with the access token that we fetched (or hardcoded).
-        let connectOptions = TVIConnectOptions.init(token: accessToken) { (builder) in
-			
-            // Use the local media that we prepared earlier.
-            builder.audioTracks = self.localAudioTrack != nil ? [self.localAudioTrack!] : [TVILocalAudioTrack]()
-            builder.videoTracks = self.localVideoTrack != nil ? [self.localVideoTrack!] : [TVILocalVideoTrack]()
-			
-            // Use the preferred audio codec
-			builder.preferredAudioCodecs = [TVIAudioCodec.opus.rawValue]
-			
-            // Use the preferred video codec
-			builder.preferredVideoCodecs =  [TVIVideoCodec.VP9.rawValue]
-			
-            // Use the preferred encoding parameters
-            builder.encodingParameters = TVIEncodingParameters(audioBitrate: UInt(), videoBitrate: UInt())
-			
-            // The name of the Room where the Client will attempt to connect to. Please note that if you pass an empty
-            // Room `name`, the Client will create one for you. You can get the name or sid from any connected Room.
-            builder.roomName = "test"
-        }
-		
-        // Connect to the Room using the options we provided.
-        room = TwilioVideo.connect(with: connectOptions, delegate: self)
-		
-        logMessage(messageText: "Attempting to connect to room \(room!.name)")
+        // Connect to the video room
+        if let room = VideoService.shared.connect(room: "test", audioTrack: self.localAudioTrack, videoTrack: self.localVideoTrack, delegate: self) {
+        	self.room = room
+        	logMessage(messageText: "Attempting to connect to room \(self.room!.name)")
+		}
 	}
 	
     func startPreview() {
@@ -110,10 +77,6 @@ class VideoVC: UIViewController {
             localVideoTrack!.addRenderer(self.previewView)
 
             logMessage(messageText: "Video track created")
-
-//            // We will flip camera on tap.
-//            let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.flipCamera))
-//            self.previewView.addGestureRecognizer(tap)
         }
     }
 	
