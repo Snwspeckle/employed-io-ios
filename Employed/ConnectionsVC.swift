@@ -8,6 +8,28 @@
 
 import UIKit
 
+class ConnectionsTableViewCell: UITableViewCell {
+	
+	@IBOutlet weak var pictureImageView: UIImageView!
+	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var companyAndJobLabel: UILabel!
+	
+	override func awakeFromNib() {
+        super.awakeFromNib()
+		
+		// Customize the image view to be circular
+		self.pictureImageView.clipsToBounds = true
+        self.pictureImageView.layer.cornerRadius = self.pictureImageView.frame.width / 2
+    }
+	
+	// Setup the cell with the necessary information
+    func setup(image: UIImage, name: String, companyName: String, jobPosition: String) -> Void {
+		self.pictureImageView.image = image
+		self.nameLabel.text = name
+		self.companyAndJobLabel.text = companyName + ", " + jobPosition
+	}
+}
+
 class ConnectionsVC: UITableViewController {
 
     override func viewDidLoad() {

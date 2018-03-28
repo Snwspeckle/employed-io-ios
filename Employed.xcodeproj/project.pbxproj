@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */; };
 		5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634F9612050D6C600F0DED4 /* VideoService.swift */; };
 		5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634F9632050D71B00F0DED4 /* Utilities.swift */; };
 		5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5634F9652050DC9600F0DED4 /* VideoVC.swift */; };
@@ -49,7 +48,6 @@
 /* Begin PBXFileReference section */
 		2E79600091DC334C930DAC65 /* Pods-Employed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Employed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Employed/Pods-Employed.debug.xcconfig"; sourceTree = "<group>"; };
 		4BBA97FD3FD06D26F24AD454 /* Pods_Employed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Employed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewCell.swift; sourceTree = "<group>"; };
 		5634F9612050D6C600F0DED4 /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
 		5634F9632050D71B00F0DED4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5634F9652050DC9600F0DED4 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				56BD37701FB2481D00888CE7 /* DiscoverVC.swift */,
 				56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */,
 				56EA361B1FB51001004009BE /* APIService.swift */,
-				56223C9B1FB8D9A20091B76E /* ConnectionsTableViewCell.swift */,
 				565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */,
 				565080A7204B5F6000F18815 /* ChatVC.swift */,
 				565080A9204CA1C300F18815 /* ChatMessage.swift */,
@@ -329,7 +326,6 @@
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
 				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
-				56223C9C1FB8D9A20091B76E /* ConnectionsTableViewCell.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,
 				56DEC80A1FB977490047A8E0 /* job.pb.swift in Sources */,
 				56DEC8091FB977490047A8E0 /* user.pb.swift in Sources */,
