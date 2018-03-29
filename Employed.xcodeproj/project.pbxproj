@@ -18,6 +18,9 @@
 		565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */; };
 		567953E5206ACE2E00A1BDA8 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953E4206ACE2E00A1BDA8 /* ProfileVC.swift */; };
 		567953E7206AD70500A1BDA8 /* JobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953E6206AD70500A1BDA8 /* JobsVC.swift */; };
+		567953EE206C4C8400A1BDA8 /* UserFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953ED206C4C8400A1BDA8 /* UserFormVC.swift */; };
+		567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F0206C54D900A1BDA8 /* JobFormVC.swift */; };
+		567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */; };
 		568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568085DF204F5AEA00584017 /* AccountsVC.swift */; };
 		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
@@ -59,6 +62,9 @@
 		565C57ED2022C168008387D5 /* DiscoverProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProfileVC.swift; sourceTree = "<group>"; };
 		567953E4206ACE2E00A1BDA8 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		567953E6206AD70500A1BDA8 /* JobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsVC.swift; sourceTree = "<group>"; };
+		567953ED206C4C8400A1BDA8 /* UserFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormVC.swift; sourceTree = "<group>"; };
+		567953F0206C54D900A1BDA8 /* JobFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFormVC.swift; sourceTree = "<group>"; };
+		567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionVC.swift; sourceTree = "<group>"; };
 		568085DF204F5AEA00584017 /* AccountsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsVC.swift; sourceTree = "<group>"; };
 		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +170,9 @@
 				568969C52069A69F007F4B53 /* FieldView.swift */,
 				567953E4206ACE2E00A1BDA8 /* ProfileVC.swift */,
 				567953E6206AD70500A1BDA8 /* JobsVC.swift */,
+				567953ED206C4C8400A1BDA8 /* UserFormVC.swift */,
+				567953F0206C54D900A1BDA8 /* JobFormVC.swift */,
+				567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -253,13 +262,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Employed/Pods-Employed-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Networking/Networking.framework",
 				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
-				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 				"${PODS_ROOT}/TwilioChatClient/TwilioChatClient.framework",
@@ -269,13 +278,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioChatClient.framework",
@@ -333,13 +342,16 @@
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
 				5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */,
 				568969C62069A69F007F4B53 /* FieldView.swift in Sources */,
+				567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */,
 				568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */,
 				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
 				565080AE204DCFF600F18815 /* MatchVC.swift in Sources */,
 				567953E7206AD70500A1BDA8 /* JobsVC.swift in Sources */,
 				565080A8204B5F6000F18815 /* ChatVC.swift in Sources */,
+				567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */,
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
+				567953EE206C4C8400A1BDA8 /* UserFormVC.swift in Sources */,
 				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,

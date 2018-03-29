@@ -33,13 +33,13 @@ target 'Employed' do
   # Fancy Text Buttons
   pod 'LGButton'
   
-  # Fancy TextFields
-  pod 'SkyFloatingLabelTextField', '~> 3.0'
-  
   # Twilio Chat
   pod 'TwilioChatClient', '~> 2.2.0'
   
   # Twilio Video
   pod 'TwilioVideo', '2.0.0-beta3'
+  
+  # Eureka Form Builder
+  pod 'Eureka'
   
 end

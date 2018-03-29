@@ -71,33 +71,11 @@ class AccountsVC: UITableViewController {
     }
 	
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let presenter: Presentr = {
-			let presenter = Presentr(presentationType: .dynamic(center: .center))
-			let animation = ScaleOutwardAnimation(options: .spring(duration: 0.5, delay: 0.0, damping: 0.8, velocity: 1.0))
-			presenter.transitionType = .custom(animation)
-			presenter.dismissOnTap = false
-			return presenter
-		}()
-		
 		// Set the identity of our user
 		VideoService.shared.setIdentity(accounts[indexPath.row].name)
 		
-		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
-		self.customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
-		
-	}
-}
-
-// Custom animation that scales and alphas in the animating view
-class ScaleOutwardAnimation: PresentrAnimation {
-	
-	override func beforeAnimation(using transitionContext: PresentrTransitionContext) {
-		transitionContext.animatingView?.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
-		transitionContext.animatingView?.alpha = transitionContext.isPresenting ? 0.0 : 1.0
-	}
-	
-	override func performAnimation(using transitionContext: PresentrTransitionContext) {
-		transitionContext.animatingView?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
-		transitionContext.animatingView?.alpha = transitionContext.isPresenting ? 1.0 : 0.0
+		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"UserFormVC") as! UserFormVC
+		controller.setPresentationType(type: .Onboarding)
+		self.navigationController?.pushViewController(controller, animated: true)
 	}
 }

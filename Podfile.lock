@@ -2,6 +2,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Eureka (4.1.1)
   - Hero (1.1.0)
   - Koloda (4.3.1):
     - pop (~> 1.0)
@@ -10,7 +11,6 @@ PODS:
   - Networking (4.1.1)
   - pop (1.0.10)
   - Presentr (1.3)
-  - SkyFloatingLabelTextField (3.4.1)
   - SwiftProtobuf (1.0.3)
   - TagListView (1.3.0)
   - TwilioChatClient (2.2.1)
@@ -18,13 +18,13 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Eureka
   - Hero
   - Koloda
   - LGButton
   - MessageKit
   - Networking
   - Presentr
-  - SkyFloatingLabelTextField (~> 3.0)
   - SwiftProtobuf
   - TagListView (~> 1.0)
   - TwilioChatClient (~> 2.2.0)
@@ -41,6 +41,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   Hero: ce59e81c79390613d97b43da7179e2c5e1017e04
   Koloda: 0d39b2aa188ccd1fac48d752acaf9802e683c625
   LGButton: 707ce916eb80b73a6c4688df34bee11adbafb663
@@ -48,12 +49,11 @@ SPEC CHECKSUMS:
   Networking: ffde5754883907f90f9f751e183eba4a75dc4b89
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Presentr: 3f0825a42cb32ecd8fc6b6d0b0de87d7d0b42482
-  SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftProtobuf: 5ccc0e4054e37c75800e5744acb2aa80bb72b39c
   TagListView: 669f7d4455003c877655875d34829731c4191528
   TwilioChatClient: dbf9e4c4707f8515f431498c53ad1f78a3faa110
   TwilioVideo: 08cada2c04a7a908655fd80a1423a9c762344625
 
-PODFILE CHECKSUM: 500df70c2ece4ce059dda06ab58dd35e2368b193
+PODFILE CHECKSUM: c7c0232cb087939da12146d1ec6a5bb4628cebe8
 
 COCOAPODS: 1.4.0
