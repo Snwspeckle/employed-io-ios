@@ -23,6 +23,7 @@
 		567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */; };
 		568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568085DF204F5AEA00584017 /* AccountsVC.swift */; };
 		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
+		56A8E370206DF12B001D800D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E36F206DF12B001D800D /* LoginVC.swift */; };
 		56A8E376206DF9A0001D800D /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E371206DF99F001D800D /* user.pb.swift */; };
 		56A8E377206DF9A0001D800D /* company.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E372206DF99F001D800D /* company.pb.swift */; };
 		56A8E378206DF9A0001D800D /* jobs_by_tag_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */; };
@@ -70,6 +71,7 @@
 		567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionVC.swift; sourceTree = "<group>"; };
 		568085DF204F5AEA00584017 /* AccountsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsVC.swift; sourceTree = "<group>"; };
 		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
+		56A8E36F206DF12B001D800D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		56A8E371206DF99F001D800D /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		56A8E372206DF99F001D800D /* company.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = company.pb.swift; sourceTree = "<group>"; };
 		56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jobs_by_tag_request.pb.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				567953ED206C4C8400A1BDA8 /* UserFormVC.swift */,
 				567953F0206C54D900A1BDA8 /* JobFormVC.swift */,
 				567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */,
+				56A8E36F206DF12B001D800D /* LoginVC.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Networking/Networking.framework",
 				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 				"${PODS_ROOT}/TwilioChatClient/TwilioChatClient.framework",
@@ -294,6 +298,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioChatClient.framework",
@@ -368,6 +373,7 @@
 				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,
+				56A8E370206DF12B001D800D /* LoginVC.swift in Sources */,
 				567953E5206ACE2E00A1BDA8 /* ProfileVC.swift in Sources */,
 				56A8E376206DF9A0001D800D /* user.pb.swift in Sources */,
 			);

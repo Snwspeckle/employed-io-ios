@@ -42,4 +42,7 @@ target 'Employed' do
   # Eureka Form Builder
   pod 'Eureka'
   
+  # Fancy Text Fields
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
+  
 end

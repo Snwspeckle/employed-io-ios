@@ -105,7 +105,7 @@ class ProfileVC: UITableViewController {
 		
 		// User selected the "logout" row so we should unwind to the root view controller (Accounts)
 		if (indexPath.section == 1 && indexPath.row == 0) {
-			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"AccountsNavVC")
+			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"LoginNavVC")
 			self.present(controller, animated: true, completion: nil)
 		}
 	}

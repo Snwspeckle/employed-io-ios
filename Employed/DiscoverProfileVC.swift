@@ -57,12 +57,12 @@ class DiscoverProfileVC: UIViewController {
 		self.companyNameLabel.text = self.job?.company.name
 		
 		// Set the location label
-		if let address = self.job?.jobAddress {
+		if let address = self.job?.location.address {
 			// Gets the first to characters in the state and uppercases them
 			let indexStartOf = address.state.index(address.state.startIndex, offsetBy: 2)
 			let state = address.state[..<indexStartOf].uppercased()
 			
-			self.locationLabel.text = address.city + ", " + state
+			self.locationLabel.text = address.city + ", " + address.state
 		}
 		
 		// Set the salary label
@@ -71,7 +71,7 @@ class DiscoverProfileVC: UIViewController {
 		}
 		
 		// Set the experience label
-		if let experience = self.job?.experience {
+		if let experience = self.job?.requiredExperience {
 			self.experienceLabel.text = experience
 		}
 		
@@ -92,7 +92,7 @@ class DiscoverProfileVC: UIViewController {
 			}
 			
 			// Set the requirements
-			if let requirements = self.job?.requirements {
+			if let requirements = self.job?.preferredExperience {
 				if let field = FieldView.create(title: "Requirements", body: requirements) {
 					self.fieldsStackView.addArrangedSubview(field)
 				}
@@ -102,17 +102,17 @@ class DiscoverProfileVC: UIViewController {
 		// Set the tags
 		if let tagList = self.tagListView {
 			tagList.textFont = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.bold)
-			if let tags = self.job?.tag.tagName {
-				let tagSlice = tags[0].split(separator: ";")
-				let tagArray = Array(tagSlice)
-				for tag in tagArray {
-					tagList.addTag(String(tag))
-				}
-			}
+//			if let tags = self.job?.tag.tagName {
+//				let tagSlice = tags[0].split(separator: ";")
+//				let tagArray = Array(tagSlice)
+//				for tag in tagArray {
+//					tagList.addTag(String(tag))
+//				}
+//			}
 		}
 		
 		// Set the recruiter label
-		if let firstName = self.job?.recruiter.name.firstName, let lastName = self.job?.recruiter.name.lastName {
+		if let firstName = self.job?.recruiter.firstName, let lastName = self.job?.recruiter.lastName {
 			self.recruiterNameLabel.text = firstName + " " + lastName
 			
 			switch firstName {

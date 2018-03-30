@@ -62,6 +62,44 @@ class APIService {
 		}
 	}
 	
+	func getMockUsers(completion: @escaping (Employed_Io_User) -> Void) {
+		let networking = Networking(baseURL: baseURL)
+		// Setup our headers for the request
+		setupHeaders(networking: networking)
+		networking.post("/api/users/test") { result in
+			switch result {
+			case .success(let response):
+				do {
+					let user = try Employed_Io_User(jsonUTF8Data: response.data)
+					completion(user)
+				} catch {
+					return ()
+				}
+			case .failure(_):
+				return ()
+			}
+		}
+	}
+	
+	func getMockJobs(completion: @escaping (Employed_Io_Job) -> Void) {
+		let networking = Networking(baseURL: baseURL)
+		// Setup our headers for the request
+		setupHeaders(networking: networking)
+		networking.post("/api/jobs/mock") { result in
+			switch result {
+			case .success(let response):
+				do {
+					let job = try Employed_Io_Job(jsonUTF8Data: response.data)
+					completion(job)
+				} catch {
+					return ()
+				}
+			case .failure(_):
+				return ()
+			}
+		}
+	}
+	
 	private func setupHeaders(networking: Networking) -> Void {
 		networking.headerFields = ["Accept": "application/json"]
 	}

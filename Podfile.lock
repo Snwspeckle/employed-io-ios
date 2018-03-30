@@ -11,6 +11,7 @@ PODS:
   - Networking (4.1.1)
   - pop (1.0.10)
   - Presentr (1.3)
+  - SkyFloatingLabelTextField (3.4.1)
   - SwiftProtobuf (1.0.3)
   - TagListView (1.3.0)
   - TwilioChatClient (2.2.1)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - MessageKit
   - Networking
   - Presentr
+  - SkyFloatingLabelTextField (~> 3.0)
   - SwiftProtobuf
   - TagListView (~> 1.0)
   - TwilioChatClient (~> 2.2.0)
@@ -49,11 +51,12 @@ SPEC CHECKSUMS:
   Networking: ffde5754883907f90f9f751e183eba4a75dc4b89
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Presentr: 3f0825a42cb32ecd8fc6b6d0b0de87d7d0b42482
+  SkyFloatingLabelTextField: 8085f20f57f74a00cfcae58099299faa1a971035
   SwiftProtobuf: 5ccc0e4054e37c75800e5744acb2aa80bb72b39c
   TagListView: 669f7d4455003c877655875d34829731c4191528
   TwilioChatClient: dbf9e4c4707f8515f431498c53ad1f78a3faa110
   TwilioVideo: 08cada2c04a7a908655fd80a1423a9c762344625
 
-PODFILE CHECKSUM: c7c0232cb087939da12146d1ec6a5bb4628cebe8
+PODFILE CHECKSUM: cb71b9d13617eab5382df2508b506d69ccca3c52
 
 COCOAPODS: 1.4.0
