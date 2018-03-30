@@ -23,13 +23,16 @@
 		567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */; };
 		568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568085DF204F5AEA00584017 /* AccountsVC.swift */; };
 		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
+		56A8E376206DF9A0001D800D /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E371206DF99F001D800D /* user.pb.swift */; };
+		56A8E377206DF9A0001D800D /* company.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E372206DF99F001D800D /* company.pb.swift */; };
+		56A8E378206DF9A0001D800D /* jobs_by_tag_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */; };
+		56A8E379206DF9A0001D800D /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E374206DF9A0001D800D /* job.pb.swift */; };
+		56A8E37A206DF9A0001D800D /* location.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E375206DF9A0001D800D /* location.pb.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
 		56B577561F96798F00B3B0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577541F96798F00B3B0BC /* Main.storyboard */; };
 		56B577581F96798F00B3B0BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B577571F96798F00B3B0BC /* Assets.xcassets */; };
 		56B5775B1F96798F00B3B0BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577591F96798F00B3B0BC /* LaunchScreen.storyboard */; };
 		56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD37701FB2481D00888CE7 /* DiscoverVC.swift */; };
-		56DEC8091FB977490047A8E0 /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEC8071FB977490047A8E0 /* user.pb.swift */; };
-		56DEC80A1FB977490047A8E0 /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DEC8081FB977490047A8E0 /* job.pb.swift */; };
 		56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */; };
 		56EA361C1FB51001004009BE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA361B1FB51001004009BE /* APIService.swift */; };
 		8EFA5850D6D9E63DF8A77D86 /* Pods_Employed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBA97FD3FD06D26F24AD454 /* Pods_Employed.framework */; };
@@ -67,6 +70,11 @@
 		567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionVC.swift; sourceTree = "<group>"; };
 		568085DF204F5AEA00584017 /* AccountsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsVC.swift; sourceTree = "<group>"; };
 		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
+		56A8E371206DF99F001D800D /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
+		56A8E372206DF99F001D800D /* company.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = company.pb.swift; sourceTree = "<group>"; };
+		56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jobs_by_tag_request.pb.swift; sourceTree = "<group>"; };
+		56A8E374206DF9A0001D800D /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
+		56A8E375206DF9A0001D800D /* location.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.pb.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B5774E1F96798F00B3B0BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B577551F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,8 +82,6 @@
 		56B5775A1F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56B5775C1F96798F00B3B0BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56BD37701FB2481D00888CE7 /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
-		56DEC8071FB977490047A8E0 /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
-		56DEC8081FB977490047A8E0 /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
 		56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
 		56EA361B1FB51001004009BE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		846003E4A87EC6F667766D96 /* Pods-Employed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Employed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Employed/Pods-Employed.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,8 +119,11 @@
 		567953E8206C3C9300A1BDA8 /* Protos */ = {
 			isa = PBXGroup;
 			children = (
-				56DEC8081FB977490047A8E0 /* job.pb.swift */,
-				56DEC8071FB977490047A8E0 /* user.pb.swift */,
+				56A8E372206DF99F001D800D /* company.pb.swift */,
+				56A8E374206DF9A0001D800D /* job.pb.swift */,
+				56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */,
+				56A8E375206DF9A0001D800D /* location.pb.swift */,
+				56A8E371206DF99F001D800D /* user.pb.swift */,
 			);
 			path = Protos;
 			sourceTree = "<group>";
@@ -337,16 +346,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */,
+				56A8E37A206DF9A0001D800D /* location.pb.swift in Sources */,
 				565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */,
+				56A8E378206DF9A0001D800D /* jobs_by_tag_request.pb.swift in Sources */,
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
 				5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */,
 				568969C62069A69F007F4B53 /* FieldView.swift in Sources */,
 				567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */,
 				568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */,
+				56A8E379206DF9A0001D800D /* job.pb.swift in Sources */,
 				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
 				565080AE204DCFF600F18815 /* MatchVC.swift in Sources */,
+				56A8E377206DF9A0001D800D /* company.pb.swift in Sources */,
 				567953E7206AD70500A1BDA8 /* JobsVC.swift in Sources */,
 				565080A8204B5F6000F18815 /* ChatVC.swift in Sources */,
 				567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */,
@@ -355,9 +368,8 @@
 				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,
-				56DEC80A1FB977490047A8E0 /* job.pb.swift in Sources */,
-				56DEC8091FB977490047A8E0 /* user.pb.swift in Sources */,
 				567953E5206ACE2E00A1BDA8 /* ProfileVC.swift in Sources */,
+				56A8E376206DF9A0001D800D /* user.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

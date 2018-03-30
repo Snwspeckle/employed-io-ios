@@ -19,27 +19,32 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Employed_Io_Job: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Job"
+struct Employed_Io_Jobs {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var jobs: [Employed_Io_Job] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct Employed_Io_Job {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var jobID: String {
+    get {return _storage._jobID}
+    set {_uniqueStorage()._jobID = newValue}
+  }
 
   var title: String {
     get {return _storage._title}
     set {_uniqueStorage()._title = newValue}
   }
-
-  var catergory: Employed_Io_Job.CatergoryType {
-    get {return _storage._catergory}
-    set {_uniqueStorage()._catergory = newValue}
-  }
-
-  var company: Employed_Io_Job.Company {
-    get {return _storage._company ?? Employed_Io_Job.Company()}
-    set {_uniqueStorage()._company = newValue}
-  }
-  /// Returns true if `company` has been explicitly set.
-  var hasCompany: Bool {return _storage._company != nil}
-  /// Clears the value of `company`. Subsequent reads from it will return its default value.
-  mutating func clearCompany() {_storage._company = nil}
 
   var description_p: String {
     get {return _storage._description_p}
@@ -51,33 +56,14 @@ struct Employed_Io_Job: SwiftProtobuf.Message {
     set {_uniqueStorage()._shortDescription = newValue}
   }
 
-  var salary: Double {
-    get {return _storage._salary}
-    set {_uniqueStorage()._salary = newValue}
+  var company: Employed_Io_Company {
+    get {return _storage._company ?? Employed_Io_Company()}
+    set {_uniqueStorage()._company = newValue}
   }
-
-  var avatarImage: String {
-    get {return _storage._avatarImage}
-    set {_uniqueStorage()._avatarImage = newValue}
-  }
-
-  var tag: Employed_Io_Job.Tag {
-    get {return _storage._tag ?? Employed_Io_Job.Tag()}
-    set {_uniqueStorage()._tag = newValue}
-  }
-  /// Returns true if `tag` has been explicitly set.
-  var hasTag: Bool {return _storage._tag != nil}
-  /// Clears the value of `tag`. Subsequent reads from it will return its default value.
-  mutating func clearTag() {_storage._tag = nil}
-
-  var jobAddress: Employed_Io_Job.JobAddress {
-    get {return _storage._jobAddress ?? Employed_Io_Job.JobAddress()}
-    set {_uniqueStorage()._jobAddress = newValue}
-  }
-  /// Returns true if `jobAddress` has been explicitly set.
-  var hasJobAddress: Bool {return _storage._jobAddress != nil}
-  /// Clears the value of `jobAddress`. Subsequent reads from it will return its default value.
-  mutating func clearJobAddress() {_storage._jobAddress = nil}
+  /// Returns true if `company` has been explicitly set.
+  var hasCompany: Bool {return _storage._company != nil}
+  /// Clears the value of `company`. Subsequent reads from it will return its default value.
+  mutating func clearCompany() {_storage._company = nil}
 
   var recruiter: Employed_Io_Job.Recruiter {
     get {return _storage._recruiter ?? Employed_Io_Job.Recruiter()}
@@ -88,22 +74,100 @@ struct Employed_Io_Job: SwiftProtobuf.Message {
   /// Clears the value of `recruiter`. Subsequent reads from it will return its default value.
   mutating func clearRecruiter() {_storage._recruiter = nil}
 
+  var catergoryType: Employed_Io_Job.CatergoryType {
+    get {return _storage._catergoryType}
+    set {_uniqueStorage()._catergoryType = newValue}
+  }
+
+  var employmentType: Employed_Io_Job.EmploymentType {
+    get {return _storage._employmentType}
+    set {_uniqueStorage()._employmentType = newValue}
+  }
+
+  var salaryType: OneOf_SalaryType? {
+    get {return _storage._salaryType}
+    set {_uniqueStorage()._salaryType = newValue}
+  }
+
+  var salary: Int32 {
+    get {
+      if case .salary(let v)? = _storage._salaryType {return v}
+      return 0
+    }
+    set {_uniqueStorage()._salaryType = .salary(newValue)}
+  }
+
+  var salaryRange: Employed_Io_Job.SalaryRange {
+    get {
+      if case .salaryRange(let v)? = _storage._salaryType {return v}
+      return Employed_Io_Job.SalaryRange()
+    }
+    set {_uniqueStorage()._salaryType = .salaryRange(newValue)}
+  }
+
+  var location: Employed_Io_Location {
+    get {return _storage._location ?? Employed_Io_Location()}
+    set {_uniqueStorage()._location = newValue}
+  }
+  /// Returns true if `location` has been explicitly set.
+  var hasLocation: Bool {return _storage._location != nil}
+  /// Clears the value of `location`. Subsequent reads from it will return its default value.
+  mutating func clearLocation() {_storage._location = nil}
+
+  var numberOfHires: Int32 {
+    get {return _storage._numberOfHires}
+    set {_uniqueStorage()._numberOfHires = newValue}
+  }
+
+  var requiredExperience: String {
+    get {return _storage._requiredExperience}
+    set {_uniqueStorage()._requiredExperience = newValue}
+  }
+
+  var preferredExperience: String {
+    get {return _storage._preferredExperience}
+    set {_uniqueStorage()._preferredExperience = newValue}
+  }
+
+  var skills: [String] {
+    get {return _storage._skills}
+    set {_uniqueStorage()._skills = newValue}
+  }
+
   var responsibilities: String {
     get {return _storage._responsibilities}
     set {_uniqueStorage()._responsibilities = newValue}
   }
 
-  var requirements: String {
-    get {return _storage._requirements}
-    set {_uniqueStorage()._requirements = newValue}
-  }
-
-  var experience: String {
+  var experience: Int32 {
     get {return _storage._experience}
     set {_uniqueStorage()._experience = newValue}
   }
 
+  var educationLevel: [Employed_Io_Job.EducationLevel] {
+    get {return _storage._educationLevel}
+    set {_uniqueStorage()._educationLevel = newValue}
+  }
+
+  var tags: [String] {
+    get {return _storage._tags}
+    set {_uniqueStorage()._tags = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_SalaryType: Equatable {
+    case salary(Int32)
+    case salaryRange(Employed_Io_Job.SalaryRange)
+
+    static func ==(lhs: Employed_Io_Job.OneOf_SalaryType, rhs: Employed_Io_Job.OneOf_SalaryType) -> Bool {
+      switch (lhs, rhs) {
+      case (.salary(let l), .salary(let r)): return l == r
+      case (.salaryRange(let l), .salaryRange(let r)): return l == r
+      default: return false
+      }
+    }
+  }
 
   enum CatergoryType: SwiftProtobuf.Enum {
     typealias RawValue = Int
@@ -166,317 +230,121 @@ struct Employed_Io_Job: SwiftProtobuf.Message {
 
   }
 
-  struct Company: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".Company"
+  enum EmploymentType: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case fullTime // = 0
+    case partTime // = 1
+    case contract // = 2
+    case internship // = 3
+    case temporary // = 4
+    case volunteer // = 5
+    case UNRECOGNIZED(Int)
 
-    var name: String = String()
+    init() {
+      self = .fullTime
+    }
 
-    var description_p: String = String()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self.name)
-        case 2: try decoder.decodeSingularStringField(value: &self.description_p)
-        default: break
-        }
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .fullTime
+      case 1: self = .partTime
+      case 2: self = .contract
+      case 3: self = .internship
+      case 4: self = .temporary
+      case 5: self = .volunteer
+      default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.name.isEmpty {
-        try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    var rawValue: Int {
+      switch self {
+      case .fullTime: return 0
+      case .partTime: return 1
+      case .contract: return 2
+      case .internship: return 3
+      case .temporary: return 4
+      case .volunteer: return 5
+      case .UNRECOGNIZED(let i): return i
       }
-      if !self.description_p.isEmpty {
-        try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
-      }
-      try unknownFields.traverse(visitor: &visitor)
     }
+
   }
 
-  struct Tag: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".Tag"
+  enum EducationLevel: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case highSchoolDiploma // = 0
+    case associatesDegree // = 1
+    case bachelorsDegree // = 2
+    case mastersDegree // = 3
+    case masterOfBusinessAdministration // = 4
+    case doctorOfPhilosophy // = 5
+    case doctorOfMedicine // = 6
+    case doctorOfLaw // = 7
+    case UNRECOGNIZED(Int)
 
-    var tagName: [String] = []
+    init() {
+      self = .highSchoolDiploma
+    }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeRepeatedStringField(value: &self.tagName)
-        default: break
-        }
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .highSchoolDiploma
+      case 1: self = .associatesDegree
+      case 2: self = .bachelorsDegree
+      case 3: self = .mastersDegree
+      case 4: self = .masterOfBusinessAdministration
+      case 5: self = .doctorOfPhilosophy
+      case 6: self = .doctorOfMedicine
+      case 7: self = .doctorOfLaw
+      default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.tagName.isEmpty {
-        try visitor.visitRepeatedStringField(value: self.tagName, fieldNumber: 1)
+    var rawValue: Int {
+      switch self {
+      case .highSchoolDiploma: return 0
+      case .associatesDegree: return 1
+      case .bachelorsDegree: return 2
+      case .mastersDegree: return 3
+      case .masterOfBusinessAdministration: return 4
+      case .doctorOfPhilosophy: return 5
+      case .doctorOfMedicine: return 6
+      case .doctorOfLaw: return 7
+      case .UNRECOGNIZED(let i): return i
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+
   }
 
-  struct JobAddress: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".JobAddress"
-
-    var postalCode: Int32 = 0
-
-    var city: String = String()
-
-    var state: String = String()
-
-    var country: String = String()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.postalCode)
-        case 2: try decoder.decodeSingularStringField(value: &self.city)
-        case 3: try decoder.decodeSingularStringField(value: &self.state)
-        case 4: try decoder.decodeSingularStringField(value: &self.country)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.postalCode != 0 {
-        try visitor.visitSingularInt32Field(value: self.postalCode, fieldNumber: 1)
-      }
-      if !self.city.isEmpty {
-        try visitor.visitSingularStringField(value: self.city, fieldNumber: 2)
-      }
-      if !self.state.isEmpty {
-        try visitor.visitSingularStringField(value: self.state, fieldNumber: 3)
-      }
-      if !self.country.isEmpty {
-        try visitor.visitSingularStringField(value: self.country, fieldNumber: 4)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
-
-  struct RecruiterName: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".RecruiterName"
+  struct Recruiter {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var firstName: String = String()
-
-    var middleName: String = String()
 
     var lastName: String = String()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self.firstName)
-        case 2: try decoder.decodeSingularStringField(value: &self.middleName)
-        case 3: try decoder.decodeSingularStringField(value: &self.lastName)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.firstName.isEmpty {
-        try visitor.visitSingularStringField(value: self.firstName, fieldNumber: 1)
-      }
-      if !self.middleName.isEmpty {
-        try visitor.visitSingularStringField(value: self.middleName, fieldNumber: 2)
-      }
-      if !self.lastName.isEmpty {
-        try visitor.visitSingularStringField(value: self.lastName, fieldNumber: 3)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
   }
 
-  struct Recruiter: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".Recruiter"
+  struct SalaryRange {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-    var name: Employed_Io_Job.RecruiterName {
-      get {return _storage._name ?? Employed_Io_Job.RecruiterName()}
-      set {_uniqueStorage()._name = newValue}
-    }
-    /// Returns true if `name` has been explicitly set.
-    var hasName: Bool {return _storage._name != nil}
-    /// Clears the value of `name`. Subsequent reads from it will return its default value.
-    mutating func clearName() {_storage._name = nil}
+    var minSalary: Int32 = 0
 
-    var company: Employed_Io_Job.Company {
-      get {return _storage._company ?? Employed_Io_Job.Company()}
-      set {_uniqueStorage()._company = newValue}
-    }
-    /// Returns true if `company` has been explicitly set.
-    var hasCompany: Bool {return _storage._company != nil}
-    /// Clears the value of `company`. Subsequent reads from it will return its default value.
-    mutating func clearCompany() {_storage._company = nil}
+    var maxSalary: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      _ = _uniqueStorage()
-      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-        while let fieldNumber = try decoder.nextFieldNumber() {
-          switch fieldNumber {
-          case 1: try decoder.decodeSingularMessageField(value: &_storage._name)
-          case 2: try decoder.decodeSingularMessageField(value: &_storage._company)
-          default: break
-          }
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-        if let v = _storage._name {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-        }
-        if let v = _storage._company {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-        }
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
-    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_storage._title)
-        case 2: try decoder.decodeSingularEnumField(value: &_storage._catergory)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._company)
-        case 4: try decoder.decodeSingularStringField(value: &_storage._description_p)
-        case 5: try decoder.decodeSingularStringField(value: &_storage._shortDescription)
-        case 6: try decoder.decodeSingularDoubleField(value: &_storage._salary)
-        case 7: try decoder.decodeSingularStringField(value: &_storage._avatarImage)
-        case 8: try decoder.decodeSingularMessageField(value: &_storage._tag)
-        case 9: try decoder.decodeSingularMessageField(value: &_storage._jobAddress)
-        case 10: try decoder.decodeSingularMessageField(value: &_storage._recruiter)
-        case 11: try decoder.decodeSingularStringField(value: &_storage._responsibilities)
-        case 12: try decoder.decodeSingularStringField(value: &_storage._requirements)
-        case 13: try decoder.decodeSingularStringField(value: &_storage._experience)
-        default: break
-        }
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_storage._title.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._title, fieldNumber: 1)
-      }
-      if _storage._catergory != .engineering {
-        try visitor.visitSingularEnumField(value: _storage._catergory, fieldNumber: 2)
-      }
-      if let v = _storage._company {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if !_storage._description_p.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._description_p, fieldNumber: 4)
-      }
-      if !_storage._shortDescription.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._shortDescription, fieldNumber: 5)
-      }
-      if _storage._salary != 0 {
-        try visitor.visitSingularDoubleField(value: _storage._salary, fieldNumber: 6)
-      }
-      if !_storage._avatarImage.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._avatarImage, fieldNumber: 7)
-      }
-      if let v = _storage._tag {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._jobAddress {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }
-      if let v = _storage._recruiter {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-      }
-      if !_storage._responsibilities.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._responsibilities, fieldNumber: 11)
-      }
-      if !_storage._requirements.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._requirements, fieldNumber: 12)
-      }
-      if !_storage._experience.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._experience, fieldNumber: 13)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -485,56 +353,102 @@ struct Employed_Io_Job: SwiftProtobuf.Message {
 
 fileprivate let _protobuf_package = "employed.io"
 
-extension Employed_Io_Job: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Employed_Io_Jobs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Jobs"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "title"),
-    2: .same(proto: "catergory"),
-    3: .same(proto: "company"),
+    1: .same(proto: "jobs"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.jobs)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.jobs.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.jobs, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: Employed_Io_Jobs) -> Bool {
+    if self.jobs != other.jobs {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Employed_Io_Job: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Job"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "job_id"),
+    3: .same(proto: "title"),
     4: .same(proto: "description"),
-    5: .same(proto: "shortDescription"),
-    6: .same(proto: "salary"),
-    7: .same(proto: "avatarImage"),
-    8: .same(proto: "tag"),
-    9: .same(proto: "jobAddress"),
-    10: .same(proto: "recruiter"),
-    11: .same(proto: "responsibilities"),
-    12: .same(proto: "requirements"),
-    13: .same(proto: "experience"),
+    5: .standard(proto: "short_description"),
+    6: .same(proto: "company"),
+    7: .same(proto: "recruiter"),
+    8: .standard(proto: "catergory_type"),
+    9: .standard(proto: "employment_type"),
+    10: .same(proto: "salary"),
+    11: .standard(proto: "salary_range"),
+    12: .same(proto: "location"),
+    13: .standard(proto: "number_of_hires"),
+    14: .standard(proto: "required_experience"),
+    15: .standard(proto: "preferred_experience"),
+    16: .same(proto: "skills"),
+    17: .same(proto: "responsibilities"),
+    18: .same(proto: "experience"),
+    19: .standard(proto: "education_level"),
+    20: .same(proto: "tags"),
   ]
 
   fileprivate class _StorageClass {
+    var _jobID: String = String()
     var _title: String = String()
-    var _catergory: Employed_Io_Job.CatergoryType = .engineering
-    var _company: Employed_Io_Job.Company? = nil
     var _description_p: String = String()
     var _shortDescription: String = String()
-    var _salary: Double = 0
-    var _avatarImage: String = String()
-    var _tag: Employed_Io_Job.Tag? = nil
-    var _jobAddress: Employed_Io_Job.JobAddress? = nil
+    var _company: Employed_Io_Company? = nil
     var _recruiter: Employed_Io_Job.Recruiter? = nil
+    var _catergoryType: Employed_Io_Job.CatergoryType = .engineering
+    var _employmentType: Employed_Io_Job.EmploymentType = .fullTime
+    var _salaryType: Employed_Io_Job.OneOf_SalaryType?
+    var _location: Employed_Io_Location? = nil
+    var _numberOfHires: Int32 = 0
+    var _requiredExperience: String = String()
+    var _preferredExperience: String = String()
+    var _skills: [String] = []
     var _responsibilities: String = String()
-    var _requirements: String = String()
-    var _experience: String = String()
+    var _experience: Int32 = 0
+    var _educationLevel: [Employed_Io_Job.EducationLevel] = []
+    var _tags: [String] = []
 
     static let defaultInstance = _StorageClass()
 
     private init() {}
 
     init(copying source: _StorageClass) {
+      _jobID = source._jobID
       _title = source._title
-      _catergory = source._catergory
-      _company = source._company
       _description_p = source._description_p
       _shortDescription = source._shortDescription
-      _salary = source._salary
-      _avatarImage = source._avatarImage
-      _tag = source._tag
-      _jobAddress = source._jobAddress
+      _company = source._company
       _recruiter = source._recruiter
+      _catergoryType = source._catergoryType
+      _employmentType = source._employmentType
+      _salaryType = source._salaryType
+      _location = source._location
+      _numberOfHires = source._numberOfHires
+      _requiredExperience = source._requiredExperience
+      _preferredExperience = source._preferredExperience
+      _skills = source._skills
       _responsibilities = source._responsibilities
-      _requirements = source._requirements
       _experience = source._experience
+      _educationLevel = source._educationLevel
+      _tags = source._tags
     }
   }
 
@@ -545,22 +459,134 @@ extension Employed_Io_Job: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     return _storage
   }
 
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._jobID)
+        case 3: try decoder.decodeSingularStringField(value: &_storage._title)
+        case 4: try decoder.decodeSingularStringField(value: &_storage._description_p)
+        case 5: try decoder.decodeSingularStringField(value: &_storage._shortDescription)
+        case 6: try decoder.decodeSingularMessageField(value: &_storage._company)
+        case 7: try decoder.decodeSingularMessageField(value: &_storage._recruiter)
+        case 8: try decoder.decodeSingularEnumField(value: &_storage._catergoryType)
+        case 9: try decoder.decodeSingularEnumField(value: &_storage._employmentType)
+        case 10:
+          if _storage._salaryType != nil {try decoder.handleConflictingOneOf()}
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {_storage._salaryType = .salary(v)}
+        case 11:
+          var v: Employed_Io_Job.SalaryRange?
+          if let current = _storage._salaryType {
+            try decoder.handleConflictingOneOf()
+            if case .salaryRange(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._salaryType = .salaryRange(v)}
+        case 12: try decoder.decodeSingularMessageField(value: &_storage._location)
+        case 13: try decoder.decodeSingularInt32Field(value: &_storage._numberOfHires)
+        case 14: try decoder.decodeSingularStringField(value: &_storage._requiredExperience)
+        case 15: try decoder.decodeSingularStringField(value: &_storage._preferredExperience)
+        case 16: try decoder.decodeRepeatedStringField(value: &_storage._skills)
+        case 17: try decoder.decodeSingularStringField(value: &_storage._responsibilities)
+        case 18: try decoder.decodeSingularInt32Field(value: &_storage._experience)
+        case 19: try decoder.decodeRepeatedEnumField(value: &_storage._educationLevel)
+        case 20: try decoder.decodeRepeatedStringField(value: &_storage._tags)
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._jobID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._jobID, fieldNumber: 1)
+      }
+      if !_storage._title.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._title, fieldNumber: 3)
+      }
+      if !_storage._description_p.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._description_p, fieldNumber: 4)
+      }
+      if !_storage._shortDescription.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._shortDescription, fieldNumber: 5)
+      }
+      if let v = _storage._company {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      }
+      if let v = _storage._recruiter {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      }
+      if _storage._catergoryType != .engineering {
+        try visitor.visitSingularEnumField(value: _storage._catergoryType, fieldNumber: 8)
+      }
+      if _storage._employmentType != .fullTime {
+        try visitor.visitSingularEnumField(value: _storage._employmentType, fieldNumber: 9)
+      }
+      switch _storage._salaryType {
+      case .salary(let v)?:
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+      case .salaryRange(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      case nil: break
+      }
+      if let v = _storage._location {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      }
+      if _storage._numberOfHires != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._numberOfHires, fieldNumber: 13)
+      }
+      if !_storage._requiredExperience.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._requiredExperience, fieldNumber: 14)
+      }
+      if !_storage._preferredExperience.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._preferredExperience, fieldNumber: 15)
+      }
+      if !_storage._skills.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._skills, fieldNumber: 16)
+      }
+      if !_storage._responsibilities.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._responsibilities, fieldNumber: 17)
+      }
+      if _storage._experience != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._experience, fieldNumber: 18)
+      }
+      if !_storage._educationLevel.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._educationLevel, fieldNumber: 19)
+      }
+      if !_storage._tags.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._tags, fieldNumber: 20)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
   func _protobuf_generated_isEqualTo(other: Employed_Io_Job) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
+        if _storage._jobID != other_storage._jobID {return false}
         if _storage._title != other_storage._title {return false}
-        if _storage._catergory != other_storage._catergory {return false}
-        if _storage._company != other_storage._company {return false}
         if _storage._description_p != other_storage._description_p {return false}
         if _storage._shortDescription != other_storage._shortDescription {return false}
-        if _storage._salary != other_storage._salary {return false}
-        if _storage._avatarImage != other_storage._avatarImage {return false}
-        if _storage._tag != other_storage._tag {return false}
-        if _storage._jobAddress != other_storage._jobAddress {return false}
+        if _storage._company != other_storage._company {return false}
         if _storage._recruiter != other_storage._recruiter {return false}
+        if _storage._catergoryType != other_storage._catergoryType {return false}
+        if _storage._employmentType != other_storage._employmentType {return false}
+        if _storage._salaryType != other_storage._salaryType {return false}
+        if _storage._location != other_storage._location {return false}
+        if _storage._numberOfHires != other_storage._numberOfHires {return false}
+        if _storage._requiredExperience != other_storage._requiredExperience {return false}
+        if _storage._preferredExperience != other_storage._preferredExperience {return false}
+        if _storage._skills != other_storage._skills {return false}
         if _storage._responsibilities != other_storage._responsibilities {return false}
-        if _storage._requirements != other_storage._requirements {return false}
         if _storage._experience != other_storage._experience {return false}
+        if _storage._educationLevel != other_storage._educationLevel {return false}
+        if _storage._tags != other_storage._tags {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -588,102 +614,95 @@ extension Employed_Io_Job.CatergoryType: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension Employed_Io_Job.Company: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Employed_Io_Job.EmploymentType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "description"),
+    0: .same(proto: "FULL_TIME"),
+    1: .same(proto: "PART_TIME"),
+    2: .same(proto: "CONTRACT"),
+    3: .same(proto: "INTERNSHIP"),
+    4: .same(proto: "TEMPORARY"),
+    5: .same(proto: "VOLUNTEER"),
   ]
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.Company) -> Bool {
-    if self.name != other.name {return false}
-    if self.description_p != other.description_p {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-extension Employed_Io_Job.Tag: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Employed_Io_Job.EducationLevel: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "tagName"),
+    0: .same(proto: "HIGH_SCHOOL_DIPLOMA"),
+    1: .same(proto: "ASSOCIATES_DEGREE"),
+    2: .same(proto: "BACHELORS_DEGREE"),
+    3: .same(proto: "MASTERS_DEGREE"),
+    4: .same(proto: "MASTER_OF_BUSINESS_ADMINISTRATION"),
+    5: .same(proto: "DOCTOR_OF_PHILOSOPHY"),
+    6: .same(proto: "DOCTOR_OF_MEDICINE"),
+    7: .same(proto: "DOCTOR_OF_LAW"),
   ]
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.Tag) -> Bool {
-    if self.tagName != other.tagName {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-extension Employed_Io_Job.JobAddress: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Employed_Io_Job.Recruiter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".Recruiter"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "postalCode"),
-    2: .same(proto: "city"),
-    3: .same(proto: "state"),
-    4: .same(proto: "country"),
+    1: .standard(proto: "first_name"),
+    2: .standard(proto: "last_name"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.JobAddress) -> Bool {
-    if self.postalCode != other.postalCode {return false}
-    if self.city != other.city {return false}
-    if self.state != other.state {return false}
-    if self.country != other.country {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.firstName)
+      case 2: try decoder.decodeSingularStringField(value: &self.lastName)
+      default: break
+      }
+    }
   }
-}
 
-extension Employed_Io_Job.RecruiterName: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "firstName"),
-    2: .same(proto: "middleName"),
-    3: .same(proto: "lastName"),
-  ]
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.firstName.isEmpty {
+      try visitor.visitSingularStringField(value: self.firstName, fieldNumber: 1)
+    }
+    if !self.lastName.isEmpty {
+      try visitor.visitSingularStringField(value: self.lastName, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
-  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.RecruiterName) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.Recruiter) -> Bool {
     if self.firstName != other.firstName {return false}
-    if self.middleName != other.middleName {return false}
     if self.lastName != other.lastName {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Employed_Io_Job.Recruiter: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Employed_Io_Job.SalaryRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Employed_Io_Job.protoMessageName + ".SalaryRange"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "Company"),
+    1: .standard(proto: "min_salary"),
+    2: .standard(proto: "max_salary"),
   ]
 
-  fileprivate class _StorageClass {
-    var _name: Employed_Io_Job.RecruiterName? = nil
-    var _company: Employed_Io_Job.Company? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _company = source._company
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.Recruiter) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._name != other_storage._name {return false}
-        if _storage._company != other_storage._company {return false}
-        return true
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.minSalary)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.maxSalary)
+      default: break
       }
-      if !storagesAreEqual {return false}
     }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.minSalary != 0 {
+      try visitor.visitSingularInt32Field(value: self.minSalary, fieldNumber: 1)
+    }
+    if self.maxSalary != 0 {
+      try visitor.visitSingularInt32Field(value: self.maxSalary, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: Employed_Io_Job.SalaryRange) -> Bool {
+    if self.minSalary != other.minSalary {return false}
+    if self.maxSalary != other.maxSalary {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

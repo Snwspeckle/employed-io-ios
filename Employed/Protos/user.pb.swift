@@ -19,519 +19,135 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Employed_Io_User: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".User"
+struct Employed_Io_Users {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
-  var uuid: String {
-    get {return _storage._uuid}
-    set {_uniqueStorage()._uuid = newValue}
-  }
-
-  var email: String {
-    get {return _storage._email}
-    set {_uniqueStorage()._email = newValue}
-  }
-
-  var password: String {
-    get {return _storage._password}
-    set {_uniqueStorage()._password = newValue}
-  }
-
-  var phoneNumber: [Employed_Io_User.PhoneNumber] {
-    get {return _storage._phoneNumber}
-    set {_uniqueStorage()._phoneNumber = newValue}
-  }
-
-  var birthday: Employed_Io_User.Birthday {
-    get {return _storage._birthday ?? Employed_Io_User.Birthday()}
-    set {_uniqueStorage()._birthday = newValue}
-  }
-  /// Returns true if `birthday` has been explicitly set.
-  var hasBirthday: Bool {return _storage._birthday != nil}
-  /// Clears the value of `birthday`. Subsequent reads from it will return its default value.
-  mutating func clearBirthday() {_storage._birthday = nil}
-
-  var name: Employed_Io_User.Name {
-    get {return _storage._name ?? Employed_Io_User.Name()}
-    set {_uniqueStorage()._name = newValue}
-  }
-  /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return _storage._name != nil}
-  /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {_storage._name = nil}
-
-  var address: Employed_Io_User.Address {
-    get {return _storage._address ?? Employed_Io_User.Address()}
-    set {_uniqueStorage()._address = newValue}
-  }
-  /// Returns true if `address` has been explicitly set.
-  var hasAddress: Bool {return _storage._address != nil}
-  /// Clears the value of `address`. Subsequent reads from it will return its default value.
-  mutating func clearAddress() {_storage._address = nil}
-
-  var sexType: Employed_Io_User.SexType {
-    get {return _storage._sexType}
-    set {_uniqueStorage()._sexType = newValue}
-  }
+  var users: [Employed_Io_User] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum PhoneType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case mobile // = 0
-    case home // = 1
-    case work // = 2
-    case UNRECOGNIZED(Int)
+  init() {}
+}
 
-    init() {
-      self = .mobile
-    }
+struct Employed_Io_User {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .mobile
-      case 1: self = .home
-      case 2: self = .work
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
+  var userID: String = String()
 
-    var rawValue: Int {
-      switch self {
-      case .mobile: return 0
-      case .home: return 1
-      case .work: return 2
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
+  var handle: String = String()
 
-  }
+  var firstName: String = String()
 
-  enum SexType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case male // = 0
-    case female // = 1
-    case UNRECOGNIZED(Int)
+  var lastName: String = String()
 
-    init() {
-      self = .male
-    }
+  var bio: String = String()
 
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .male
-      case 1: self = .female
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
+  var email: String = String()
 
-    var rawValue: Int {
-      switch self {
-      case .male: return 0
-      case .female: return 1
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
+  var phoneNumber: String = String()
 
-  }
-
-  struct PhoneNumber: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_User.protoMessageName + ".PhoneNumber"
-
-    var number: String = String()
-
-    var type: Employed_Io_User.PhoneType = .mobile
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self.number)
-        case 2: try decoder.decodeSingularEnumField(value: &self.type)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.number.isEmpty {
-        try visitor.visitSingularStringField(value: self.number, fieldNumber: 1)
-      }
-      if self.type != .mobile {
-        try visitor.visitSingularEnumField(value: self.type, fieldNumber: 2)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
-
-  struct Birthday: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_User.protoMessageName + ".Birthday"
-
-    var day: Int32 = 0
-
-    var year: Int32 = 0
-
-    var month: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.day)
-        case 2: try decoder.decodeSingularInt32Field(value: &self.year)
-        case 3: try decoder.decodeSingularInt32Field(value: &self.month)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.day != 0 {
-        try visitor.visitSingularInt32Field(value: self.day, fieldNumber: 1)
-      }
-      if self.year != 0 {
-        try visitor.visitSingularInt32Field(value: self.year, fieldNumber: 2)
-      }
-      if self.month != 0 {
-        try visitor.visitSingularInt32Field(value: self.month, fieldNumber: 3)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
-
-  struct Name: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_User.protoMessageName + ".Name"
-
-    var firstName: String = String()
-
-    var middleName: String = String()
-
-    var lastName: String = String()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self.firstName)
-        case 2: try decoder.decodeSingularStringField(value: &self.middleName)
-        case 3: try decoder.decodeSingularStringField(value: &self.lastName)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.firstName.isEmpty {
-        try visitor.visitSingularStringField(value: self.firstName, fieldNumber: 1)
-      }
-      if !self.middleName.isEmpty {
-        try visitor.visitSingularStringField(value: self.middleName, fieldNumber: 2)
-      }
-      if !self.lastName.isEmpty {
-        try visitor.visitSingularStringField(value: self.lastName, fieldNumber: 3)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
-
-  struct Address: SwiftProtobuf.Message {
-    static let protoMessageName: String = Employed_Io_User.protoMessageName + ".Address"
-
-    var address: String = String()
-
-    var postalCode: Int32 = 0
-
-    var city: String = String()
-
-    var state: String = String()
-
-    var country: String = String()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self.address)
-        case 2: try decoder.decodeSingularInt32Field(value: &self.postalCode)
-        case 3: try decoder.decodeSingularStringField(value: &self.city)
-        case 4: try decoder.decodeSingularStringField(value: &self.state)
-        case 5: try decoder.decodeSingularStringField(value: &self.country)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.address.isEmpty {
-        try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
-      }
-      if self.postalCode != 0 {
-        try visitor.visitSingularInt32Field(value: self.postalCode, fieldNumber: 2)
-      }
-      if !self.city.isEmpty {
-        try visitor.visitSingularStringField(value: self.city, fieldNumber: 3)
-      }
-      if !self.state.isEmpty {
-        try visitor.visitSingularStringField(value: self.state, fieldNumber: 4)
-      }
-      if !self.country.isEmpty {
-        try visitor.visitSingularStringField(value: self.country, fieldNumber: 5)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_storage._uuid)
-        case 2: try decoder.decodeSingularStringField(value: &_storage._email)
-        case 3: try decoder.decodeSingularStringField(value: &_storage._password)
-        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._phoneNumber)
-        case 5: try decoder.decodeSingularMessageField(value: &_storage._birthday)
-        case 6: try decoder.decodeSingularMessageField(value: &_storage._name)
-        case 7: try decoder.decodeSingularMessageField(value: &_storage._address)
-        case 8: try decoder.decodeSingularEnumField(value: &_storage._sexType)
-        default: break
-        }
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_storage._uuid.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._uuid, fieldNumber: 1)
-      }
-      if !_storage._email.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._email, fieldNumber: 2)
-      }
-      if !_storage._password.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._password, fieldNumber: 3)
-      }
-      if !_storage._phoneNumber.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._phoneNumber, fieldNumber: 4)
-      }
-      if let v = _storage._birthday {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }
-      if let v = _storage._name {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      }
-      if let v = _storage._address {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
-      if _storage._sexType != .male {
-        try visitor.visitSingularEnumField(value: _storage._sexType, fieldNumber: 8)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "employed.io"
 
-extension Employed_Io_User: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Employed_Io_Users: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Users"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "uuid"),
-    2: .same(proto: "email"),
-    3: .same(proto: "password"),
-    4: .same(proto: "phoneNumber"),
-    5: .same(proto: "birthday"),
-    6: .same(proto: "name"),
-    7: .same(proto: "address"),
-    8: .same(proto: "sexType"),
+    1: .same(proto: "users"),
   ]
 
-  fileprivate class _StorageClass {
-    var _uuid: String = String()
-    var _email: String = String()
-    var _password: String = String()
-    var _phoneNumber: [Employed_Io_User.PhoneNumber] = []
-    var _birthday: Employed_Io_User.Birthday? = nil
-    var _name: Employed_Io_User.Name? = nil
-    var _address: Employed_Io_User.Address? = nil
-    var _sexType: Employed_Io_User.SexType = .male
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _uuid = source._uuid
-      _email = source._email
-      _password = source._password
-      _phoneNumber = source._phoneNumber
-      _birthday = source._birthday
-      _name = source._name
-      _address = source._address
-      _sexType = source._sexType
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.users)
+      default: break
+      }
     }
   }
 
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.users.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.users, fieldNumber: 1)
     }
-    return _storage
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: Employed_Io_Users) -> Bool {
+    if self.users != other.users {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Employed_Io_User: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".User"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_id"),
+    3: .same(proto: "handle"),
+    4: .standard(proto: "first_name"),
+    5: .standard(proto: "last_name"),
+    6: .same(proto: "bio"),
+    7: .same(proto: "email"),
+    8: .standard(proto: "phone_number"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.userID)
+      case 3: try decoder.decodeSingularStringField(value: &self.handle)
+      case 4: try decoder.decodeSingularStringField(value: &self.firstName)
+      case 5: try decoder.decodeSingularStringField(value: &self.lastName)
+      case 6: try decoder.decodeSingularStringField(value: &self.bio)
+      case 7: try decoder.decodeSingularStringField(value: &self.email)
+      case 8: try decoder.decodeSingularStringField(value: &self.phoneNumber)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.userID.isEmpty {
+      try visitor.visitSingularStringField(value: self.userID, fieldNumber: 1)
+    }
+    if !self.handle.isEmpty {
+      try visitor.visitSingularStringField(value: self.handle, fieldNumber: 3)
+    }
+    if !self.firstName.isEmpty {
+      try visitor.visitSingularStringField(value: self.firstName, fieldNumber: 4)
+    }
+    if !self.lastName.isEmpty {
+      try visitor.visitSingularStringField(value: self.lastName, fieldNumber: 5)
+    }
+    if !self.bio.isEmpty {
+      try visitor.visitSingularStringField(value: self.bio, fieldNumber: 6)
+    }
+    if !self.email.isEmpty {
+      try visitor.visitSingularStringField(value: self.email, fieldNumber: 7)
+    }
+    if !self.phoneNumber.isEmpty {
+      try visitor.visitSingularStringField(value: self.phoneNumber, fieldNumber: 8)
+    }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Employed_Io_User) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._uuid != other_storage._uuid {return false}
-        if _storage._email != other_storage._email {return false}
-        if _storage._password != other_storage._password {return false}
-        if _storage._phoneNumber != other_storage._phoneNumber {return false}
-        if _storage._birthday != other_storage._birthday {return false}
-        if _storage._name != other_storage._name {return false}
-        if _storage._address != other_storage._address {return false}
-        if _storage._sexType != other_storage._sexType {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Employed_Io_User.PhoneType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MOBILE"),
-    1: .same(proto: "HOME"),
-    2: .same(proto: "WORK"),
-  ]
-}
-
-extension Employed_Io_User.SexType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MALE"),
-    1: .same(proto: "FEMALE"),
-  ]
-}
-
-extension Employed_Io_User.PhoneNumber: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "number"),
-    2: .same(proto: "type"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_User.PhoneNumber) -> Bool {
-    if self.number != other.number {return false}
-    if self.type != other.type {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Employed_Io_User.Birthday: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "day"),
-    2: .same(proto: "year"),
-    3: .same(proto: "month"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_User.Birthday) -> Bool {
-    if self.day != other.day {return false}
-    if self.year != other.year {return false}
-    if self.month != other.month {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Employed_Io_User.Name: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "firstName"),
-    2: .same(proto: "middleName"),
-    3: .same(proto: "lastName"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_User.Name) -> Bool {
+    if self.userID != other.userID {return false}
+    if self.handle != other.handle {return false}
     if self.firstName != other.firstName {return false}
-    if self.middleName != other.middleName {return false}
     if self.lastName != other.lastName {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Employed_Io_User.Address: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "address"),
-    2: .same(proto: "postalCode"),
-    3: .same(proto: "city"),
-    4: .same(proto: "state"),
-    5: .same(proto: "country"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: Employed_Io_User.Address) -> Bool {
-    if self.address != other.address {return false}
-    if self.postalCode != other.postalCode {return false}
-    if self.city != other.city {return false}
-    if self.state != other.state {return false}
-    if self.country != other.country {return false}
+    if self.bio != other.bio {return false}
+    if self.email != other.email {return false}
+    if self.phoneNumber != other.phoneNumber {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
