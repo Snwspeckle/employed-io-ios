@@ -86,6 +86,30 @@ class DiscoverProfileVC: UIViewController {
 			}
 		}
 		
+		// Add the second quick stack view to the field stack view
+		let secondQuickStackView = UIStackView()
+		secondQuickStackView.axis = .horizontal
+		secondQuickStackView.distribution = .fillEqually
+		secondQuickStackView.alignment = .fill
+		secondQuickStackView.hero.id = "secondQuickStackView"
+		
+		// Add the first quick stack view to the field stack view
+		self.fieldsStackView.addArrangedSubview(secondQuickStackView)
+		
+		// Set the education label
+		if let educations = self.job?.educationLevel, let recentEducation = educations.last?.rawValue {
+			if let quickField = QuickFieldView.create(title: "Education", body: "\(recentEducation)") {
+				secondQuickStackView.addArrangedSubview(quickField)
+			}
+		}
+		
+		// Set the recent hires label
+		if let recentHires = self.job?.numberOfHires {
+			if let quickField = QuickFieldView.create(title: "Recent Hires", body: "\(recentHires)") {
+				secondQuickStackView.addArrangedSubview(quickField)
+			}
+		}
+		
 		// Set the job description for both card and full view
 		if let description = self.job?.description_p {
 			if let field = FieldView.create(title: "Job Description", body: description) {
