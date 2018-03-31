@@ -6,6 +6,8 @@
 //  Copyright © 2017 Employed. All rights reserved.
 //
 
+import CoreLocation
+import MapKit
 import UIKit
 import TagListView
 
@@ -21,10 +23,7 @@ class DiscoverProfileVC: UIViewController {
 	@IBOutlet weak var pictureImageView: UIImageView!
 	@IBOutlet weak var jobNameLabel: UILabel!
 	@IBOutlet weak var companyNameLabel: UILabel!
-	
-	@IBOutlet weak var locationLabel: UILabel!
-	@IBOutlet weak var salaryLabel: UILabel!
-	@IBOutlet weak var experienceLabel: UILabel!
+	@IBOutlet weak var mapView: MKMapView!
 	
 	@IBOutlet weak var fieldsStackView: UIStackView!
 	
@@ -56,23 +55,35 @@ class DiscoverProfileVC: UIViewController {
 		// Set the company label
 		self.companyNameLabel.text = self.job?.company.name
 		
+		// Set the first quick stack view
+		let firstQuickStackView = UIStackView()
+		firstQuickStackView.axis = .horizontal
+		firstQuickStackView.distribution = .fillEqually
+		firstQuickStackView.alignment = .fill
+		firstQuickStackView.hero.id = "firstQuickStackView"
+		
+		// Add the first quick stack view to the field stack view
+		self.fieldsStackView.addArrangedSubview(firstQuickStackView)
+		
 		// Set the location label
 		if let address = self.job?.location.address {
-			// Gets the first to characters in the state and uppercases them
-			let indexStartOf = address.state.index(address.state.startIndex, offsetBy: 2)
-			let state = address.state[..<indexStartOf].uppercased()
-			
-			self.locationLabel.text = address.city + ", " + address.state
+			if let quickField = QuickFieldView.create(title: "Location", body: address.city + ", " + address.state) {
+				firstQuickStackView.addArrangedSubview(quickField)
+			}
 		}
 		
 		// Set the salary label
 		if let salary = self.job?.salary {
-			self.salaryLabel.text = String(format: "$%.0fk", salary)
+			if let quickField = QuickFieldView.create(title: "Salary", body: String(format: "$%.02fk", salary)) {
+				firstQuickStackView.addArrangedSubview(quickField)
+			}
 		}
 		
 		// Set the experience label
-		if let experience = self.job?.requiredExperience {
-			self.experienceLabel.text = experience
+		if let experience = self.job?.experience {
+			if let quickField = QuickFieldView.create(title: "Experience", body: "\(experience) yrs") {
+				firstQuickStackView.addArrangedSubview(quickField)
+			}
 		}
 		
 		// Set the job description for both card and full view
@@ -84,6 +95,23 @@ class DiscoverProfileVC: UIViewController {
 		
 		// Create the field view for job description
 		if presentationType == .Full {
+			// Set the annotation on the map
+			if let address = self.job?.location.address.streetAddress, let state = self.job?.location.address.state, let zip = self.job?.location.address.zip {
+				let locationString = "\(address), \(state), \(zip)"
+				let geocoder = CLGeocoder()
+				geocoder.geocodeAddressString(locationString) { placemarks, error in
+					if let placemark = placemarks?.first, let location = placemark.location {
+						let annotation = MKPointAnnotation()
+						annotation.coordinate = location.coordinate
+						annotation.title = self.job?.company.name
+						let span = MKCoordinateSpan.init(latitudeDelta: 0.005, longitudeDelta: 0.005)
+						let region = MKCoordinateRegion.init(center: location.coordinate, span: span)
+						self.mapView.setRegion(region, animated: true)
+						self.mapView.addAnnotation(annotation)
+					}
+				}
+			}
+
 			// Set the responsibilities
 			if let responsibilities = self.job?.responsibilities {
 				if let field = FieldView.create(title: "Responsibilities", body: responsibilities) {
@@ -91,24 +119,36 @@ class DiscoverProfileVC: UIViewController {
 				}
 			}
 			
-			// Set the requirements
-			if let requirements = self.job?.preferredExperience {
-				if let field = FieldView.create(title: "Requirements", body: requirements) {
+			// Set the education
+			if let education = self.job?.educationLevel {
+				for ed in education {
+					
+				}
+			}
+			
+			// Set the required experience
+			if let requiredExperience = self.job?.requiredExperience {
+				if let field = FieldView.create(title: "Required Experience", body: requiredExperience) {
 					self.fieldsStackView.addArrangedSubview(field)
 				}
 			}
-		}
-		
-		// Set the tags
-		if let tagList = self.tagListView {
-			tagList.textFont = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.bold)
-//			if let tags = self.job?.tag.tagName {
-//				let tagSlice = tags[0].split(separator: ";")
-//				let tagArray = Array(tagSlice)
-//				for tag in tagArray {
-//					tagList.addTag(String(tag))
-//				}
-//			}
+			
+			// Set the preferred experience
+			if let preferredExperience = self.job?.preferredExperience {
+				if let field = FieldView.create(title: "Preferred Experience", body: preferredExperience) {
+					self.fieldsStackView.addArrangedSubview(field)
+				}
+			}
+			
+			// Set the tags
+			if let tagList = self.tagListView {
+				tagList.textFont = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.bold)
+				if let skills = self.job?.skills {
+					for skill in skills {
+						tagList.addTag(skill)
+					}
+				}
+			}
 		}
 		
 		// Set the recruiter label

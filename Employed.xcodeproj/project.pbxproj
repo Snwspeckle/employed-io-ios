@@ -29,6 +29,7 @@
 		56A8E378206DF9A0001D800D /* jobs_by_tag_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */; };
 		56A8E379206DF9A0001D800D /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E374206DF9A0001D800D /* job.pb.swift */; };
 		56A8E37A206DF9A0001D800D /* location.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E375206DF9A0001D800D /* location.pb.swift */; };
+		56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E37B206FE98D001D800D /* QuickFieldView.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
 		56B577561F96798F00B3B0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577541F96798F00B3B0BC /* Main.storyboard */; };
 		56B577581F96798F00B3B0BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B577571F96798F00B3B0BC /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		56A8E373206DF99F001D800D /* jobs_by_tag_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jobs_by_tag_request.pb.swift; sourceTree = "<group>"; };
 		56A8E374206DF9A0001D800D /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
 		56A8E375206DF9A0001D800D /* location.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.pb.swift; sourceTree = "<group>"; };
+		56A8E37B206FE98D001D800D /* QuickFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFieldView.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B5774E1F96798F00B3B0BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B577551F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				567953F0206C54D900A1BDA8 /* JobFormVC.swift */,
 				567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */,
 				56A8E36F206DF12B001D800D /* LoginVC.swift */,
+				56A8E37B206FE98D001D800D /* QuickFieldView.swift */,
 			);
 			path = Employed;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,
 				56A8E370206DF12B001D800D /* LoginVC.swift in Sources */,
 				567953E5206ACE2E00A1BDA8 /* ProfileVC.swift in Sources */,
+				56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */,
 				56A8E376206DF9A0001D800D /* user.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
