@@ -73,7 +73,7 @@ class ConnectionsVC: UITableViewController {
 	
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     	// Upon selecting the connection, join the respective chat channel
-		ChatService.shared.joinChannel(channel: "general", completion: { () in
+		ChatService.shared.joinChannel(channel: AccountManager.shared.getMatches()[indexPath.row].channelID, completion: { () in
 			// Instantiate a ChatVC and push it on the navigation stack
 			let viewcontroller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
 			self.navigationController?.pushViewController(viewcontroller, animated: true)
