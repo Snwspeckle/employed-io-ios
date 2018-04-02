@@ -25,6 +25,8 @@ class MatchVC: UIViewController {
 	@IBOutlet weak var connectionImageViewTrailingConstraint: NSLayoutConstraint!
 	@IBOutlet weak var buttonStackView: UIStackView!
 	
+	var name: String?
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -43,6 +45,9 @@ class MatchVC: UIViewController {
         self.localImageViewLeadingConstraint.constant = -self.localImageView.frame.width
         self.connectionImageViewTrailingConstraint.constant = -self.connectionImageView.frame.width
         self.buttonStackView.alpha = 0.0
+		
+		// Set the match
+        self.connectionNameLabel.text = name
     }
 	
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +77,6 @@ class MatchVC: UIViewController {
 	}
 	
 	func setMatchName(name: String!) {
-		self.connectionNameLabel.text = name
+		self.name = name
 	}
 }

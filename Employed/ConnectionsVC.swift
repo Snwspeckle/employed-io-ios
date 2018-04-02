@@ -37,46 +37,70 @@ class ConnectionsTableViewCell: UITableViewCell {
 	}
 	
 	// Setup the cell with the necessary information
-    func setup(image: UIImage, name: String, companyName: String, jobPosition: String) -> Void {
+    func setup(image: UIImage, name: String, companyName: String?, jobPosition: String) -> Void {
 		self.pictureImageView.image = image
 		self.nameLabel.text = name
-		self.companyAndJobLabel.text = companyName + ", " + jobPosition
+		self.companyAndJobLabel.text = (companyName != nil) ? companyName! + ", " + jobPosition : jobPosition
 	}
 }
 
 class ConnectionsVC: UITableViewController {
 
+	var username: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+	
+    override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		AccountManager.shared.updateMatches() {
+			self.tableView.reloadData()
+		}
+	}
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return AccountManager.shared.getMatches().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsCellIdentifier", for: indexPath) as! ConnectionsTableViewCell
 		
-		// Setup the cell
-		cell.setup(image: UIImage(named: "tyrell_wellick")!, name: "Tyrell Wellick", companyName: "E-Corp", jobPosition: "Software Engineer I")
+		let match = AccountManager.shared.getMatchForId(matchId: indexPath.row)
 		
-        return cell
+		switch AccountManager.shared.getUserRole() {
+			case .jobSeeker:
+				APIService.shared.getRecruiterByUserId(userId: (match.users.first)!) { recruiter in
+					// Setup the cell
+					cell.setup(image: UIImage(named: "tyrell_wellick")!, name: "\(recruiter.firstName) \(recruiter.lastName)", companyName: nil, jobPosition: "")
+					self.username = "\(recruiter.firstName) \(recruiter.lastName)"
+				}
+			case .recruiter:
+				APIService.shared.getJobSeekerByUserId(userId: (match.users.last)!) { jobseeker in
+					// Setup the cell
+					cell.setup(image: UIImage(named: "angela_moss")!, name: "\(jobseeker.firstName) \(jobseeker.lastName)", companyName: nil, jobPosition: jobseeker.currentPosition)
+					self.username = "\(jobseeker.firstName) \(jobseeker.lastName)"
+				}
+			case .UNRECOGNIZED(_): break
+		}
+		return cell
     }
 	
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     	// Upon selecting the connection, join the respective chat channel
 		ChatService.shared.joinChannel(channel: AccountManager.shared.getMatches()[indexPath.row].channelID, completion: { () in
 			// Instantiate a ChatVC and push it on the navigation stack
-			let viewcontroller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-			self.navigationController?.pushViewController(viewcontroller, animated: true)
+			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+			controller.setChannelId(channelId: AccountManager.shared.getMatches()[indexPath.row].channelID)
+			controller.setNavTitle(title: self.username!)
+			self.navigationController?.pushViewController(controller, animated: true)
 		})
 	}
 }

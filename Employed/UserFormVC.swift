@@ -132,22 +132,34 @@ class UserFormVC: FormViewController {
     }
 	
     @objc func populateButtonPressed(_ sender: UIBarButtonItem) {
-		form.setValues([
-				"LoginRowTag": "anthony@mail.com",
+    	 if ((form.rowBy(tag: "Roles") as? PickerInlineRow)?.value)! == "Job Seeker" {
+			form.setValues([
+				"LoginRowTag": "angela@mail.com",
 				"PasswordRowTag": "test",
-				"HandleRowTag": "AnthonyVella",
-				"JFirstNameRowTag": "Anthony",
-				"JLastNameRowTag": "Vella",
-				"JEmailRowTag": "anthony@mail.com",
+				"HandleRowTag": "AngelaMoss",
+				"JFirstNameRowTag": "Angela",
+				"JLastNameRowTag": "Moss",
+				"JEmailRowTag": "angela@mail.com",
 				"JPhoneRowTag": "123-456-7890",
-				"JBioRowTag": "Test",
+				"JBioRowTag": "I'm not evil.",
 				"AvatarUrlRowTag": "http://picture.com",
-				"HeadlineRowTag": "This is a headline",
+				"HeadlineRowTag": "Aspiring software developer that just graduated and is looking to become involved in the tech industry.",
 				"CurrentPositionRowTag": "Software Engineer",
-				"StreetAddressRowTag": "196 Forestview Place",
-				"CityRowTag": "Aurora",
-				"StateRowTag": "OH",
-				"ZipcodeRowTag": "44202"])
+				"StreetAddressRowTag": "44 Shirley Ave",
+				"CityRowTag": "West Chicago",
+				"StateRowTag": "IL",
+				"ZipcodeRowTag": "60185"])
+		} else {
+			form.setValues([
+				"LoginRowTag": "john@mail.com",
+				"PasswordRowTag": "test",
+				"HandleRowTag": "JohnDoe",
+				"RFirstNameRowTag": "John",
+				"RLastNameRowTag": "Doe",
+				"REmailRowTag": "john@mail.com",
+				"RPhoneRowTag": "123-456-0987",
+				"RBioRowTag": "Recruiter bio"])
+		}
 		tableView.reloadData()
     }
 	

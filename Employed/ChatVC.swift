@@ -14,12 +14,14 @@ class ChatVC: MessagesViewController {
 	
 	// List of chat messages for MessageKit
     var chatMessages: [ChatMessage] = []
+    var channelId: String?
+    var navTitle: String?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		// Customize Navigation Bar
-        self.navigationItem.title = "Tyrell Wellick"
+        self.navigationItem.title = self.navTitle
 		self.navigationController?.navigationBar.tintColor = UIColor.white
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "video-chat"), style: .plain, target: self, action: #selector(ChatVC.videoChatButtonPressed(_ :)))
 		
@@ -60,7 +62,7 @@ class ChatVC: MessagesViewController {
 	
 	@objc func videoChatButtonPressed(_ sender: UIBarButtonItem) {
 		let videoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"VideoVC") as! VideoVC
-//		videoVC.setChannelId(channelId: <#T##String#>)
+		videoVC.setChannelId(channelId: self.channelId!)
 		self.present(videoVC, animated: true, completion: nil)
 	}
 	
@@ -69,6 +71,14 @@ class ChatVC: MessagesViewController {
 		let sender = Sender(id: message.author!, displayName: message.author!)
 		let uniqueID = UUID().uuidString
 		return ChatMessage(text: message.body!, sender: sender, messageId: uniqueID, date: message.timestampAsDate!)
+	}
+	
+	func setChannelId(channelId: String) {
+		self.channelId = channelId
+	}
+	
+	func setNavTitle(title: String) {
+		self.navTitle = title
 	}
 }
 

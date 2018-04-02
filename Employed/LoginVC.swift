@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
 	}
 	
 	 @objc func populateButtonPressed(_ sender: UIBarButtonItem) {
-		self.usernameTextField.text = "anthony@mail.com"
+		self.usernameTextField.text = "angela@mail.com"
 		self.passwordTextField.text = "test"
     }
 	

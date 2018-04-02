@@ -25,7 +25,8 @@ class APIService {
     }
 
 	// Base URL of the API endpoints
-	private let baseURL: String = "http://127.0.0.1:8080";
+//	private let baseURL: String = "http://127.0.0.1:8080";
+	private let baseURL: String = "http://192.168.43.168:8080";
 
 	private init() {
 	}
@@ -45,10 +46,42 @@ class APIService {
 	// MARK: - USERS
 	
 	func createUser(request: Employed_Io_CreateUserRequest, completion: ((Employed_Io_CreateUserResponse) -> Void)?) {
-		print(request)
 		makeRequest(endpoint: "/users/create", requestType: .post, request: request) { data in
 			do {
 				completion?(try Employed_Io_CreateUserResponse(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
+	
+	// MARK: - JOB SEEKER
+	
+	func getJobSeekersByTags(request: Employed_Io_JobSeekersByTagsRequest, completion: ((Employed_Io_JobSeekersByTagsResponse) -> Void)?) {
+		makeRequest(endpoint: "/jobseekers", requestType: .post, request: request) { data in
+			do {
+				completion?(try Employed_Io_JobSeekersByTagsResponse(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
+	func getJobSeekerByUserId(userId: String, completion: ((Employed_Io_JobSeeker) -> Void)?) {
+		makeRequest(endpoint: "/jobseekers/\(userId)", requestType: .get) { data in
+			do {
+				completion?(try Employed_Io_JobSeeker(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
+	
+	// MARK: - RECRUITER
+	
+	func getRecruiterByUserId(userId: String, completion: ((Employed_Io_Recruiter) -> Void)?) {
+		makeRequest(endpoint: "/recruiters/\(userId)", requestType: .get) { data in
+			do {
+				completion?(try Employed_Io_Recruiter(jsonUTF8Data: data))
 			} catch {
 				return
 			}
@@ -102,6 +135,9 @@ class APIService {
 	func createMatch(request: Employed_Io_CreateMatchRequest, completion: ((Employed_Io_CreateMatchResponse) -> Void)?) {
 		makeRequest(endpoint: "/match/create", requestType: .post, request: request) { data in
 			do {
+				// Update our local cache of matches
+				AccountManager.shared.updateMatches(completion: nil)
+				
 				completion?(try Employed_Io_CreateMatchResponse(jsonUTF8Data: data))
 			} catch {
 				return
@@ -111,6 +147,9 @@ class APIService {
 	
 	func rejectMatch(request: Employed_Io_RejectMatchRequest) {
 		makeRequest(endpoint: "/match/reject", requestType: .post, request: request, completion: nil)
+		
+		// Update our local cache of matches
+		AccountManager.shared.updateMatches(completion: nil)
 	}
 	
 	// MARK: - INTERNAL FUNCTIONS

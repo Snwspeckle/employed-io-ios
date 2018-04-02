@@ -67,7 +67,11 @@ class AccountManager {
 		return self.matches
 	}
 	
-	func login(username: String!, password: String!, completion: @escaping () -> Void) {
+	func getMatchForId(matchId: Int) -> Employed_Io_Match {
+		return self.matches[matchId]
+	}
+	
+	func login(username: String!, password: String!, completion: (() -> Void)?) {
 		// Create the login request object
 		var loginRequest = Employed_Io_LoginRequest()
 		loginRequest.login = username
@@ -77,6 +81,12 @@ class AccountManager {
 		APIService.shared.login(request: loginRequest) { loginResponse in
 			// Upon login, set the account managers user
 			AccountManager.shared.setUser(loginResponse.user)
+			
+			// Login to the chat service
+			ChatService.shared.login(identity: AccountManager.shared.getUser().handle)
+			
+			// Set the video service identity
+			VideoService.shared.setIdentity(AccountManager.shared.getUser().handle)
 			
 			// Upon login, set the jobseeker or recruiter
 			switch AccountManager.shared.getUserRole() {
@@ -95,16 +105,24 @@ class AccountManager {
 				AccountManager.shared.setMatches(matchesResponse.matches)
 			}
 			
-			// Signal completion of login
-			completion()
+			AccountManager.shared.updateMatches() {
+				// Signal completion of login
+				completion?()
+			}
 		}
 	}
 	
-	func createUser(request: Employed_Io_CreateUserRequest, completion: @escaping () -> Void) {
+	func createUser(request: Employed_Io_CreateUserRequest, completion: (() -> Void)?) {
 		// Call the API create user endpoint
 		APIService.shared.createUser(request: request) { response in
 			// Upon account creation, set the account managers user
 			AccountManager.shared.setUser(response.user)
+			
+			// Login to the chat service
+			ChatService.shared.login(identity: AccountManager.shared.getUser().handle)
+			
+			// Set the video service identity
+			VideoService.shared.setIdentity(AccountManager.shared.getUser().handle)
 			
 			// Upon account creation, set the jobseeker or recruiter
 			switch AccountManager.shared.getUserRole() {
@@ -113,8 +131,25 @@ class AccountManager {
 				case .UNRECOGNIZED(_): return
 			}
 			
-			// Signal completion of user creation
-			completion()
+			AccountManager.shared.updateMatches() {
+				// Signal completion of user creation
+				completion?()
+			}
+		}
+	}
+	
+	func updateMatches(completion: (() -> Void)?) {
+		// Create the match request object
+		var matchRequest = Employed_Io_MatchesByUserIdsRequest()
+		matchRequest.userIds = [AccountManager.shared.getUserId()]
+	
+		// Get all matches for the user
+		APIService.shared.getMatchesByUserId(request: matchRequest) { matchesResponse in
+			// Set the matches
+			AccountManager.shared.setMatches(matchesResponse.matches)
+			
+			// Signal completion of updated matches
+			completion?()
 		}
 	}
 }

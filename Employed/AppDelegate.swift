@@ -16,13 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
 		UIApplication.shared.windows.first?.backgroundColor = UIColor.white
-//		APIService.shared.getUser(email: "elliotAlderson@email.com") { user in
-//			print(user)
-//		}
 
-		// Login to the chat service when the app is launched
-		ChatService.shared.login(identity: "Anthony")
-		
 		return true
 	}
 

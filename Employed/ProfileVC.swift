@@ -113,6 +113,9 @@ class ProfileVC: UITableViewController {
 		
 		// User selected the "logout" row so we should unwind to the root view controller (Accounts)
 		if (indexPath.section == 1 && indexPath.row == 0) {
+			// Logout from the chat service
+			ChatService.shared.logout()
+			
 			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"LoginNavVC")
 			self.present(controller, animated: true, completion: nil)
 		}

@@ -10,13 +10,14 @@ import UIKit
 import Hero
 import Koloda
 import Presentr
+import SwiftProtobuf
 
 class DiscoverVC: UIViewController {
 
 	// MARK: - IBOutlets
 	@IBOutlet weak var kolodaView: KolodaView!
 	
-	var jobs = [Employed_Io_Job]()
+	var data = [Message]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,24 +29,30 @@ class DiscoverVC: UIViewController {
         self.kolodaView.dataSource = self
 		self.kolodaView.delegate = self
 
-		var request = Employed_Io_JobsByTagsRequest()
-		request.tags = [""]
-		// Call the API service to get jobs
-		APIService.shared.getJobsByTags(request: request) { jobsResponse in
-			self.jobs = jobsResponse.jobs
-			
-			// Reload the koloda view with the jobs
-			self.kolodaView.reloadData()
+		switch AccountManager.shared.getUserRole() {
+			case .jobSeeker:
+				var request = Employed_Io_JobsByTagsRequest()
+				request.tags = (AccountManager.shared.getJobSeeker()?.tags)!
+				// Call the API service to get jobs
+				APIService.shared.getJobsByTags(request: request) { jobsResponse in
+					self.data = jobsResponse.jobs
+					
+					// Reload the koloda view with the jobs
+					self.kolodaView.reloadData()
+				}
+				
+			case .recruiter:
+				var request = Employed_Io_JobSeekersByTagsRequest()
+				request.tags = ["BUSINESS"]
+				// Call the API service to get job seekers
+				APIService.shared.getJobSeekersByTags(request: request) { jobseekersResponse in
+					self.data = jobseekersResponse.jobSeekers
+					
+					// Reload the koloda view with the jobs
+					self.kolodaView.reloadData()
+				}
+			case .UNRECOGNIZED(_): return
 		}
-		
-		APIService.shared.getMockJobs(completion: { job in
-			self.jobs.append(job)
-			APIService.shared.getMockJobs(completion: { job in
-				self.jobs.append(job)
-				print(job)
-				self.kolodaView.reloadData()
-			})
-		})
     }
 }
 
@@ -66,7 +73,11 @@ extension DiscoverVC : KolodaViewDelegate {
 			// Create the match request object
 			var request = Employed_Io_CreateMatchRequest()
 			request.userID = AccountManager.shared.getUserId()
-			request.matchUserID = self.jobs[index].recruiter.userID
+			switch AccountManager.shared.getUserRole() {
+				case .jobSeeker: request.matchUserID = (self.data[index] as! Employed_Io_Job).recruiter.userID
+				case .recruiter: request.matchUserID = (self.data[index] as! Employed_Io_JobSeeker).userID
+				case .UNRECOGNIZED(_): break
+			}
 			
 			let presenter: Presentr = {
 				let width = ModalSize.fluid(percentage: 1.0)
@@ -82,23 +93,37 @@ extension DiscoverVC : KolodaViewDelegate {
 			}()
 			
 			// Call the API service to create the match
-			var users = [String]()
 			APIService.shared.createMatch(request: request) { response in
 				// If the match we swiped on previously swiped on us, a connection has been made
 				// and we should show the MatchVC
 				if response.status == .success {
-					users = response.match.users
-				
-					let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
-					matchVC.setMatchName(name: users.last)
-					self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+					// Get the name
+					switch AccountManager.shared.getUserRole() {
+						case .jobSeeker:
+							APIService.shared.getRecruiterByUserId(userId: response.match.users.last!) { recruiter in
+								let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
+								matchVC.setMatchName(name: recruiter.firstName)
+								self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+							}
+						case .recruiter:
+							APIService.shared.getJobSeekerByUserId(userId: response.match.users.last!) { jobseeker in
+								let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
+								matchVC.setMatchName(name: jobseeker.firstName)
+								self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+							}
+						case .UNRECOGNIZED(_): break
+					}
 				}
 			}
 		} else if direction == SwipeResultDirection.left {
 			// Create the match reject request object
 			var request = Employed_Io_RejectMatchRequest()
 			request.userID = AccountManager.shared.getUserId()
-			request.matchUserID = self.jobs[index].recruiter.userID
+			switch AccountManager.shared.getUserRole() {
+				case .jobSeeker: request.matchUserID = (self.data[index] as! Employed_Io_Job).recruiter.userID
+				case .recruiter: request.matchUserID = (self.data[index] as! Employed_Io_JobSeeker).userID
+				case .UNRECOGNIZED(_): break
+			}
 			
 			// Call the API service to reject the match
 			APIService.shared.rejectMatch(request: request)
@@ -115,7 +140,7 @@ extension DiscoverVC : KolodaViewDelegate {
 	func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
 		if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"DiscoverFullProfileVC") as? DiscoverProfileVC {
 			// Setup the controller
-			controller.setJob(job: jobs[index])
+			controller.setData(data: data[index])
 			controller.setPresentationType(type: .Full)
 			
 			// If the current card is the one we selected, set hero enabled for animations
@@ -132,7 +157,7 @@ extension DiscoverVC : KolodaViewDelegate {
 extension DiscoverVC : KolodaViewDataSource {
 
 	func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-		return self.jobs.count
+		return self.data.count
 	}
 	
 	func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
@@ -142,8 +167,8 @@ extension DiscoverVC : KolodaViewDataSource {
 	func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateViewController(withIdentifier: "DiscoverCardProfileVC") as! DiscoverProfileVC
-		if self.jobs.count > index {
-			controller.setJob(job: self.jobs[index])
+		if self.data.count > index {
+			controller.setData(data: self.data[index])
 			controller.setPresentationType(type: .Card)
 		}
 		controller.view.layer.cornerRadius = 10

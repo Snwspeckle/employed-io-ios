@@ -58,7 +58,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobName"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleLabel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suV-2W-apE">
@@ -67,7 +67,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="companyName"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="subtitleLabel"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yc1-0M-v4I">
@@ -131,12 +131,12 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="NO"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="companyNameLabel" destination="suV-2W-apE" id="eiU-Af-608"/>
                         <outlet property="fieldsStackView" destination="uyu-AP-tWh" id="xHj-Cl-i9D"/>
-                        <outlet property="jobNameLabel" destination="u0M-7K-zCq" id="m6T-Wc-Izl"/>
                         <outlet property="pictureImageView" destination="yc1-0M-v4I" id="YLV-J8-yje"/>
                         <outlet property="recruiterImageView" destination="k0k-Wz-Ekc" id="69s-rZ-LhK"/>
                         <outlet property="recruiterNameLabel" destination="V1s-Bq-7oe" id="YmP-kb-UMP"/>
+                        <outlet property="subtitleLabel" destination="suV-2W-apE" id="djC-KE-eWP"/>
+                        <outlet property="titleLabel" destination="u0M-7K-zCq" id="pPL-hF-RrW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dku-OC-bR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -954,7 +954,7 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="jobName"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="titleLabel"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5G-9O-05O">
@@ -963,7 +963,7 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="companyName"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="subtitleLabel"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H9Y-xm-Ph3">
@@ -1154,14 +1154,14 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="companyNameLabel" destination="V5G-9O-05O" id="szR-53-2o6"/>
                         <outlet property="fieldsStackView" destination="rjC-na-Gsc" id="OaQ-Pn-T4U"/>
-                        <outlet property="jobNameLabel" destination="Lct-zC-olD" id="NMg-CN-qag"/>
                         <outlet property="mapView" destination="8yy-wU-SRE" id="ZsI-sY-11g"/>
                         <outlet property="pictureImageView" destination="H9Y-xm-Ph3" id="D3a-s6-N7m"/>
                         <outlet property="recruiterImageView" destination="16M-M1-wgr" id="zOL-AK-t2P"/>
                         <outlet property="recruiterNameLabel" destination="gkE-Ia-vVE" id="JSZ-EG-Lrt"/>
+                        <outlet property="subtitleLabel" destination="V5G-9O-05O" id="JLW-eD-NsF"/>
                         <outlet property="tagListView" destination="vhv-UP-KAQ" id="0Bs-u0-0eE"/>
+                        <outlet property="titleLabel" destination="Lct-zC-olD" id="r49-rv-Q7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HBx-tL-V60" userLabel="First Responder" sceneMemberID="firstResponder"/>
