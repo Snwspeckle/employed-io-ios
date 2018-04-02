@@ -22,24 +22,24 @@
 		567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F0206C54D900A1BDA8 /* JobFormVC.swift */; };
 		567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */; };
 		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
+		568C62E1207217300069160C /* job_seeker_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62CB207217300069160C /* job_seeker_request.pb.swift */; };
+		568C62E2207217300069160C /* job_seeker.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62CC207217300069160C /* job_seeker.pb.swift */; };
+		568C62E3207217300069160C /* login_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62CE207217300069160C /* login_request.pb.swift */; };
+		568C62E4207217300069160C /* job_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D0207217300069160C /* job_request.pb.swift */; };
+		568C62E5207217300069160C /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D1207217300069160C /* job.pb.swift */; };
+		568C62E6207217300069160C /* recruiter.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D3207217300069160C /* recruiter.pb.swift */; };
+		568C62E7207217300069160C /* recruiter_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D4207217300069160C /* recruiter_request.pb.swift */; };
+		568C62E8207217300069160C /* industry.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D6207217300069160C /* industry.pb.swift */; };
+		568C62E9207217300069160C /* status.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D7207217300069160C /* status.pb.swift */; };
+		568C62EA207217300069160C /* location.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D8207217300069160C /* location.pb.swift */; };
+		568C62EB207217300069160C /* company.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DA207217300069160C /* company.pb.swift */; };
+		568C62EC207217300069160C /* match.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DC207217300069160C /* match.pb.swift */; };
+		568C62ED207217300069160C /* match_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DD207217300069160C /* match_request.pb.swift */; };
+		568C62EE207217300069160C /* user_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DF207217300069160C /* user_request.pb.swift */; };
+		568C62EF207217300069160C /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62E0207217300069160C /* user.pb.swift */; };
 		56A8E370206DF12B001D800D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E36F206DF12B001D800D /* LoginVC.swift */; };
 		56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E37B206FE98D001D800D /* QuickFieldView.swift */; };
 		56A8E3B62071A88B001D800D /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3B52071A88B001D800D /* AccountManager.swift */; };
-		56A8E3CE2071C664001D800D /* job_seeker_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3B82071C663001D800D /* job_seeker_request.pb.swift */; };
-		56A8E3CF2071C664001D800D /* job_seeker.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3B92071C663001D800D /* job_seeker.pb.swift */; };
-		56A8E3D02071C664001D800D /* login_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3BB2071C664001D800D /* login_request.pb.swift */; };
-		56A8E3D12071C664001D800D /* job_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3BD2071C664001D800D /* job_request.pb.swift */; };
-		56A8E3D22071C664001D800D /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3BE2071C664001D800D /* job.pb.swift */; };
-		56A8E3D32071C664001D800D /* recruiter.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C02071C664001D800D /* recruiter.pb.swift */; };
-		56A8E3D42071C664001D800D /* recruiter_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C12071C664001D800D /* recruiter_request.pb.swift */; };
-		56A8E3D52071C664001D800D /* industry.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C32071C664001D800D /* industry.pb.swift */; };
-		56A8E3D62071C664001D800D /* status.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C42071C664001D800D /* status.pb.swift */; };
-		56A8E3D72071C664001D800D /* location.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C52071C664001D800D /* location.pb.swift */; };
-		56A8E3D82071C664001D800D /* company.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C72071C664001D800D /* company.pb.swift */; };
-		56A8E3D92071C664001D800D /* match.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3C92071C664001D800D /* match.pb.swift */; };
-		56A8E3DA2071C664001D800D /* match_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3CA2071C664001D800D /* match_request.pb.swift */; };
-		56A8E3DB2071C664001D800D /* user_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3CC2071C664001D800D /* user_request.pb.swift */; };
-		56A8E3DC2071C664001D800D /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3CD2071C664001D800D /* user.pb.swift */; };
 		56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5774E1F96798F00B3B0BC /* AppDelegate.swift */; };
 		56B577561F96798F00B3B0BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B577541F96798F00B3B0BC /* Main.storyboard */; };
 		56B577581F96798F00B3B0BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B577571F96798F00B3B0BC /* Assets.xcassets */; };
@@ -81,24 +81,24 @@
 		567953F0206C54D900A1BDA8 /* JobFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFormVC.swift; sourceTree = "<group>"; };
 		567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionVC.swift; sourceTree = "<group>"; };
 		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
+		568C62CB207217300069160C /* job_seeker_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker_request.pb.swift; sourceTree = "<group>"; };
+		568C62CC207217300069160C /* job_seeker.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker.pb.swift; sourceTree = "<group>"; };
+		568C62CE207217300069160C /* login_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login_request.pb.swift; sourceTree = "<group>"; };
+		568C62D0207217300069160C /* job_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_request.pb.swift; sourceTree = "<group>"; };
+		568C62D1207217300069160C /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
+		568C62D3207217300069160C /* recruiter.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter.pb.swift; sourceTree = "<group>"; };
+		568C62D4207217300069160C /* recruiter_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter_request.pb.swift; sourceTree = "<group>"; };
+		568C62D6207217300069160C /* industry.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = industry.pb.swift; sourceTree = "<group>"; };
+		568C62D7207217300069160C /* status.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = status.pb.swift; sourceTree = "<group>"; };
+		568C62D8207217300069160C /* location.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.pb.swift; sourceTree = "<group>"; };
+		568C62DA207217300069160C /* company.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = company.pb.swift; sourceTree = "<group>"; };
+		568C62DC207217300069160C /* match.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match.pb.swift; sourceTree = "<group>"; };
+		568C62DD207217300069160C /* match_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match_request.pb.swift; sourceTree = "<group>"; };
+		568C62DF207217300069160C /* user_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user_request.pb.swift; sourceTree = "<group>"; };
+		568C62E0207217300069160C /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		56A8E36F206DF12B001D800D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		56A8E37B206FE98D001D800D /* QuickFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFieldView.swift; sourceTree = "<group>"; };
 		56A8E3B52071A88B001D800D /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		56A8E3B82071C663001D800D /* job_seeker_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker_request.pb.swift; sourceTree = "<group>"; };
-		56A8E3B92071C663001D800D /* job_seeker.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker.pb.swift; sourceTree = "<group>"; };
-		56A8E3BB2071C664001D800D /* login_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login_request.pb.swift; sourceTree = "<group>"; };
-		56A8E3BD2071C664001D800D /* job_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_request.pb.swift; sourceTree = "<group>"; };
-		56A8E3BE2071C664001D800D /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
-		56A8E3C02071C664001D800D /* recruiter.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter.pb.swift; sourceTree = "<group>"; };
-		56A8E3C12071C664001D800D /* recruiter_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter_request.pb.swift; sourceTree = "<group>"; };
-		56A8E3C32071C664001D800D /* industry.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = industry.pb.swift; sourceTree = "<group>"; };
-		56A8E3C42071C664001D800D /* status.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = status.pb.swift; sourceTree = "<group>"; };
-		56A8E3C52071C664001D800D /* location.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.pb.swift; sourceTree = "<group>"; };
-		56A8E3C72071C664001D800D /* company.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = company.pb.swift; sourceTree = "<group>"; };
-		56A8E3C92071C664001D800D /* match.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match.pb.swift; sourceTree = "<group>"; };
-		56A8E3CA2071C664001D800D /* match_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match_request.pb.swift; sourceTree = "<group>"; };
-		56A8E3CC2071C664001D800D /* user_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user_request.pb.swift; sourceTree = "<group>"; };
-		56A8E3CD2071C664001D800D /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		56B5774B1F96798F00B3B0BC /* Employed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56B5774E1F96798F00B3B0BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56B577551F96798F00B3B0BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,14 +143,14 @@
 		567953E8206C3C9300A1BDA8 /* Protos */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3C22071C664001D800D /* common */,
-				56A8E3C62071C664001D800D /* company */,
-				56A8E3BC2071C664001D800D /* job */,
-				56A8E3B72071C663001D800D /* job-seeker */,
-				56A8E3BA2071C664001D800D /* login */,
-				56A8E3C82071C664001D800D /* match */,
-				56A8E3BF2071C664001D800D /* recruiter */,
-				56A8E3CB2071C664001D800D /* user */,
+				568C62D5207217300069160C /* common */,
+				568C62D9207217300069160C /* company */,
+				568C62CF207217300069160C /* job */,
+				568C62CA207217300069160C /* job-seeker */,
+				568C62CD207217300069160C /* login */,
+				568C62DB207217300069160C /* match */,
+				568C62D2207217300069160C /* recruiter */,
+				568C62DE207217300069160C /* user */,
 			);
 			path = Protos;
 			sourceTree = "<group>";
@@ -165,75 +165,83 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		56A8E3B72071C663001D800D /* job-seeker */ = {
+		568C62CA207217300069160C /* job-seeker */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3B82071C663001D800D /* job_seeker_request.pb.swift */,
-				56A8E3B92071C663001D800D /* job_seeker.pb.swift */,
+				568C62CB207217300069160C /* job_seeker_request.pb.swift */,
+				568C62CC207217300069160C /* job_seeker.pb.swift */,
 			);
-			path = "job-seeker";
+			name = "job-seeker";
+			path = "../../../employed-io-protocol/swift/generated/protocol/job-seeker";
 			sourceTree = "<group>";
 		};
-		56A8E3BA2071C664001D800D /* login */ = {
+		568C62CD207217300069160C /* login */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3BB2071C664001D800D /* login_request.pb.swift */,
+				568C62CE207217300069160C /* login_request.pb.swift */,
 			);
-			path = login;
+			name = login;
+			path = "../../../employed-io-protocol/swift/generated/protocol/login";
 			sourceTree = "<group>";
 		};
-		56A8E3BC2071C664001D800D /* job */ = {
+		568C62CF207217300069160C /* job */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3BD2071C664001D800D /* job_request.pb.swift */,
-				56A8E3BE2071C664001D800D /* job.pb.swift */,
+				568C62D0207217300069160C /* job_request.pb.swift */,
+				568C62D1207217300069160C /* job.pb.swift */,
 			);
-			path = job;
+			name = job;
+			path = "../../../employed-io-protocol/swift/generated/protocol/job";
 			sourceTree = "<group>";
 		};
-		56A8E3BF2071C664001D800D /* recruiter */ = {
+		568C62D2207217300069160C /* recruiter */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3C02071C664001D800D /* recruiter.pb.swift */,
-				56A8E3C12071C664001D800D /* recruiter_request.pb.swift */,
+				568C62D3207217300069160C /* recruiter.pb.swift */,
+				568C62D4207217300069160C /* recruiter_request.pb.swift */,
 			);
-			path = recruiter;
+			name = recruiter;
+			path = "../../../employed-io-protocol/swift/generated/protocol/recruiter";
 			sourceTree = "<group>";
 		};
-		56A8E3C22071C664001D800D /* common */ = {
+		568C62D5207217300069160C /* common */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3C32071C664001D800D /* industry.pb.swift */,
-				56A8E3C42071C664001D800D /* status.pb.swift */,
-				56A8E3C52071C664001D800D /* location.pb.swift */,
+				568C62D6207217300069160C /* industry.pb.swift */,
+				568C62D7207217300069160C /* status.pb.swift */,
+				568C62D8207217300069160C /* location.pb.swift */,
 			);
-			path = common;
+			name = common;
+			path = "../../../employed-io-protocol/swift/generated/protocol/common";
 			sourceTree = "<group>";
 		};
-		56A8E3C62071C664001D800D /* company */ = {
+		568C62D9207217300069160C /* company */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3C72071C664001D800D /* company.pb.swift */,
+				568C62DA207217300069160C /* company.pb.swift */,
 			);
-			path = company;
+			name = company;
+			path = "../../../employed-io-protocol/swift/generated/protocol/company";
 			sourceTree = "<group>";
 		};
-		56A8E3C82071C664001D800D /* match */ = {
+		568C62DB207217300069160C /* match */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3C92071C664001D800D /* match.pb.swift */,
-				56A8E3CA2071C664001D800D /* match_request.pb.swift */,
+				568C62DC207217300069160C /* match.pb.swift */,
+				568C62DD207217300069160C /* match_request.pb.swift */,
 			);
-			path = match;
+			name = match;
+			path = "../../../employed-io-protocol/swift/generated/protocol/match";
 			sourceTree = "<group>";
 		};
-		56A8E3CB2071C664001D800D /* user */ = {
+		568C62DE207217300069160C /* user */ = {
 			isa = PBXGroup;
 			children = (
-				56A8E3CC2071C664001D800D /* user_request.pb.swift */,
-				56A8E3CD2071C664001D800D /* user.pb.swift */,
+				568C62DF207217300069160C /* user_request.pb.swift */,
+				568C62E0207217300069160C /* user.pb.swift */,
 			);
-			path = user;
+			name = user;
+			path = "../../../employed-io-protocol/swift/generated/protocol/user";
 			sourceTree = "<group>";
 		};
 		56B577421F96798F00B3B0BC = {
@@ -448,41 +456,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */,
-				56A8E3D32071C664001D800D /* recruiter.pb.swift in Sources */,
 				565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */,
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
+				568C62E3207217300069160C /* login_request.pb.swift in Sources */,
+				568C62E5207217300069160C /* job.pb.swift in Sources */,
+				568C62EA207217300069160C /* location.pb.swift in Sources */,
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
+				568C62EE207217300069160C /* user_request.pb.swift in Sources */,
 				5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */,
 				568969C62069A69F007F4B53 /* FieldView.swift in Sources */,
+				568C62E8207217300069160C /* industry.pb.swift in Sources */,
+				568C62EF207217300069160C /* user.pb.swift in Sources */,
 				567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */,
-				56A8E3CE2071C664001D800D /* job_seeker_request.pb.swift in Sources */,
-				56A8E3D42071C664001D800D /* recruiter_request.pb.swift in Sources */,
+				568C62E2207217300069160C /* job_seeker.pb.swift in Sources */,
 				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
 				565080AE204DCFF600F18815 /* MatchVC.swift in Sources */,
-				56A8E3D62071C664001D800D /* status.pb.swift in Sources */,
 				567953E7206AD70500A1BDA8 /* JobsVC.swift in Sources */,
 				565080A8204B5F6000F18815 /* ChatVC.swift in Sources */,
-				56A8E3DC2071C664001D800D /* user.pb.swift in Sources */,
-				56A8E3D22071C664001D800D /* job.pb.swift in Sources */,
+				568C62E7207217300069160C /* recruiter_request.pb.swift in Sources */,
 				567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */,
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
-				56A8E3D02071C664001D800D /* login_request.pb.swift in Sources */,
+				568C62ED207217300069160C /* match_request.pb.swift in Sources */,
+				568C62E4207217300069160C /* job_request.pb.swift in Sources */,
 				567953EE206C4C8400A1BDA8 /* UserFormVC.swift in Sources */,
-				56A8E3DA2071C664001D800D /* match_request.pb.swift in Sources */,
+				568C62E1207217300069160C /* job_seeker_request.pb.swift in Sources */,
 				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
+				568C62E9207217300069160C /* status.pb.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,
-				56A8E3DB2071C664001D800D /* user_request.pb.swift in Sources */,
 				56A8E3B62071A88B001D800D /* AccountManager.swift in Sources */,
-				56A8E3D92071C664001D800D /* match.pb.swift in Sources */,
 				56A8E370206DF12B001D800D /* LoginVC.swift in Sources */,
-				56A8E3D52071C664001D800D /* industry.pb.swift in Sources */,
-				56A8E3D82071C664001D800D /* company.pb.swift in Sources */,
-				56A8E3D72071C664001D800D /* location.pb.swift in Sources */,
 				567953E5206ACE2E00A1BDA8 /* ProfileVC.swift in Sources */,
-				56A8E3CF2071C664001D800D /* job_seeker.pb.swift in Sources */,
-				56A8E3D12071C664001D800D /* job_request.pb.swift in Sources */,
+				568C62EC207217300069160C /* match.pb.swift in Sources */,
+				568C62E6207217300069160C /* recruiter.pb.swift in Sources */,
+				568C62EB207217300069160C /* company.pb.swift in Sources */,
 				56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
