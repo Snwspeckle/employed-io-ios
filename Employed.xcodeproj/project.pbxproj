@@ -21,7 +21,6 @@
 		567953EE206C4C8400A1BDA8 /* UserFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953ED206C4C8400A1BDA8 /* UserFormVC.swift */; };
 		567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F0206C54D900A1BDA8 /* JobFormVC.swift */; };
 		567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */; };
-		568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568085DF204F5AEA00584017 /* AccountsVC.swift */; };
 		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
 		56A8E370206DF12B001D800D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E36F206DF12B001D800D /* LoginVC.swift */; };
 		56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E37B206FE98D001D800D /* QuickFieldView.swift */; };
@@ -81,7 +80,6 @@
 		567953ED206C4C8400A1BDA8 /* UserFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormVC.swift; sourceTree = "<group>"; };
 		567953F0206C54D900A1BDA8 /* JobFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFormVC.swift; sourceTree = "<group>"; };
 		567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionVC.swift; sourceTree = "<group>"; };
-		568085DF204F5AEA00584017 /* AccountsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsVC.swift; sourceTree = "<group>"; };
 		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		56A8E36F206DF12B001D800D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		56A8E37B206FE98D001D800D /* QuickFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFieldView.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 				565080A9204CA1C300F18815 /* ChatMessage.swift */,
 				565080AD204DCFF600F18815 /* MatchVC.swift */,
 				565080AF204DF5AB00F18815 /* ProfileSectionView.swift */,
-				568085DF204F5AEA00584017 /* AccountsVC.swift */,
 				5634F9632050D71B00F0DED4 /* Utilities.swift */,
 				5634F9652050DC9600F0DED4 /* VideoVC.swift */,
 				568969C52069A69F007F4B53 /* FieldView.swift */,
@@ -459,7 +456,6 @@
 				568969C62069A69F007F4B53 /* FieldView.swift in Sources */,
 				567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */,
 				56A8E3CE2071C664001D800D /* job_seeker_request.pb.swift in Sources */,
-				568085E0204F5AEA00584017 /* AccountsVC.swift in Sources */,
 				56A8E3D42071C664001D800D /* recruiter_request.pb.swift in Sources */,
 				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
