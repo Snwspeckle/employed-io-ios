@@ -8,6 +8,7 @@
 
 import Foundation
 import Networking
+import SwiftProtobuf
 
 /**
  API Service is a class responsible for the networking of all requests
@@ -17,86 +18,118 @@ class APIService {
 
 	// Singleton of the Network Service
 	static let shared = APIService()
+	
+	enum RequestType {
+        case get
+        case post
+    }
 
 	// Base URL of the API endpoints
 	private let baseURL: String = "http://127.0.0.1:8080";
 
 	private init() {
 	}
-
-	func getUser(email: String, completion: @escaping (Employed_Io_User) -> Void) {
-		let networking = Networking(baseURL: baseURL)
-		// Setup our headers for the request
-		setupHeaders(networking: networking)
-		networking.get("/api/user", parameters: ["email": email]) { result in
-			switch result {
-			case .success(let response):
-				do {
-					let user = try Employed_Io_User(jsonUTF8Data: response.data)
-					completion(user)
-				} catch {
-					return ()
-				}
-			case .failure(_):
-				return ()
+	
+	// MARK: AUTHENTICATION
+	
+	func login(request: Employed_Io_LoginRequest, completion: @escaping (Employed_Io_LoginResponse) -> Void) {
+		makeRequest(endpoint: "/login", requestType: .post, request: request) { data in
+			do {
+				completion(try Employed_Io_LoginResponse(jsonUTF8Data: data))
+			} catch {
+				return
 			}
 		}
 	}
 	
-	func getJobs(id: Int, completion: @escaping (Employed_Io_Job) -> Void) {
-		let networking = Networking(baseURL: baseURL)
-		// Setup our headers for the request
-		setupHeaders(networking: networking)
-		networking.get("/api/jobs/\(id)") { result in
-			switch result {
-			case .success(let response):
-				do {
-					let job = try Employed_Io_Job(jsonUTF8Data: response.data)
-					completion(job)
-				} catch {
-					return ()
-				}
-			case .failure(_):
-				return ()
+	// MARK: USERS
+	
+	func createUser(request: Employed_Io_CreateUserRequest, completion: @escaping(Employed_Io_CreateUserResponse) -> Void) {
+		makeRequest(endpoint: "/users/create", requestType: .post, request: request) { data in
+			do {
+				completion(try Employed_Io_CreateUserResponse(jsonUTF8Data: data))
+			} catch {
+				return
 			}
 		}
 	}
 	
-	func getMockUsers(completion: @escaping (Employed_Io_User) -> Void) {
-		let networking = Networking(baseURL: baseURL)
-		// Setup our headers for the request
-		setupHeaders(networking: networking)
-		networking.post("/api/users/test") { result in
-			switch result {
-			case .success(let response):
-				do {
-					let user = try Employed_Io_User(jsonUTF8Data: response.data)
-					completion(user)
-				} catch {
-					return ()
-				}
-			case .failure(_):
-				return ()
+	// MARK: JOBS
+	
+	func getJobsByTags(request: Employed_Io_JobsByTagsRequest, completion: @escaping(Employed_Io_JobsByTagsResponse) -> Void) {
+		makeRequest(endpoint: "/jobs", requestType: .post, request: request) { data in
+			do {
+				completion(try Employed_Io_JobsByTagsResponse(jsonUTF8Data: data))
+			} catch {
+				return
 			}
 		}
 	}
 	
 	func getMockJobs(completion: @escaping (Employed_Io_Job) -> Void) {
+		makeRequest(endpoint: "/jobs/mock", requestType: .post) { data in
+			do {
+				completion(try Employed_Io_Job(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
+	
+	// MARK: MATCHES
+	
+	func createMatch(request: Employed_Io_CreateMatchRequest, completion: @escaping(Employed_Io_CreateMatchResponse) -> Void) {
+		makeRequest(endpoint: "/match/create", requestType: .get, request: request) { data in
+			do {
+				completion(try Employed_Io_CreateMatchResponse(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
+	
+	// MARK: INTERNAL FUNCTIONS
+	
+	private func makeRequest(endpoint: String, requestType: RequestType, completion: @escaping (Data) -> Void) {
+		makeRequest(endpoint: endpoint, requestType: requestType, request: nil) { data in
+			completion(data)
+		}
+	}
+	
+	private func makeRequest(endpoint: String, requestType: RequestType, request: Message?, completion: @escaping (Data) -> Void) {
+		// Create our networking manager
 		let networking = Networking(baseURL: baseURL)
+		
 		// Setup our headers for the request
 		setupHeaders(networking: networking)
-		networking.post("/api/jobs/mock") { result in
-			switch result {
-			case .success(let response):
-				do {
-					let job = try Employed_Io_Job(jsonUTF8Data: response.data)
-					completion(job)
-				} catch {
-					return ()
+		
+		// Determine what type of request is being made
+		switch requestType {
+		case .get:
+			do {
+				networking.get("/api\(endpoint)", parameters: try request?.serializedData()) { result in
+					self.handleRequest(result: result) { data in completion(data) }
 				}
-			case .failure(_):
-				return ()
+			} catch {
+				return
 			}
+		case .post:
+			do {
+				networking.post("/api\(endpoint)", parameterType: .custom("application/x-protobuf"), parameters: try request?.serializedData()) { result in
+					self.handleRequest(result: result) { data in completion(data) }
+				}
+			} catch {
+				return
+			}
+		}
+	}
+	
+	private func handleRequest(result: JSONResult, completion: @escaping (Data) -> Void) {
+		switch result {
+		case .success(let response):
+			completion(response.data)
+		case .failure(_):
+			return
 		}
 	}
 	
