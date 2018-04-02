@@ -34,17 +34,7 @@ class LoginVC: UIViewController {
     }
 	
 	@IBAction func signInButtonPressed(_ sender: Any) {
-		// Create the login request object
-		var request = Employed_Io_LoginRequest()
-		request.login = usernameTextField.text!
-		request.password = passwordTextField.text!
-		
-		// Call the API login endpoint
-		APIService.shared.login(request: request) { response in
-			
-			// Upon login, set the account managers user
-			AccountManager.shared.setUser(response.user)
-			
+		AccountManager.shared.login(username: usernameTextField.text!, password: passwordTextField.text!) {
 			// Present the main portion of the app
 			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
 			self.present(controller, animated: true, completion: nil)

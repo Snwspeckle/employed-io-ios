@@ -30,7 +30,7 @@ class APIService {
 	private init() {
 	}
 	
-	// MARK: AUTHENTICATION
+	// MARK: - AUTHENTICATION
 	
 	func login(request: Employed_Io_LoginRequest, completion: @escaping (Employed_Io_LoginResponse) -> Void) {
 		makeRequest(endpoint: "/login", requestType: .post, request: request) { data in
@@ -42,7 +42,7 @@ class APIService {
 		}
 	}
 	
-	// MARK: USERS
+	// MARK: - USERS
 	
 	func createUser(request: Employed_Io_CreateUserRequest, completion: @escaping(Employed_Io_CreateUserResponse) -> Void) {
 		makeRequest(endpoint: "/users/create", requestType: .post, request: request) { data in
@@ -54,7 +54,7 @@ class APIService {
 		}
 	}
 	
-	// MARK: JOBS
+	// MARK: - JOBS
 	
 	func getJobsByTags(request: Employed_Io_JobsByTagsRequest, completion: @escaping(Employed_Io_JobsByTagsResponse) -> Void) {
 		makeRequest(endpoint: "/jobs", requestType: .post, request: request) { data in
@@ -76,7 +76,17 @@ class APIService {
 		}
 	}
 	
-	// MARK: MATCHES
+	// MARK: - MATCHES
+	
+	func getMatches(completion: @escaping(Employed_Io_MatchesResponse) -> Void) {
+		makeRequest(endpoint: "/match", requestType: .post) { data in
+			do {
+				completion(try Employed_Io_MatchesResponse(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
 	
 	func createMatch(request: Employed_Io_CreateMatchRequest, completion: @escaping(Employed_Io_CreateMatchResponse) -> Void) {
 		makeRequest(endpoint: "/match/create", requestType: .get, request: request) { data in
@@ -88,7 +98,17 @@ class APIService {
 		}
 	}
 	
-	// MARK: INTERNAL FUNCTIONS
+	func rejectMatch(request: Employed_Io_RejectMatchRequest, completion: @escaping(Employed_Io_RejectMatchResponse) -> Void) {
+		makeRequest(endpoint: "/match/reject", requestType: .get, request: request) { data in
+			do {
+				completion(try Employed_Io_RejectMatchResponse(jsonUTF8Data: data))
+			} catch {
+				return
+			}
+		}
+	}
+	
+	// MARK: - INTERNAL FUNCTIONS
 	
 	private func makeRequest(endpoint: String, requestType: RequestType, completion: @escaping (Data) -> Void) {
 		makeRequest(endpoint: endpoint, requestType: requestType, request: nil) { data in
