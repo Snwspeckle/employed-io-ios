@@ -249,7 +249,7 @@ extension Employed_Io_CreateUserResponse: SwiftProtobuf.Message, SwiftProtobuf._
   ]
 
   fileprivate class _StorageClass {
-    var _status: Employed_Io_Status = .failure
+    var _status: Employed_Io_Status = .success
     var _user: Employed_Io_User? = nil
     var _userType: Employed_Io_CreateUserResponse.OneOf_UserType?
 
@@ -302,7 +302,7 @@ extension Employed_Io_CreateUserResponse: SwiftProtobuf.Message, SwiftProtobuf._
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if _storage._status != .failure {
+      if _storage._status != .success {
         try visitor.visitSingularEnumField(value: _storage._status, fieldNumber: 1)
       }
       if let v = _storage._user {

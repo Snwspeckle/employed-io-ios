@@ -175,7 +175,7 @@ extension Employed_Io_CreateJobResponse: SwiftProtobuf.Message, SwiftProtobuf._M
   ]
 
   fileprivate class _StorageClass {
-    var _status: Employed_Io_Status = .failure
+    var _status: Employed_Io_Status = .success
     var _job: Employed_Io_Job? = nil
 
     static let defaultInstance = _StorageClass()
@@ -210,7 +210,7 @@ extension Employed_Io_CreateJobResponse: SwiftProtobuf.Message, SwiftProtobuf._M
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if _storage._status != .failure {
+      if _storage._status != .success {
         try visitor.visitSingularEnumField(value: _storage._status, fieldNumber: 1)
       }
       if let v = _storage._job {

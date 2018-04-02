@@ -19,6 +19,30 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+struct Employed_Io_MatchesByUserIdsRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var userIds: [String] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct Employed_Io_MatchesByUserIdsResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var matches: [Employed_Io_Match] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct Employed_Io_CreateMatchRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -78,7 +102,7 @@ struct Employed_Io_RejectMatchResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var status: Employed_Io_Status = .failure
+  var status: Employed_Io_Status = .success
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -100,6 +124,64 @@ struct Employed_Io_MatchesResponse {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "employed.io"
+
+extension Employed_Io_MatchesByUserIdsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MatchesByUserIdsRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "user_ids"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedStringField(value: &self.userIds)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.userIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.userIds, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: Employed_Io_MatchesByUserIdsRequest) -> Bool {
+    if self.userIds != other.userIds {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Employed_Io_MatchesByUserIdsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MatchesByUserIdsResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "matches"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.matches)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.matches.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.matches, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: Employed_Io_MatchesByUserIdsResponse) -> Bool {
+    if self.matches != other.matches {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
 
 extension Employed_Io_CreateMatchRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CreateMatchRequest"
@@ -144,7 +226,7 @@ extension Employed_Io_CreateMatchResponse: SwiftProtobuf.Message, SwiftProtobuf.
   ]
 
   fileprivate class _StorageClass {
-    var _status: Employed_Io_Status = .failure
+    var _status: Employed_Io_Status = .success
     var _match: Employed_Io_Match? = nil
 
     static let defaultInstance = _StorageClass()
@@ -179,7 +261,7 @@ extension Employed_Io_CreateMatchResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if _storage._status != .failure {
+      if _storage._status != .success {
         try visitor.visitSingularEnumField(value: _storage._status, fieldNumber: 1)
       }
       if let v = _storage._match {
@@ -256,7 +338,7 @@ extension Employed_Io_RejectMatchResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.status != .failure {
+    if self.status != .success {
       try visitor.visitSingularEnumField(value: self.status, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)

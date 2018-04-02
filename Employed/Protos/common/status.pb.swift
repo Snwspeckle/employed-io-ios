@@ -21,26 +21,26 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 enum Employed_Io_Status: SwiftProtobuf.Enum {
   typealias RawValue = Int
-  case failure // = 0
-  case success // = 1
+  case success // = 0
+  case failure // = 1
   case UNRECOGNIZED(Int)
 
   init() {
-    self = .failure
+    self = .success
   }
 
   init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .failure
-    case 1: self = .success
+    case 0: self = .success
+    case 1: self = .failure
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   var rawValue: Int {
     switch self {
-    case .failure: return 0
-    case .success: return 1
+    case .success: return 0
+    case .failure: return 1
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -51,7 +51,7 @@ enum Employed_Io_Status: SwiftProtobuf.Enum {
 
 extension Employed_Io_Status: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FAILURE"),
-    1: .same(proto: "SUCCESS"),
+    0: .same(proto: "SUCCESS"),
+    1: .same(proto: "FAILURE"),
   ]
 }

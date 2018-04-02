@@ -52,7 +52,41 @@ struct Employed_Io_LoginResponse {
   /// Clears the value of `user`. Subsequent reads from it will return its default value.
   mutating func clearUser() {_storage._user = nil}
 
+  var userType: OneOf_UserType? {
+    get {return _storage._userType}
+    set {_uniqueStorage()._userType = newValue}
+  }
+
+  var jobSeeker: Employed_Io_JobSeeker {
+    get {
+      if case .jobSeeker(let v)? = _storage._userType {return v}
+      return Employed_Io_JobSeeker()
+    }
+    set {_uniqueStorage()._userType = .jobSeeker(newValue)}
+  }
+
+  var recruiter: Employed_Io_Recruiter {
+    get {
+      if case .recruiter(let v)? = _storage._userType {return v}
+      return Employed_Io_Recruiter()
+    }
+    set {_uniqueStorage()._userType = .recruiter(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_UserType: Equatable {
+    case jobSeeker(Employed_Io_JobSeeker)
+    case recruiter(Employed_Io_Recruiter)
+
+    static func ==(lhs: Employed_Io_LoginResponse.OneOf_UserType, rhs: Employed_Io_LoginResponse.OneOf_UserType) -> Bool {
+      switch (lhs, rhs) {
+      case (.jobSeeker(let l), .jobSeeker(let r)): return l == r
+      case (.recruiter(let l), .recruiter(let r)): return l == r
+      default: return false
+      }
+    }
+  }
 
   init() {}
 
@@ -103,11 +137,14 @@ extension Employed_Io_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "status"),
     2: .same(proto: "user"),
+    3: .standard(proto: "job_seeker"),
+    4: .same(proto: "recruiter"),
   ]
 
   fileprivate class _StorageClass {
-    var _status: Employed_Io_Status = .failure
+    var _status: Employed_Io_Status = .success
     var _user: Employed_Io_User? = nil
+    var _userType: Employed_Io_LoginResponse.OneOf_UserType?
 
     static let defaultInstance = _StorageClass()
 
@@ -116,6 +153,7 @@ extension Employed_Io_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
     init(copying source: _StorageClass) {
       _status = source._status
       _user = source._user
+      _userType = source._userType
     }
   }
 
@@ -133,6 +171,22 @@ extension Employed_Io_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
         switch fieldNumber {
         case 1: try decoder.decodeSingularEnumField(value: &_storage._status)
         case 2: try decoder.decodeSingularMessageField(value: &_storage._user)
+        case 3:
+          var v: Employed_Io_JobSeeker?
+          if let current = _storage._userType {
+            try decoder.handleConflictingOneOf()
+            if case .jobSeeker(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._userType = .jobSeeker(v)}
+        case 4:
+          var v: Employed_Io_Recruiter?
+          if let current = _storage._userType {
+            try decoder.handleConflictingOneOf()
+            if case .recruiter(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._userType = .recruiter(v)}
         default: break
         }
       }
@@ -141,11 +195,18 @@ extension Employed_Io_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if _storage._status != .failure {
+      if _storage._status != .success {
         try visitor.visitSingularEnumField(value: _storage._status, fieldNumber: 1)
       }
       if let v = _storage._user {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      switch _storage._userType {
+      case .jobSeeker(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      case .recruiter(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -158,6 +219,7 @@ extension Employed_Io_LoginResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
         let other_storage = _args.1
         if _storage._status != other_storage._status {return false}
         if _storage._user != other_storage._user {return false}
+        if _storage._userType != other_storage._userType {return false}
         return true
       }
       if !storagesAreEqual {return false}
