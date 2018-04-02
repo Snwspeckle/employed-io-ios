@@ -16,6 +16,11 @@ class LoginVC: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
+        // Create a hidden bar button item to pre-populate the form
+        let populateButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
+        populateButton.addTarget(self, action: #selector(LoginVC.populateButtonPressed(_:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: populateButton)
     }
 
 	// Listen for touches to dismiss the keyboard when tapping outside
@@ -23,14 +28,32 @@ class LoginVC: UIViewController {
 		self.view.endEditing(true)
 	}
 	
+	 @objc func populateButtonPressed(_ sender: UIBarButtonItem) {
+		self.usernameTextField.text = "anthony@mail.com"
+		self.passwordTextField.text = "test"
+    }
+	
 	@IBAction func signInButtonPressed(_ sender: Any) {
-		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
-		self.present(controller, animated: true, completion: nil)
+		// Create the login request object
+		var request = Employed_Io_LoginRequest()
+		request.login = usernameTextField.text!
+		request.password = passwordTextField.text!
+		
+		// Call the API login endpoint
+		APIService.shared.login(request: request) { response in
+			
+			// Upon login, set the account managers user
+			AccountManager.shared.setUser(response.user)
+			
+			// Present the main portion of the app
+			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
+			self.present(controller, animated: true, completion: nil)
+		}
 	}
 	
 	@IBAction func signUpButtonPressed(_ sender: Any) {
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"UserFormVC") as! UserFormVC
-		controller.setPresentationType(type: .Onboarding)
+		controller.setPresentationType(type: .Embedded)
 		self.navigationController?.pushViewController(controller, animated: true)
 	}
 }

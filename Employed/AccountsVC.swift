@@ -75,7 +75,7 @@ class AccountsVC: UITableViewController {
 		VideoService.shared.setIdentity(accounts[indexPath.row].name)
 		
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"UserFormVC") as! UserFormVC
-		controller.setPresentationType(type: .Onboarding)
+		controller.setPresentationType(type: .Embedded)
 		self.navigationController?.pushViewController(controller, animated: true)
 	}
 }

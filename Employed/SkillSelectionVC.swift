@@ -12,9 +12,12 @@ import TagListView
 
 class SkillSelectionVC: UIViewController {
 
-	let skills = ["Designs", "Development", "Photography", "Artist", "Management", "Business", "Copy Writing", "PRD", "Testing", "Marketing", "QA", "iOS", "SEO"]
+	var skills = ["Designs", "Development", "Photography", "Artist", "Management", "Business", "Copy Writing", "PRD", "Testing", "Marketing", "QA", "iOS", "SEO"]
+	var selectedSkills: [String] = []
 	
 	@IBOutlet weak var tagListView: TagListView!
+	
+	var request: Employed_Io_CreateUserRequest!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +63,18 @@ class SkillSelectionVC: UIViewController {
 //		}()
 //		customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
 		
-		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
-		self.present(controller, animated: true, completion: nil)
+		// Set the job seekers skills
+		self.request.jobSeeker.skills = self.selectedSkills
+		self.request.jobSeeker.tags = self.selectedSkills
+
+		APIService.shared.createUser(request: self.request) { response in
+			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
+			self.present(controller, animated: true, completion: nil)
+		}
+	}
+	
+	func setRequest(request: Employed_Io_CreateUserRequest) {
+		self.request = request
 	}
 }
 
@@ -72,9 +85,17 @@ extension SkillSelectionVC: TagListViewDelegate {
 		if (tagView.tagBackgroundColor == UIColor.clear) {
 			tagView.tagBackgroundColor = UIColor.white
 			tagView.textColor = UIColor.darkGray
+			
+			// Add the skill to the selectedSkills array
+			selectedSkills.append(title)
 		} else {
 			tagView.tagBackgroundColor = UIColor.clear
 			tagView.textColor = UIColor.white
+			
+			// Remove the skill from the selectedSkills array
+			if let index = selectedSkills.index(of: title) {
+				selectedSkills.remove(at: index)
+			}
 		}
 	}
 }
