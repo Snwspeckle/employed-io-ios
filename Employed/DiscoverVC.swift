@@ -84,11 +84,15 @@ extension DiscoverVC : KolodaViewDelegate {
 			// Call the API service to create the match
 			var users = [String]()
 			APIService.shared.createMatch(request: request) { response in
-				users = response.match.users
+				// If the match we swiped on previously swiped on us, a connection has been made
+				// and we should show the MatchVC
+				if response.status == .success {
+					users = response.match.users
 				
-				let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
-				matchVC.setMatchName(name: users.last)
-				self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+					let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
+					matchVC.setMatchName(name: users.last)
+					self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+				}
 			}
 		} else if direction == SwipeResultDirection.left {
 			// Create the match reject request object
