@@ -74,7 +74,11 @@ class DiscoverProfileVC: UIViewController {
 		
 		// Set the salary label
 		if let salary = self.job?.salary {
-			if let quickField = QuickFieldView.create(title: "Salary", body: String(format: "$%.02fk", salary)) {
+			let formatter = NumberFormatter()
+			formatter.numberStyle = .currency
+			formatter.maximumFractionDigits = 0
+			let formattedSalary = formatter.string(from: NSNumber(value: Double(salary)))
+			if let quickField = QuickFieldView.create(title: "Salary", body: formattedSalary!) {
 				firstQuickStackView.addArrangedSubview(quickField)
 			}
 		}
