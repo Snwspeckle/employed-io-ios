@@ -97,10 +97,18 @@ class ProfileVC: UITableViewController {
     }
 	
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+    	// User selected the "my profile" row so we should push to the UserFormVC
+    	if (indexPath.section == 0 && indexPath.row == 1) {
+			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"UserFormVC") as! UserFormVC
+			controller.setPresentationType(type: .edit)
+			self.navigationController?.pushViewController(controller, animated: true)
+		}
+		
     	// User selected the "my jobs" row so we should push to the JobsVC
     	if (indexPath.section == 0 && indexPath.row == 2) {
-			let vc = self.storyboard?.instantiateViewController(withIdentifier: "JobsVC") as! JobsVC
-			self.navigationController?.pushViewController(vc, animated: true)
+			let controller = self.storyboard?.instantiateViewController(withIdentifier: "JobsVC") as! JobsVC
+			self.navigationController?.pushViewController(controller, animated: true)
 		}
 		
 		// User selected the "logout" row so we should unwind to the root view controller (Accounts)

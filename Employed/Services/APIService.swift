@@ -32,10 +32,10 @@ class APIService {
 	
 	// MARK: - AUTHENTICATION
 	
-	func login(request: Employed_Io_LoginRequest, completion: @escaping (Employed_Io_LoginResponse) -> Void) {
+	func login(request: Employed_Io_LoginRequest, completion: ((Employed_Io_LoginResponse) -> Void)?) {
 		makeRequest(endpoint: "/login", requestType: .post, request: request) { data in
 			do {
-				completion(try Employed_Io_LoginResponse(jsonUTF8Data: data))
+				completion?(try Employed_Io_LoginResponse(jsonUTF8Data: data))
 			} catch {
 				return
 			}
@@ -44,10 +44,11 @@ class APIService {
 	
 	// MARK: - USERS
 	
-	func createUser(request: Employed_Io_CreateUserRequest, completion: @escaping(Employed_Io_CreateUserResponse) -> Void) {
+	func createUser(request: Employed_Io_CreateUserRequest, completion: ((Employed_Io_CreateUserResponse) -> Void)?) {
+		print(request)
 		makeRequest(endpoint: "/users/create", requestType: .post, request: request) { data in
 			do {
-				completion(try Employed_Io_CreateUserResponse(jsonUTF8Data: data))
+				completion?(try Employed_Io_CreateUserResponse(jsonUTF8Data: data))
 			} catch {
 				return
 			}
@@ -56,20 +57,20 @@ class APIService {
 	
 	// MARK: - JOBS
 	
-	func getJobsByTags(request: Employed_Io_JobsByTagsRequest, completion: @escaping(Employed_Io_JobsByTagsResponse) -> Void) {
+	func getJobsByTags(request: Employed_Io_JobsByTagsRequest, completion: ((Employed_Io_JobsByTagsResponse) -> Void)?) {
 		makeRequest(endpoint: "/jobs", requestType: .post, request: request) { data in
 			do {
-				completion(try Employed_Io_JobsByTagsResponse(jsonUTF8Data: data))
+				completion?(try Employed_Io_JobsByTagsResponse(jsonUTF8Data: data))
 			} catch {
 				return
 			}
 		}
 	}
 	
-	func getMockJobs(completion: @escaping (Employed_Io_Job) -> Void) {
+	func getMockJobs(completion: ((Employed_Io_Job) -> Void)?) {
 		makeRequest(endpoint: "/jobs/mock", requestType: .post) { data in
 			do {
-				completion(try Employed_Io_Job(jsonUTF8Data: data))
+				completion?(try Employed_Io_Job(jsonUTF8Data: data))
 			} catch {
 				return
 			}
@@ -78,45 +79,49 @@ class APIService {
 	
 	// MARK: - MATCHES
 	
-	func getMatches(completion: @escaping(Employed_Io_MatchesResponse) -> Void) {
-		makeRequest(endpoint: "/match", requestType: .post) { data in
+	func getMatches(completion: ((Employed_Io_MatchesResponse) -> Void)?) {
+		makeRequest(endpoint: "/match", requestType: .get) { data in
 			do {
-				completion(try Employed_Io_MatchesResponse(jsonUTF8Data: data))
+				completion?(try Employed_Io_MatchesResponse(jsonUTF8Data: data))
 			} catch {
 				return
 			}
 		}
 	}
 	
-	func createMatch(request: Employed_Io_CreateMatchRequest, completion: @escaping(Employed_Io_CreateMatchResponse) -> Void) {
-		makeRequest(endpoint: "/match/create", requestType: .get, request: request) { data in
+	func getMatchesByUserId(request: Employed_Io_MatchesByUserIdsRequest, completion: ((Employed_Io_MatchesByUserIdsResponse) -> Void)?) {
+		makeRequest(endpoint: "/match", requestType: .post, request: request) { data in
 			do {
-				completion(try Employed_Io_CreateMatchResponse(jsonUTF8Data: data))
+				completion?(try Employed_Io_MatchesByUserIdsResponse(jsonUTF8Data: data))
 			} catch {
 				return
 			}
 		}
 	}
 	
-	func rejectMatch(request: Employed_Io_RejectMatchRequest, completion: @escaping(Employed_Io_RejectMatchResponse) -> Void) {
-		makeRequest(endpoint: "/match/reject", requestType: .get, request: request) { data in
+	func createMatch(request: Employed_Io_CreateMatchRequest, completion: ((Employed_Io_CreateMatchResponse) -> Void)?) {
+		makeRequest(endpoint: "/match/create", requestType: .post, request: request) { data in
 			do {
-				completion(try Employed_Io_RejectMatchResponse(jsonUTF8Data: data))
+				completion?(try Employed_Io_CreateMatchResponse(jsonUTF8Data: data))
 			} catch {
 				return
 			}
 		}
+	}
+	
+	func rejectMatch(request: Employed_Io_RejectMatchRequest) {
+		makeRequest(endpoint: "/match/reject", requestType: .post, request: request, completion: nil)
 	}
 	
 	// MARK: - INTERNAL FUNCTIONS
 	
-	private func makeRequest(endpoint: String, requestType: RequestType, completion: @escaping (Data) -> Void) {
+	private func makeRequest(endpoint: String, requestType: RequestType, completion: ((Data) -> Void)?) {
 		makeRequest(endpoint: endpoint, requestType: requestType, request: nil) { data in
-			completion(data)
+			completion?(data)
 		}
 	}
 	
-	private func makeRequest(endpoint: String, requestType: RequestType, request: Message?, completion: @escaping (Data) -> Void) {
+	private func makeRequest(endpoint: String, requestType: RequestType, request: Message?, completion: ((Data) -> (Void))?) {
 		// Create our networking manager
 		let networking = Networking(baseURL: baseURL)
 		
@@ -128,7 +133,7 @@ class APIService {
 		case .get:
 			do {
 				networking.get("/api\(endpoint)", parameters: try request?.serializedData()) { result in
-					self.handleRequest(result: result) { data in completion(data) }
+					self.handleRequest(result: result) { data in completion?(data) }
 				}
 			} catch {
 				return
@@ -136,7 +141,7 @@ class APIService {
 		case .post:
 			do {
 				networking.post("/api\(endpoint)", parameterType: .custom("application/x-protobuf"), parameters: try request?.serializedData()) { result in
-					self.handleRequest(result: result) { data in completion(data) }
+					self.handleRequest(result: result) { data in completion?(data) }
 				}
 			} catch {
 				return
@@ -144,7 +149,7 @@ class APIService {
 		}
 	}
 	
-	private func handleRequest(result: JSONResult, completion: @escaping (Data) -> Void) {
+	private func handleRequest(result: JSONResult, completion: (Data) -> Void) {
 		switch result {
 		case .success(let response):
 			completion(response.data)

@@ -25,6 +25,8 @@ class VideoVC: UIViewController {
 	@IBOutlet var previewViewTopConstraint: NSLayoutConstraint!
 	@IBOutlet var previewViewTrailingConstraint: NSLayoutConstraint!
 	
+	var channelId: String!
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -53,10 +55,14 @@ class VideoVC: UIViewController {
         self.prepareLocalMedia()
 		
         // Connect to the video room
-        if let room = VideoService.shared.connect(room: "test", audioTrack: self.localAudioTrack, videoTrack: self.localVideoTrack, delegate: self) {
+        if let room = VideoService.shared.connect(room: self.channelId, audioTrack: self.localAudioTrack, videoTrack: self.localVideoTrack, delegate: self) {
         	self.room = room
         	logMessage(messageText: "Attempting to connect to room \(self.room!.name)")
 		}
+	}
+	
+	func setChannelId(channelId: String) {
+		self.channelId = channelId
 	}
 	
     func startPreview() {

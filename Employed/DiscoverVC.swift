@@ -21,9 +21,6 @@ class DiscoverVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		// Set the search bar text color
-        UILabel.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.lightGray
-		
 		// Remove 1px line below navigation bar
 		navigationController?.navigationBar.shadowImage = UIImage()
 
@@ -35,23 +32,20 @@ class DiscoverVC: UIViewController {
 		request.tags = [""]
 		// Call the API service to get jobs
 		APIService.shared.getJobsByTags(request: request) { jobsResponse in
-			for job in jobsResponse.jobs {
-				self.jobs.append(job)
-				print(job)
-			}
+			self.jobs = jobsResponse.jobs
 			
 			// Reload the koloda view with the jobs
 			self.kolodaView.reloadData()
 		}
 		
-//		APIService.shared.getMockJobs(completion: { job in
-//			self.jobs.append(job)
-//			APIService.shared.getMockJobs(completion: { job in
-//				self.jobs.append(job)
-//				print(job)
-//				self.kolodaView.reloadData()
-//			})
-//		})
+		APIService.shared.getMockJobs(completion: { job in
+			self.jobs.append(job)
+			APIService.shared.getMockJobs(completion: { job in
+				self.jobs.append(job)
+				print(job)
+				self.kolodaView.reloadData()
+			})
+		})
     }
 }
 
@@ -69,6 +63,11 @@ extension DiscoverVC : KolodaViewDelegate {
 		}
 		
 		if direction == SwipeResultDirection.right {
+			// Create the match request object
+			var request = Employed_Io_CreateMatchRequest()
+			request.userID = AccountManager.shared.getUserId()
+			request.matchUserID = self.jobs[index].recruiter.userID
+			
 			let presenter: Presentr = {
 				let width = ModalSize.fluid(percentage: 1.0)
 				let height = ModalSize.fluid(percentage: 0.80)
@@ -82,8 +81,23 @@ extension DiscoverVC : KolodaViewDelegate {
 				return presenter
 			}()
 			
-			let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
-			self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+			// Call the API service to create the match
+			var users = [String]()
+			APIService.shared.createMatch(request: request) { response in
+				users = response.match.users
+				
+				let matchVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"MatchVC") as! MatchVC
+				matchVC.setMatchName(name: users.last)
+				self.customPresentViewController(presenter, viewController: matchVC, animated: true, completion: nil)
+			}
+		} else if direction == SwipeResultDirection.left {
+			// Create the match reject request object
+			var request = Employed_Io_RejectMatchRequest()
+			request.userID = AccountManager.shared.getUserId()
+			request.matchUserID = self.jobs[index].recruiter.userID
+			
+			// Call the API service to reject the match
+			APIService.shared.rejectMatch(request: request)
 		}
 	}
 	

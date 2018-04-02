@@ -8,6 +8,10 @@
 
 import Foundation
 
+let rolesArray = ["Job Seeker", "Recruiter"]
+let educationArray = ["High School Diploma", "Associates Degree", "Bachelors Degree", "Masters Degree", "Master of Business Administration", "Doctor of Philosophy", "Doctor of Medicine", "Doctor of Law"]
+let industriesArray = ["Engineering", "Business", "Design", "Arts Entertainment", "Communications", "Education", "Environment", "Government", "Health", "International", "Law", "Non-Profit", "Sciences"]
+
 // Helper to determine if we're running on simulator or device
 struct PlatformUtils {
     static let isSimulator: Bool = {

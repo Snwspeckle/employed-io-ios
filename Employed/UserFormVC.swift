@@ -12,14 +12,11 @@ import Eureka
 class UserFormVC: FormViewController {
 
 	enum UserFormPresentationType {
-		case Embedded
-		case Individual
+		case signup
+		case edit
 	}
 	
-	var presentationType = UserFormPresentationType.Individual
-	
-	let roles = ["Job Seeker", "Recruiter"]
-	let industries = ["Engineering", "Business", "Design", "Arts Entertainment", "Communications", "Education", "Environment", "Government", "Health", "International", "Law", "Non-Profit", "Sciences"]
+	var presentationType = UserFormPresentationType.signup
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,98 +30,105 @@ class UserFormVC: FormViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: populateButton)
 		
         form +++ Section("")
+        	// Generic Row
         	<<< PickerInlineRow<String>("Roles") { (row : PickerInlineRow<String>) -> Void in
                 row.title = row.tag
                 row.displayValueFor = { (rowValue: String?) in
                     return rowValue.map { "\($0)" }
                 }
-                row.options = roles
+                row.options = rolesArray
                 row.value = row.options[0]
         	}
-            <<< EmailRow(){
-            	$0.tag = "LoginRowTag"
+            <<< EmailRow("LoginRowTag"){
                 $0.title = "Login"
-                $0.placeholder = "Enter text here"
             }
-            <<< PasswordRow(){
-            	$0.tag = "PasswordRowTag"
+            <<< PasswordRow("PasswordRowTag"){
                 $0.title = "Password"
-                $0.placeholder = "Enter text here"
             }
-            <<< TextRow(){
-            	$0.tag = "HandleRowTag"
+            <<< TextRow("HandleRowTag"){
                 $0.title = "Handle"
-                $0.placeholder = "Enter text here"
             }
-            <<< TextRow(){
-            	$0.tag = "FirstNameRowTag"
+		+++ Section("Recruiter") {
+				$0.hidden = Condition.function(["Roles"], { form in
+					return (form.rowBy(tag: "Roles") as? PickerInlineRow)?.value == "Job Seeker"
+				})
+			}
+			<<< TextRow("RFirstNameRowTag"){
                 $0.title = "First Name"
-                $0.placeholder = "Enter text here"
             }
-            <<< TextRow(){
-            	$0.tag = "LastNameRowTag"
+            <<< TextRow("RLastNameRowTag"){
                 $0.title = "Last Name"
-                $0.placeholder = "Enter text here"
 			}
-			<<< EmailRow(){
-				$0.tag = "EmailRowTag"
+			<<< EmailRow("REmailRowTag"){
                 $0.title = "Email"
-                $0.placeholder = "Enter email here"
 			}
-            <<< PhoneRow(){
-            	$0.tag = "PhoneRowTag"
+            <<< PhoneRow("RPhoneRowTag"){
                 $0.title = "Phone"
-                $0.placeholder = "Enter phone here"
             }
-            <<< TextAreaRow(){
-            	$0.tag = "BioRowTag"
+            <<< TextAreaRow("RBioRowTag"){
                 $0.title = "Bio"
-                $0.placeholder = "Enter bio here"
+                $0.placeholder = "Describe yourself..."
 			}
-			<<< TextRow(){
-            	$0.tag = "AvatarUrlRowTag"
+		+++ Section("Job Seeker") {
+				$0.hidden = Condition.function(["Roles"], { form in
+					return (form.rowBy(tag: "Roles") as? PickerInlineRow)?.value == "Recruiter"
+				})
+			}
+            <<< TextRow("JFirstNameRowTag"){
+                $0.title = "First Name"
+            }
+            <<< TextRow("JLastNameRowTag"){
+                $0.title = "Last Name"
+			}
+			<<< EmailRow("JEmailRowTag"){
+                $0.title = "Email"
+			}
+            <<< PhoneRow("JPhoneRowTag"){
+                $0.title = "Phone"
+            }
+            <<< TextAreaRow("JBioRowTag"){
+                $0.title = "Bio"
+                $0.placeholder = "Describe yourself..."
+			}
+			<<< TextRow("AvatarUrlRowTag"){
                 $0.title = "Avatar Url"
-                $0.placeholder = "Enter text here"
 			}
-			<<< TextRow(){
-            	$0.tag = "HeadlineRowTag"
+			<<< TextRow("HeadlineRowTag"){
                 $0.title = "Headline"
-                $0.placeholder = "Enter text here"
 			}
-			<<< TextRow(){
-            	$0.tag = "CurrentPositionRowTag"
+			<<< TextRow("CurrentPositionRowTag"){
                 $0.title = "Current Position"
-                $0.placeholder = "Enter text here"
 			}
 			<<< PickerInlineRow<String>("Industry") { (row : PickerInlineRow<String>) -> Void in
                 row.title = row.tag
                 row.displayValueFor = { (rowValue: String?) in
                     return rowValue.map { "\($0)" }
                 }
-                row.options = industries
+                row.options = industriesArray
                 row.value = row.options[0]
         	}
-		+++ Section("Location")
-        	<<< TextRow(){
-            	$0.tag = "StreetAddressRowTag"
-                $0.title = "StreetAddress"
-                $0.placeholder = "Enter text here"
+		+++ Section("Location") {
+				$0.hidden = Condition.function(["Roles"], { form in
+					return (form.rowBy(tag: "Roles") as? PickerInlineRow)?.value == "Recruiter"
+				})
 			}
-			<<< TextRow(){
-            	$0.tag = "CityRowTag"
+        	<<< TextRow("StreetAddressRowTag"){
+                $0.title = "Street Address"
+			}
+			<<< TextRow("CityRowTag"){
                 $0.title = "City"
-                $0.placeholder = "Enter text here"
 			}
-			<<< TextRow(){
-            	$0.tag = "StateRowTag"
+			<<< TextRow("StateRowTag"){
                 $0.title = "State"
-                $0.placeholder = "Enter text here"
 			}
-			<<< ZipCodeRow(){
-            	$0.tag = "ZipcodeRowTag"
+			<<< ZipCodeRow("ZipcodeRowTag"){
                 $0.title = "Zipcode"
-                $0.placeholder = "Enter text here"
 			}
+		
+		// If our presentation type is edit, load the user data
+		if (self.presentationType == .edit) {
+			loadUser()
+		}
     }
 	
     @objc func populateButtonPressed(_ sender: UIBarButtonItem) {
@@ -132,11 +136,11 @@ class UserFormVC: FormViewController {
 				"LoginRowTag": "anthony@mail.com",
 				"PasswordRowTag": "test",
 				"HandleRowTag": "AnthonyVella",
-				"FirstNameRowTag": "Anthony",
-				"LastNameRowTag": "Vella",
-				"EmailRowTag": "anthony@mail.com",
-				"PhoneRowTag": "123-456-7890",
-				"BioRowTag": "Test",
+				"JFirstNameRowTag": "Anthony",
+				"JLastNameRowTag": "Vella",
+				"JEmailRowTag": "anthony@mail.com",
+				"JPhoneRowTag": "123-456-7890",
+				"JBioRowTag": "Test",
 				"AvatarUrlRowTag": "http://picture.com",
 				"HeadlineRowTag": "This is a headline",
 				"CurrentPositionRowTag": "Software Engineer",
@@ -154,53 +158,114 @@ class UserFormVC: FormViewController {
 		
 		// Create the user object
 		var user = Employed_Io_User()
-		user.role = .jobSeeker
+		let roleIndex = rolesArray.index(of: ((form.rowBy(tag: "Roles") as? PickerInlineRow)?.value)!)
+		user.role = Employed_Io_User.Role.init(rawValue: roleIndex!)!
 		user.login = form.rowBy(tag: "LoginRowTag")?.baseValue as! String
 		user.password = form.rowBy(tag: "PasswordRowTag")?.baseValue as! String
 		user.handle = form.rowBy(tag: "HandleRowTag")?.baseValue as! String
-		user.matches = [""]
-		user.pendingMatches = [""]
-		user.rejectedMatches = [""]
 		
-		// Create the job seeker object
-		var jobSeeker = Employed_Io_JobSeeker()
-		jobSeeker.firstName = form.rowBy(tag: "FirstNameRowTag")?.baseValue as! String
-		jobSeeker.lastName = form.rowBy(tag: "LastNameRowTag")?.baseValue as! String
-		jobSeeker.email = form.rowBy(tag: "EmailRowTag")?.baseValue as! String
-		jobSeeker.phoneNumber = form.rowBy(tag: "PhoneRowTag")?.baseValue as! String
-		jobSeeker.bio = form.rowBy(tag: "BioRowTag")?.baseValue as! String
-		jobSeeker.avatarURL = form.rowBy(tag: "AvatarUrlRowTag")?.baseValue as! String
-		jobSeeker.headline = form.rowBy(tag: "HeadlineRowTag")?.baseValue as! String
-		jobSeeker.currentPosition = form.rowBy(tag: "CurrentPositionRowTag")?.baseValue as! String
-		jobSeeker.industry = .engineering
-		
-		// Create the location object
-		var location = Employed_Io_Location()
-		location.latitude = 39.127655
-		location.longitude = -84.518900
-		location.address.streetAddress = form.rowBy(tag: "StreetAddressRowTag")?.baseValue as! String
-		location.address.city = form.rowBy(tag: "CityRowTag")?.baseValue as! String
-		location.address.state = form.rowBy(tag: "StateRowTag")?.baseValue as! String
-		location.address.zip = form.rowBy(tag: "ZipcodeRowTag")?.baseValue as! String
-		jobSeeker.location = location
+		switch (user.role) {
+			case .jobSeeker:
+				// Create the job seeker object
+				var jobSeeker = Employed_Io_JobSeeker()
+				jobSeeker.firstName = form.rowBy(tag: "JFirstNameRowTag")?.baseValue as! String
+				jobSeeker.lastName = form.rowBy(tag: "JLastNameRowTag")?.baseValue as! String
+				jobSeeker.email = form.rowBy(tag: "JEmailRowTag")?.baseValue as! String
+				jobSeeker.phoneNumber = form.rowBy(tag: "JPhoneRowTag")?.baseValue as! String
+				jobSeeker.bio = form.rowBy(tag: "JBioRowTag")?.baseValue as! String
+				jobSeeker.avatarURL = form.rowBy(tag: "AvatarUrlRowTag")?.baseValue as! String
+				jobSeeker.headline = form.rowBy(tag: "HeadlineRowTag")?.baseValue as! String
+				jobSeeker.currentPosition = form.rowBy(tag: "CurrentPositionRowTag")?.baseValue as! String
+				let industryIndex = industriesArray.index(of: ((form.rowBy(tag: "Industry") as? PickerInlineRow)?.value)!)
+				jobSeeker.industry = Employed_Io_Industry.init(rawValue: industryIndex!)!
+			
+				// Create the location object
+				var location = Employed_Io_Location()
+				location.latitude = 39.127655
+				location.longitude = -84.518900
+				location.address.streetAddress = form.rowBy(tag: "StreetAddressRowTag")?.baseValue as! String
+				location.address.city = form.rowBy(tag: "CityRowTag")?.baseValue as! String
+				location.address.state = form.rowBy(tag: "StateRowTag")?.baseValue as! String
+				location.address.zip = form.rowBy(tag: "ZipcodeRowTag")?.baseValue as! String
+				jobSeeker.location = location
+
+				// Add the job seeker to the user request
+				request.jobSeeker = jobSeeker
+			case .recruiter:
+				// Create the recruiter object
+				var recruiter = Employed_Io_Recruiter()
+				recruiter.firstName = form.rowBy(tag: "RFirstNameRowTag")?.baseValue as! String
+				recruiter.lastName = form.rowBy(tag: "RLastNameRowTag")?.baseValue as! String
+				recruiter.email = form.rowBy(tag: "REmailRowTag")?.baseValue as! String
+				recruiter.phoneNumber = form.rowBy(tag: "RPhoneRowTag")?.baseValue as! String
+				recruiter.bio = form.rowBy(tag: "RBioRowTag")?.baseValue as! String
+
+				// Add the recruiter to the user request
+				request.recruiter = recruiter
+			case .UNRECOGNIZED(_): return
+		}
 		
 		// Add the user to the user request
 		request.user = user
-		
-		// Add the job seeker to the user request
-		request.jobSeeker = jobSeeker
 
-		if (self.presentationType == .Embedded) {
-			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"SkillSelectionVC") as! SkillSelectionVC
-			controller.setRequest(request: request)
-			self.navigationController?.pushViewController(controller, animated: true)
+		if (self.presentationType == .signup) {
+			switch (user.role) {
+				case .jobSeeker:
+					let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"SkillSelectionVC") as! SkillSelectionVC
+					controller.setRequest(request: request)
+					self.navigationController?.pushViewController(controller, animated: true)
+				case .recruiter:
+					AccountManager.shared.createUser(request: request) {
+						let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
+						self.present(controller, animated: true, completion: nil)
+					}
+				case .UNRECOGNIZED(_): return
+			}
 		} else {
-			
 		}
 	}
 	
     // Sets the presentation type
 	func setPresentationType(type: UserFormPresentationType) {
 		self.presentationType = type
+	}
+	
+	// Sets the form values to the user
+	func loadUser() {
+		let user = AccountManager.shared.getUser()
+		var data = ["LoginRowTag": user.login,
+					"PasswordRowTag": user.password,
+					"HandleRowTag": user.handle]
+
+		switch user.role {
+		case .jobSeeker:
+			if let jobSeeker = AccountManager.shared.getJobSeeker() {
+				data += ["JFirstNameRowTag": jobSeeker.firstName,
+					"JLastNameRowTag": jobSeeker.lastName,
+					"JEmailRowTag": jobSeeker.email,
+					"JPhoneRowTag": jobSeeker.phoneNumber,
+					"JBioRowTag": jobSeeker.bio,
+					"AvatarUrlRowTag": jobSeeker.avatarURL,
+					"HeadlineRowTag": jobSeeker.headline,
+					"CurrentPositionRowTag": jobSeeker.currentPosition,
+					"StreetAddressRowTag": jobSeeker.location.address.streetAddress,
+					"CityRowTag": jobSeeker.location.address.city,
+					"StateRowTag": jobSeeker.location.address.state,
+					"ZipcodeRowTag": jobSeeker.location.address.zip]
+			}
+		case .recruiter:
+			if let recruiter = AccountManager.shared.getRecruiter() {
+				data += ["RFirstNameRowTag": recruiter.firstName,
+					"RLastNameRowTag": recruiter.lastName,
+					"REmailRowTag": recruiter.email,
+					"RPhoneRowTag": recruiter.phoneNumber,
+					"RBioRowTag": recruiter.bio]
+			}
+		case .UNRECOGNIZED(_): return
+		}
+
+		// Set the form values and reload the table data
+		form.setValues(data)
+		tableView.reloadData()
 	}
 }

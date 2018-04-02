@@ -97,8 +97,8 @@ class DiscoverProfileVC: UIViewController {
 		self.fieldsStackView.addArrangedSubview(secondQuickStackView)
 		
 		// Set the education label
-		if let educations = self.job?.educationLevel, let recentEducation = educations.last?.rawValue {
-			if let quickField = QuickFieldView.create(title: "Education", body: "\(recentEducation)") {
+		if let educations = self.job?.educationLevel {
+			if let quickField = QuickFieldView.create(title: "Education", body: "\(educationArray[(educations.last?.rawValue)!])") {
 				secondQuickStackView.addArrangedSubview(quickField)
 			}
 		}
@@ -145,8 +145,13 @@ class DiscoverProfileVC: UIViewController {
 			
 			// Set the education
 			if let education = self.job?.educationLevel {
-				for ed in education {
-					
+				var output = ""
+				for level in education {
+					output += educationArray[level.rawValue]
+				}
+				
+				if let field = FieldView.create(title: "Education", body: output) {
+					self.fieldsStackView.addArrangedSubview(field)
 				}
 			}
 			

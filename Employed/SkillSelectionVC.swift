@@ -67,7 +67,7 @@ class SkillSelectionVC: UIViewController {
 		self.request.jobSeeker.skills = self.selectedSkills
 		self.request.jobSeeker.tags = self.selectedSkills
 
-		APIService.shared.createUser(request: self.request) { response in
+		AccountManager.shared.createUser(request: self.request) {
 			let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"RootTabBar")
 			self.present(controller, animated: true, completion: nil)
 		}

@@ -70,4 +70,8 @@ class MatchVC: UIViewController {
 	@IBAction func continueButtonPressed(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
 	}
+	
+	func setMatchName(name: String!) {
+		self.connectionNameLabel.text = name
+	}
 }

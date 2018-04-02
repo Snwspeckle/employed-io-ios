@@ -60,6 +60,7 @@ class ChatVC: MessagesViewController {
 	
 	@objc func videoChatButtonPressed(_ sender: UIBarButtonItem) {
 		let videoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"VideoVC") as! VideoVC
+//		videoVC.setChannelId(channelId: <#T##String#>)
 		self.present(videoVC, animated: true, completion: nil)
 	}
 	

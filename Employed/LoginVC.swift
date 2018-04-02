@@ -43,7 +43,7 @@ class LoginVC: UIViewController {
 	
 	@IBAction func signUpButtonPressed(_ sender: Any) {
 		let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:"UserFormVC") as! UserFormVC
-		controller.setPresentationType(type: .Embedded)
+		controller.setPresentationType(type: .signup)
 		self.navigationController?.pushViewController(controller, animated: true)
 	}
 }
