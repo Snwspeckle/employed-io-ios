@@ -159,7 +159,7 @@ class UserFormVC: FormViewController {
 		// Create the user object
 		var user = Employed_Io_User()
 		let roleIndex = rolesArray.index(of: ((form.rowBy(tag: "Roles") as? PickerInlineRow)?.value)!)
-		user.role = Employed_Io_User.Role.init(rawValue: roleIndex!)!
+		user.role = Employed_Io_User.Role(rawValue: roleIndex!)!
 		user.login = form.rowBy(tag: "LoginRowTag")?.baseValue as! String
 		user.password = form.rowBy(tag: "PasswordRowTag")?.baseValue as! String
 		user.handle = form.rowBy(tag: "HandleRowTag")?.baseValue as! String
@@ -177,7 +177,7 @@ class UserFormVC: FormViewController {
 				jobSeeker.headline = form.rowBy(tag: "HeadlineRowTag")?.baseValue as! String
 				jobSeeker.currentPosition = form.rowBy(tag: "CurrentPositionRowTag")?.baseValue as! String
 				let industryIndex = industriesArray.index(of: ((form.rowBy(tag: "Industry") as? PickerInlineRow)?.value)!)
-				jobSeeker.industry = Employed_Io_Industry.init(rawValue: industryIndex!)!
+				jobSeeker.industry = Employed_Io_Industry(rawValue: industryIndex!)!
 			
 				// Create the location object
 				var location = Employed_Io_Location()
