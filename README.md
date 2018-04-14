@@ -1,6 +1,6 @@
-# Employed.io iOS App
+# Employed iOS
 
-## Setup
+### Setup
 
 1. Clone the repository.
 
