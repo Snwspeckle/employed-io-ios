@@ -25,8 +25,7 @@ class APIService {
     }
 
 	// Base URL of the API endpoints
-//	private let baseURL: String = "http://127.0.0.1:8080";
-	private let baseURL: String = "http://192.168.43.168:8080";
+	private let baseURL: String = "http://127.0.0.1:8080";
 
 	private init() {
 	}

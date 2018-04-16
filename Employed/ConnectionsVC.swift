@@ -77,13 +77,13 @@ class ConnectionsVC: UITableViewController {
 		
 		switch AccountManager.shared.getUserRole() {
 			case .jobSeeker:
-				APIService.shared.getRecruiterByUserId(userId: (match.users.first)!) { recruiter in
+				APIService.shared.getRecruiterByUserId(userId: (match.users.last)!) { recruiter in
 					// Setup the cell
 					cell.setup(image: UIImage(named: "tyrell_wellick")!, name: "\(recruiter.firstName) \(recruiter.lastName)", companyName: nil, jobPosition: "")
 					self.username = "\(recruiter.firstName) \(recruiter.lastName)"
 				}
 			case .recruiter:
-				APIService.shared.getJobSeekerByUserId(userId: (match.users.last)!) { jobseeker in
+				APIService.shared.getJobSeekerByUserId(userId: (match.users.first)!) { jobseeker in
 					// Setup the cell
 					cell.setup(image: UIImage(named: "angela_moss")!, name: "\(jobseeker.firstName) \(jobseeker.lastName)", companyName: nil, jobPosition: jobseeker.currentPosition)
 					self.username = "\(jobseeker.firstName) \(jobseeker.lastName)"
