@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageKit
+import MessageInputBar
 import TwilioChatClient
 
 class ChatVC: MessagesViewController {
@@ -97,7 +98,10 @@ extension ChatVC: ChatServiceDelegate {
 // MARK: - MessagesDataSource
 
 extension ChatVC: MessagesDataSource {
-
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return 1
+    }
+    
     func currentSender() -> Sender {
         return Sender(id: ChatService.shared.getUserIdentity()!, displayName: ChatService.shared.getUserFriendlyName()!)
     }
@@ -112,11 +116,11 @@ extension ChatVC: MessagesDataSource {
 
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
-		let text = NSAttributedString(string: name, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .caption1)])
+        let text = NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
         return isFromCurrentSender(message: message) ? nil : text
     }
 
-    func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+    private func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
 		
         struct ConversationDateFormatter {
             static let formatter: DateFormatter = {
@@ -127,7 +131,7 @@ extension ChatVC: MessagesDataSource {
         }
         let formatter = ConversationDateFormatter.formatter
         let dateString = formatter.string(from: message.sentDate)
-        let text = NSAttributedString(string: dateString, attributes: [NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .caption2)])
+        let text = NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
         return isFromCurrentSender(message: message) ? nil : text
     }
 }
@@ -142,7 +146,7 @@ extension ChatVC: MessagesDisplayDelegate {
         return isFromCurrentSender(message: message) ? .white : .darkText
     }
 
-    func detectorAttributes(for detector: DetectorType, and message: MessageType, at indexPath: IndexPath) -> [NSAttributedStringKey : Any] {
+    internal func detectorAttributes(for detector: DetectorType, and message: MessageType, at indexPath: IndexPath) -> [NSAttributedString.Key : Any] {
         return MessageLabel.defaultAttributes
     }
 
@@ -189,21 +193,21 @@ extension ChatVC: MessagesLayoutDelegate {
         }
     }
 
-    func cellTopLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment {
-        if isFromCurrentSender(message: message) {
-            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
-        } else {
-            return .messageLeading(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
-        }
-    }
-
-    func cellBottomLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment {
-        if isFromCurrentSender(message: message) {
-            return .messageLeading(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
-        } else {
-            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
-        }
-    }
+//    private func cellTopLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment {
+//        if isFromCurrentSender(message: message) {
+//            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+//        } else {
+//            return .messageLeading(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
+//        }
+//    }
+//
+//    func cellBottomLabelAlignment(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LabelAlignment {
+//        if isFromCurrentSender(message: message) {
+//            return .messageLeading(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0))
+//        } else {
+//            return .messageTrailing(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+//        }
+//    }
 
     func footerViewSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize(width: messagesCollectionView.bounds.width, height: 10)

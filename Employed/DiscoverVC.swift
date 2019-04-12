@@ -88,7 +88,7 @@ extension DiscoverVC : KolodaViewDelegate {
 				presenter.transitionType = .coverVerticalFromTop
 				presenter.dismissTransitionType = .coverVerticalFromTop
 				presenter.blurBackground = true
-				presenter.dismissOnTap = false
+//                presenter.dismissOnTap = false
 				return presenter
 			}()
 			

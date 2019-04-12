@@ -22,21 +22,6 @@
 		567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F0206C54D900A1BDA8 /* JobFormVC.swift */; };
 		567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */; };
 		568969C62069A69F007F4B53 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568969C52069A69F007F4B53 /* FieldView.swift */; };
-		568C62E1207217300069160C /* job_seeker_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62CB207217300069160C /* job_seeker_request.pb.swift */; };
-		568C62E2207217300069160C /* job_seeker.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62CC207217300069160C /* job_seeker.pb.swift */; };
-		568C62E3207217300069160C /* login_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62CE207217300069160C /* login_request.pb.swift */; };
-		568C62E4207217300069160C /* job_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D0207217300069160C /* job_request.pb.swift */; };
-		568C62E5207217300069160C /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D1207217300069160C /* job.pb.swift */; };
-		568C62E6207217300069160C /* recruiter.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D3207217300069160C /* recruiter.pb.swift */; };
-		568C62E7207217300069160C /* recruiter_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D4207217300069160C /* recruiter_request.pb.swift */; };
-		568C62E8207217300069160C /* industry.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D6207217300069160C /* industry.pb.swift */; };
-		568C62E9207217300069160C /* status.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D7207217300069160C /* status.pb.swift */; };
-		568C62EA207217300069160C /* location.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62D8207217300069160C /* location.pb.swift */; };
-		568C62EB207217300069160C /* company.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DA207217300069160C /* company.pb.swift */; };
-		568C62EC207217300069160C /* match.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DC207217300069160C /* match.pb.swift */; };
-		568C62ED207217300069160C /* match_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DD207217300069160C /* match_request.pb.swift */; };
-		568C62EE207217300069160C /* user_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62DF207217300069160C /* user_request.pb.swift */; };
-		568C62EF207217300069160C /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C62E0207217300069160C /* user.pb.swift */; };
 		56A8E370206DF12B001D800D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E36F206DF12B001D800D /* LoginVC.swift */; };
 		56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E37B206FE98D001D800D /* QuickFieldView.swift */; };
 		56A8E3B62071A88B001D800D /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8E3B52071A88B001D800D /* AccountManager.swift */; };
@@ -48,6 +33,21 @@
 		56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */; };
 		56EA361C1FB51001004009BE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA361B1FB51001004009BE /* APIService.swift */; };
 		8EFA5850D6D9E63DF8A77D86 /* Pods_Employed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BBA97FD3FD06D26F24AD454 /* Pods_Employed.framework */; };
+		921C69A922604F94003FAAF0 /* job_seeker_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699322604F94003FAAF0 /* job_seeker_request.pb.swift */; };
+		921C69AA22604F94003FAAF0 /* job_seeker.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699422604F94003FAAF0 /* job_seeker.pb.swift */; };
+		921C69AB22604F94003FAAF0 /* match.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699622604F94003FAAF0 /* match.pb.swift */; };
+		921C69AC22604F94003FAAF0 /* match_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699722604F94003FAAF0 /* match_request.pb.swift */; };
+		921C69AD22604F94003FAAF0 /* recruiter.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699922604F94003FAAF0 /* recruiter.pb.swift */; };
+		921C69AE22604F94003FAAF0 /* recruiter_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699A22604F94003FAAF0 /* recruiter_request.pb.swift */; };
+		921C69AF22604F94003FAAF0 /* user_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699C22604F94003FAAF0 /* user_request.pb.swift */; };
+		921C69B022604F94003FAAF0 /* user.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699D22604F94003FAAF0 /* user.pb.swift */; };
+		921C69B122604F94003FAAF0 /* industry.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C699F22604F94003FAAF0 /* industry.pb.swift */; };
+		921C69B222604F94003FAAF0 /* status.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C69A022604F94003FAAF0 /* status.pb.swift */; };
+		921C69B322604F94003FAAF0 /* location.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C69A122604F94003FAAF0 /* location.pb.swift */; };
+		921C69B422604F94003FAAF0 /* job_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C69A322604F94003FAAF0 /* job_request.pb.swift */; };
+		921C69B522604F94003FAAF0 /* job.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C69A422604F94003FAAF0 /* job.pb.swift */; };
+		921C69B622604F94003FAAF0 /* login_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C69A622604F94003FAAF0 /* login_request.pb.swift */; };
+		921C69B722604F94003FAAF0 /* company.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921C69A822604F94003FAAF0 /* company.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,21 +81,6 @@
 		567953F0206C54D900A1BDA8 /* JobFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFormVC.swift; sourceTree = "<group>"; };
 		567953F2206C5CF400A1BDA8 /* SkillSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionVC.swift; sourceTree = "<group>"; };
 		568969C52069A69F007F4B53 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
-		568C62CB207217300069160C /* job_seeker_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker_request.pb.swift; sourceTree = "<group>"; };
-		568C62CC207217300069160C /* job_seeker.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker.pb.swift; sourceTree = "<group>"; };
-		568C62CE207217300069160C /* login_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login_request.pb.swift; sourceTree = "<group>"; };
-		568C62D0207217300069160C /* job_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_request.pb.swift; sourceTree = "<group>"; };
-		568C62D1207217300069160C /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
-		568C62D3207217300069160C /* recruiter.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter.pb.swift; sourceTree = "<group>"; };
-		568C62D4207217300069160C /* recruiter_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter_request.pb.swift; sourceTree = "<group>"; };
-		568C62D6207217300069160C /* industry.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = industry.pb.swift; sourceTree = "<group>"; };
-		568C62D7207217300069160C /* status.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = status.pb.swift; sourceTree = "<group>"; };
-		568C62D8207217300069160C /* location.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.pb.swift; sourceTree = "<group>"; };
-		568C62DA207217300069160C /* company.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = company.pb.swift; sourceTree = "<group>"; };
-		568C62DC207217300069160C /* match.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match.pb.swift; sourceTree = "<group>"; };
-		568C62DD207217300069160C /* match_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match_request.pb.swift; sourceTree = "<group>"; };
-		568C62DF207217300069160C /* user_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user_request.pb.swift; sourceTree = "<group>"; };
-		568C62E0207217300069160C /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
 		56A8E36F206DF12B001D800D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		56A8E37B206FE98D001D800D /* QuickFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickFieldView.swift; sourceTree = "<group>"; };
 		56A8E3B52071A88B001D800D /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -109,6 +94,21 @@
 		56EA360D1FB4DF75004009BE /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
 		56EA361B1FB51001004009BE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		846003E4A87EC6F667766D96 /* Pods-Employed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Employed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Employed/Pods-Employed.release.xcconfig"; sourceTree = "<group>"; };
+		921C699322604F94003FAAF0 /* job_seeker_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker_request.pb.swift; sourceTree = "<group>"; };
+		921C699422604F94003FAAF0 /* job_seeker.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_seeker.pb.swift; sourceTree = "<group>"; };
+		921C699622604F94003FAAF0 /* match.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match.pb.swift; sourceTree = "<group>"; };
+		921C699722604F94003FAAF0 /* match_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = match_request.pb.swift; sourceTree = "<group>"; };
+		921C699922604F94003FAAF0 /* recruiter.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter.pb.swift; sourceTree = "<group>"; };
+		921C699A22604F94003FAAF0 /* recruiter_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recruiter_request.pb.swift; sourceTree = "<group>"; };
+		921C699C22604F94003FAAF0 /* user_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user_request.pb.swift; sourceTree = "<group>"; };
+		921C699D22604F94003FAAF0 /* user.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.pb.swift; sourceTree = "<group>"; };
+		921C699F22604F94003FAAF0 /* industry.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = industry.pb.swift; sourceTree = "<group>"; };
+		921C69A022604F94003FAAF0 /* status.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = status.pb.swift; sourceTree = "<group>"; };
+		921C69A122604F94003FAAF0 /* location.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = location.pb.swift; sourceTree = "<group>"; };
+		921C69A322604F94003FAAF0 /* job_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job_request.pb.swift; sourceTree = "<group>"; };
+		921C69A422604F94003FAAF0 /* job.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = job.pb.swift; sourceTree = "<group>"; };
+		921C69A622604F94003FAAF0 /* login_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = login_request.pb.swift; sourceTree = "<group>"; };
+		921C69A822604F94003FAAF0 /* company.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = company.pb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,21 +140,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		567953E8206C3C9300A1BDA8 /* Protos */ = {
-			isa = PBXGroup;
-			children = (
-				568C62D5207217300069160C /* common */,
-				568C62D9207217300069160C /* company */,
-				568C62CF207217300069160C /* job */,
-				568C62CA207217300069160C /* job-seeker */,
-				568C62CD207217300069160C /* login */,
-				568C62DB207217300069160C /* match */,
-				568C62D2207217300069160C /* recruiter */,
-				568C62DE207217300069160C /* user */,
-			);
-			path = Protos;
-			sourceTree = "<group>";
-		};
 		567953E9206C3CB100A1BDA8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,85 +148,6 @@
 				5634F9612050D6C600F0DED4 /* VideoService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		568C62CA207217300069160C /* job-seeker */ = {
-			isa = PBXGroup;
-			children = (
-				568C62CB207217300069160C /* job_seeker_request.pb.swift */,
-				568C62CC207217300069160C /* job_seeker.pb.swift */,
-			);
-			name = "job-seeker";
-			path = "../../../employed-io-protocol/swift/generated/protocol/job-seeker";
-			sourceTree = "<group>";
-		};
-		568C62CD207217300069160C /* login */ = {
-			isa = PBXGroup;
-			children = (
-				568C62CE207217300069160C /* login_request.pb.swift */,
-			);
-			name = login;
-			path = "../../../employed-io-protocol/swift/generated/protocol/login";
-			sourceTree = "<group>";
-		};
-		568C62CF207217300069160C /* job */ = {
-			isa = PBXGroup;
-			children = (
-				568C62D0207217300069160C /* job_request.pb.swift */,
-				568C62D1207217300069160C /* job.pb.swift */,
-			);
-			name = job;
-			path = "../../../employed-io-protocol/swift/generated/protocol/job";
-			sourceTree = "<group>";
-		};
-		568C62D2207217300069160C /* recruiter */ = {
-			isa = PBXGroup;
-			children = (
-				568C62D3207217300069160C /* recruiter.pb.swift */,
-				568C62D4207217300069160C /* recruiter_request.pb.swift */,
-			);
-			name = recruiter;
-			path = "../../../employed-io-protocol/swift/generated/protocol/recruiter";
-			sourceTree = "<group>";
-		};
-		568C62D5207217300069160C /* common */ = {
-			isa = PBXGroup;
-			children = (
-				568C62D6207217300069160C /* industry.pb.swift */,
-				568C62D7207217300069160C /* status.pb.swift */,
-				568C62D8207217300069160C /* location.pb.swift */,
-			);
-			name = common;
-			path = "../../../employed-io-protocol/swift/generated/protocol/common";
-			sourceTree = "<group>";
-		};
-		568C62D9207217300069160C /* company */ = {
-			isa = PBXGroup;
-			children = (
-				568C62DA207217300069160C /* company.pb.swift */,
-			);
-			name = company;
-			path = "../../../employed-io-protocol/swift/generated/protocol/company";
-			sourceTree = "<group>";
-		};
-		568C62DB207217300069160C /* match */ = {
-			isa = PBXGroup;
-			children = (
-				568C62DC207217300069160C /* match.pb.swift */,
-				568C62DD207217300069160C /* match_request.pb.swift */,
-			);
-			name = match;
-			path = "../../../employed-io-protocol/swift/generated/protocol/match";
-			sourceTree = "<group>";
-		};
-		568C62DE207217300069160C /* user */ = {
-			isa = PBXGroup;
-			children = (
-				568C62DF207217300069160C /* user_request.pb.swift */,
-				568C62E0207217300069160C /* user.pb.swift */,
-			);
-			name = user;
-			path = "../../../employed-io-protocol/swift/generated/protocol/user";
 			sourceTree = "<group>";
 		};
 		56B577421F96798F00B3B0BC = {
@@ -265,8 +171,8 @@
 		56B5774D1F96798F00B3B0BC /* Employed */ = {
 			isa = PBXGroup;
 			children = (
+				921C699122604F94003FAAF0 /* Protos */,
 				567953E9206C3CB100A1BDA8 /* Services */,
-				567953E8206C3C9300A1BDA8 /* Protos */,
 				56B5774E1F96798F00B3B0BC /* AppDelegate.swift */,
 				56B577541F96798F00B3B0BC /* Main.storyboard */,
 				56B577571F96798F00B3B0BC /* Assets.xcassets */,
@@ -294,6 +200,92 @@
 			path = Employed;
 			sourceTree = "<group>";
 		};
+		921C699122604F94003FAAF0 /* Protos */ = {
+			isa = PBXGroup;
+			children = (
+				921C699222604F94003FAAF0 /* job-seeker */,
+				921C699522604F94003FAAF0 /* match */,
+				921C699822604F94003FAAF0 /* recruiter */,
+				921C699B22604F94003FAAF0 /* user */,
+				921C699E22604F94003FAAF0 /* common */,
+				921C69A222604F94003FAAF0 /* job */,
+				921C69A522604F94003FAAF0 /* login */,
+				921C69A722604F94003FAAF0 /* company */,
+			);
+			path = Protos;
+			sourceTree = "<group>";
+		};
+		921C699222604F94003FAAF0 /* job-seeker */ = {
+			isa = PBXGroup;
+			children = (
+				921C699322604F94003FAAF0 /* job_seeker_request.pb.swift */,
+				921C699422604F94003FAAF0 /* job_seeker.pb.swift */,
+			);
+			path = "job-seeker";
+			sourceTree = "<group>";
+		};
+		921C699522604F94003FAAF0 /* match */ = {
+			isa = PBXGroup;
+			children = (
+				921C699622604F94003FAAF0 /* match.pb.swift */,
+				921C699722604F94003FAAF0 /* match_request.pb.swift */,
+			);
+			path = match;
+			sourceTree = "<group>";
+		};
+		921C699822604F94003FAAF0 /* recruiter */ = {
+			isa = PBXGroup;
+			children = (
+				921C699922604F94003FAAF0 /* recruiter.pb.swift */,
+				921C699A22604F94003FAAF0 /* recruiter_request.pb.swift */,
+			);
+			path = recruiter;
+			sourceTree = "<group>";
+		};
+		921C699B22604F94003FAAF0 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				921C699C22604F94003FAAF0 /* user_request.pb.swift */,
+				921C699D22604F94003FAAF0 /* user.pb.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		921C699E22604F94003FAAF0 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				921C699F22604F94003FAAF0 /* industry.pb.swift */,
+				921C69A022604F94003FAAF0 /* status.pb.swift */,
+				921C69A122604F94003FAAF0 /* location.pb.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		921C69A222604F94003FAAF0 /* job */ = {
+			isa = PBXGroup;
+			children = (
+				921C69A322604F94003FAAF0 /* job_request.pb.swift */,
+				921C69A422604F94003FAAF0 /* job.pb.swift */,
+			);
+			path = job;
+			sourceTree = "<group>";
+		};
+		921C69A522604F94003FAAF0 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				921C69A622604F94003FAAF0 /* login_request.pb.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		921C69A722604F94003FAAF0 /* company */ = {
+			isa = PBXGroup;
+			children = (
+				921C69A822604F94003FAAF0 /* company.pb.swift */,
+			);
+			path = company;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,7 +298,6 @@
 				56B577481F96798F00B3B0BC /* Frameworks */,
 				56B577491F96798F00B3B0BC /* Resources */,
 				5BC1F48A18E55DD81E5A69DC /* [CP] Embed Pods Frameworks */,
-				E22E7B4215418EF27CFF9722 /* [CP] Copy Pods Resources */,
 				56E611551FB53D4800C9116D /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -325,7 +316,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Employed;
 				TargetAttributes = {
 					56B5774A1F96798F00B3B0BC = {
@@ -377,12 +368,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Employed/Pods-Employed-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Employed/Pods-Employed-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Networking/Networking.framework",
 				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
@@ -400,6 +392,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
@@ -412,7 +405,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Employed/Pods-Employed-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Employed/Pods-Employed-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BB6715FD6DED29D041A0F5B6 /* [CP] Check Pods Manifest.lock */ = {
@@ -433,21 +426,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E22E7B4215418EF27CFF9722 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Employed/Pods-Employed-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -455,43 +433,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921C69AC22604F94003FAAF0 /* match_request.pb.swift in Sources */,
 				565C57EE2022C168008387D5 /* DiscoverProfileVC.swift in Sources */,
 				565080AA204CA1C300F18815 /* ChatMessage.swift in Sources */,
+				921C69B022604F94003FAAF0 /* user.pb.swift in Sources */,
 				56BD37711FB2481D00888CE7 /* DiscoverVC.swift in Sources */,
-				568C62E3207217300069160C /* login_request.pb.swift in Sources */,
-				568C62E5207217300069160C /* job.pb.swift in Sources */,
-				568C62EA207217300069160C /* location.pb.swift in Sources */,
 				565080B0204DF5AB00F18815 /* ProfileSectionView.swift in Sources */,
-				568C62EE207217300069160C /* user_request.pb.swift in Sources */,
+				921C69AD22604F94003FAAF0 /* recruiter.pb.swift in Sources */,
 				5634F9622050D6C600F0DED4 /* VideoService.swift in Sources */,
 				568969C62069A69F007F4B53 /* FieldView.swift in Sources */,
-				568C62E8207217300069160C /* industry.pb.swift in Sources */,
-				568C62EF207217300069160C /* user.pb.swift in Sources */,
 				567953F1206C54D900A1BDA8 /* JobFormVC.swift in Sources */,
-				568C62E2207217300069160C /* job_seeker.pb.swift in Sources */,
+				921C69AA22604F94003FAAF0 /* job_seeker.pb.swift in Sources */,
 				5634F9642050D71B00F0DED4 /* Utilities.swift in Sources */,
 				56EA360E1FB4DF75004009BE /* ConnectionsVC.swift in Sources */,
 				565080AE204DCFF600F18815 /* MatchVC.swift in Sources */,
+				921C69B522604F94003FAAF0 /* job.pb.swift in Sources */,
+				921C69B222604F94003FAAF0 /* status.pb.swift in Sources */,
 				567953E7206AD70500A1BDA8 /* JobsVC.swift in Sources */,
 				565080A8204B5F6000F18815 /* ChatVC.swift in Sources */,
-				568C62E7207217300069160C /* recruiter_request.pb.swift in Sources */,
 				567953F3206C5CF400A1BDA8 /* SkillSelectionVC.swift in Sources */,
 				56B5774F1F96798F00B3B0BC /* AppDelegate.swift in Sources */,
-				568C62ED207217300069160C /* match_request.pb.swift in Sources */,
-				568C62E4207217300069160C /* job_request.pb.swift in Sources */,
 				567953EE206C4C8400A1BDA8 /* UserFormVC.swift in Sources */,
-				568C62E1207217300069160C /* job_seeker_request.pb.swift in Sources */,
+				921C69AE22604F94003FAAF0 /* recruiter_request.pb.swift in Sources */,
+				921C69A922604F94003FAAF0 /* job_seeker_request.pb.swift in Sources */,
 				5634F9662050DC9600F0DED4 /* VideoVC.swift in Sources */,
-				568C62E9207217300069160C /* status.pb.swift in Sources */,
 				56EA361C1FB51001004009BE /* APIService.swift in Sources */,
 				565080AC204CAC2A00F18815 /* ChatService.swift in Sources */,
 				56A8E3B62071A88B001D800D /* AccountManager.swift in Sources */,
+				921C69AB22604F94003FAAF0 /* match.pb.swift in Sources */,
+				921C69B122604F94003FAAF0 /* industry.pb.swift in Sources */,
+				921C69B322604F94003FAAF0 /* location.pb.swift in Sources */,
+				921C69B622604F94003FAAF0 /* login_request.pb.swift in Sources */,
+				921C69AF22604F94003FAAF0 /* user_request.pb.swift in Sources */,
 				56A8E370206DF12B001D800D /* LoginVC.swift in Sources */,
 				567953E5206ACE2E00A1BDA8 /* ProfileVC.swift in Sources */,
-				568C62EC207217300069160C /* match.pb.swift in Sources */,
-				568C62E6207217300069160C /* recruiter.pb.swift in Sources */,
-				568C62EB207217300069160C /* company.pb.swift in Sources */,
+				921C69B422604F94003FAAF0 /* job_request.pb.swift in Sources */,
 				56A8E37C206FE98D001D800D /* QuickFieldView.swift in Sources */,
+				921C69B722604F94003FAAF0 /* company.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +509,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -538,6 +517,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -571,6 +551,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -588,6 +569,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -595,6 +577,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -620,6 +603,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -635,7 +619,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.employed.Employed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -651,7 +635,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.employed.Employed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

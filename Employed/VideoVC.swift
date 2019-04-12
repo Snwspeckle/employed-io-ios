@@ -137,31 +137,31 @@ class VideoVC: UIViewController {
     func setFullScreenConstraints(videoView: TVIVideoView) {
 		videoView.translatesAutoresizingMaskIntoConstraints =  false
 		NSLayoutConstraint(item: videoView,
-										 attribute: NSLayoutAttribute.centerX,
-										 relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.centerX,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
 										 toItem: self.view,
-										 attribute: NSLayoutAttribute.centerX,
+                                         attribute: NSLayoutConstraint.Attribute.centerX,
 										 multiplier: 1,
 										 constant: 0).isActive = true;
 		NSLayoutConstraint(item: videoView,
-										 attribute: NSLayoutAttribute.centerY,
-										 relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.centerY,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
 										 toItem: self.view,
-										 attribute: NSLayoutAttribute.centerY,
+                                         attribute: NSLayoutConstraint.Attribute.centerY,
 										 multiplier: 1,
 										 constant: 0).isActive = true;
 		NSLayoutConstraint(item: videoView,
-									   attribute: NSLayoutAttribute.width,
-									   relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.width,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
 									   toItem: self.view,
-									   attribute: NSLayoutAttribute.width,
+                                       attribute: NSLayoutConstraint.Attribute.width,
 									   multiplier: 1,
 									   constant: 0).isActive = true;
 		NSLayoutConstraint(item: videoView,
-										attribute: NSLayoutAttribute.height,
-										relatedBy: NSLayoutRelation.equal,
+                           attribute: NSLayoutConstraint.Attribute.height,
+                           relatedBy: NSLayoutConstraint.Relation.equal,
 										toItem: self.view,
-										attribute: NSLayoutAttribute.height,
+                                        attribute: NSLayoutConstraint.Attribute.height,
 										multiplier: 1,
 										constant: 0).isActive = true;
 	}
