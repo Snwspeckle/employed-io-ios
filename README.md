@@ -18,7 +18,7 @@
 1. Launch the app
 
 2. Select the "Sign Up" button (outlined in red)
-![Step 2](https://raw.githubusercontent.com/Snwspeckle/employed-io-ios/master/Screenshots/Step 2.png)
+![Step 2](Screenshots/Step 2.png)
 
 3. Select the area outlined in red. There is an invisible button that will pre-populate the registration form. Select Next.
 ![Step 2](https://raw.githubusercontent.com/Snwspeckle/employed-io-ios/master/Screenshots/Step 3.png)
