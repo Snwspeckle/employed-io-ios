@@ -15,14 +15,13 @@
 6. Compile and run the app in Xcode and follow the below instructionss exactly as shown to ensure a proper demo.
 
 ### Demo Instructions
-| Step | Instruction                                                                                                              | Screenshot                                                                                 |   |   |
-|------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|---|---|
-| 1.   | Launch the app                                                                                                           |                                                                                            |   |   |
-| 2.   | Select the "Sign Up" button (outlined in red)                                                                            | ![Step 2](https://github.com/Snwspeckle/employed-io-ios/blob/master/Screenshots/Step2.png) |   |   |
-| 3.   | Select the area outlined in red. There is an invisible button that will pre-populate the registration form. Select Next. | ![Step 3](https://github.com/Snwspeckle/employed-io-ios/blob/master/Screenshots/Step3.png) |   |   |
-| 4.   | Select the "DEVELOPMENT" skill (outlined in red). Select Next.                                                           | ![Step 4](https://github.com/Snwspeckle/employed-io-ios/blob/master/Screenshots/Step4.png) |   |   |
-| 5.   | The guided tour through the proper demo-flow is now complete. You can interact with the rest of the app how you like.    |                                                                                            |   |   |
-
+| Step | Instruction                                                                                                              | Screenshot                                                                                 |
+|------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| 1.   | Launch the app                                                                                                           |                                                                                            |
+| 2.   | Select the "Sign Up" button (outlined in red)                                                                            | ![Step 2](https://github.com/Snwspeckle/employed-io-ios/blob/master/Screenshots/Step2.png) |
+| 3.   | Select the area outlined in red. There is an invisible button that will pre-populate the registration form. Select Next. | ![Step 3](https://github.com/Snwspeckle/employed-io-ios/blob/master/Screenshots/Step3.png) |
+| 4.   | Select the "DEVELOPMENT" skill (outlined in red). Select Next.                                                           | ![Step 4](https://github.com/Snwspeckle/employed-io-ios/blob/master/Screenshots/Step4.png) |
+| 5.   | The guided tour through the proper demo-flow is now complete. You can interact with the rest of the app how you like.    |                                                                                            |
 
 ### Demo Video
 https://drive.google.com/file/d/1OzzNYDUBmghTfL8W3Vr-NuD0fBLV9OJs/view?usp=sharing
